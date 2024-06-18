@@ -6,7 +6,7 @@ AOS.init();
 
 function AboutUs() {
   return (
-    <div className="p-6">
+    <div className="p-6" id='about'>
       <h1 className="text-4xl font-bold text-center mb-8">About Us</h1>
       <div className="mb-8">
       <p className="text-lg text-gray-700 mb-4" data-aos="fade-in">
