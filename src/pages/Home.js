@@ -12,7 +12,6 @@ import Feedback from '../components/Feedback';
 const Home = () => (
   <div>
     <NavBar />
-   <Carousel/>
    <LandList />
    <AboutUs/>
    <Services/>
