@@ -25,7 +25,7 @@ function AboutUs() {
       </div>
       
       <div className="p-6 m-6 bg-gray-100 rounded-lg" id='contact'>
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Contact Us</h2>
+        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Contact Us</h2><br></br>
         <div className="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up">
           <p className="mt-2 text-lg leading-8 text-gray-600">
             <strong>Phone:</strong> <br></br>

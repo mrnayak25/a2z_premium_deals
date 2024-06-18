@@ -2,7 +2,7 @@ import React from 'react';
 import whatsapp from "../images/whatsapp.png"
 
 const LandItem = ({ land}) => (
-  <div className='col-md-4'>
+  <div className='col-md-3'>
     <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden"  data-aos="fade-left">
         <div className="absolute top-0.1 left-2  z-10" data-aos="fade-down " data-aos-delay="200">
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3"> For {land.type}</button>
