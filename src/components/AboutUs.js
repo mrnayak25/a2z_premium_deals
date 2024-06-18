@@ -29,8 +29,8 @@ function AboutUs() {
         <div className="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up">
           <p className="mt-2 text-lg leading-8 text-gray-600">
             <strong>Phone:</strong> <br></br>
-            <a href="tel:+919902331774" className="text-blue-600 underline"> +919902331774</a>, 
-            <a href="tel:+918494972860" className="text-blue-600 underline"> +918494972860</a><br />
+            <a href="tel:+919902331774" className="text-black-600 "> +919902331774</a>, 
+            <a href="tel:+918494972860" className="text-black-600 "> +918494972860</a><br />
             <strong>Contact Person:<br></br></strong> Mr. Brayan Alphonso<br />
             <strong>Address:<br></br></strong> Leo Brother's Shopping Complex, Mukamar, Udupi Dist. 574 111, Karnataka, India
           </p>
