@@ -11,7 +11,7 @@ const LandItemWrapper = styled.div`
 `;
 
 const LandItem = ({ land, deleteLand, editLand }) => (
-  <LandItemWrapper>
+  <LandItemWrapper className='col-md-4 '>
     <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
         <div className="absolute top-0 left-0 z-10">
             <button className="text-white bg-green-500 rounded-lg p-2">For {land.type}</button>

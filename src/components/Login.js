@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import {auth} from "../firebase";
+import c_logo from "../images/logo_realstate.png";
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -13,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/landing'); // navigate to landing page
+      navigate('/manage-lands'); // navigate to landing page
     } catch (error) {
       setError(error.message);
     }
@@ -24,8 +25,8 @@ const Login = () => {
       <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
           <Link href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-            <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
-            Flowbite    
+            <img class="w-8 h-8 mr-2" src={c_logo} alt="logo" />
+            A2Z Premium Deals   
           </Link>
           <div class="w-full rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div class="p-6 space-y-4 md:space-y-6 sm:p-8">

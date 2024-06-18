@@ -1,17 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import whatsapp from "../images/whatsapp.png"
 
-const LandItemWrapper = styled.div`
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5px;
-`;
-
 const LandItem = ({ land}) => (
-  <LandItemWrapper className='col-md-4 '>
-    <div className="relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden transition-transform duration-300 transform hover:scale-105"  data-aos="fade-left">
+  <div className='col-md-4'>
+    <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden"  data-aos="fade-left">
         <div className="absolute top-0.1 left-2  z-10" data-aos="fade-down " data-aos-delay="200">
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3"> For {land.type}</button>
         </div>
@@ -34,7 +26,7 @@ const LandItem = ({ land}) => (
              </div>
       </div>
     </div>
-  </LandItemWrapper>
+  </div>
 );
 
 export default LandItem;
