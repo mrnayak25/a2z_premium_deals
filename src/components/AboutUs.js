@@ -1,6 +1,9 @@
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import contact from "../images/contact.png";
+import whatsapp from "../images/whatsapp.png";
+
 
 AOS.init();
 
@@ -38,11 +41,11 @@ function AboutUs() {
             "A2Z Premium Deals - Your trusted partner in real estate, serving Karnataka and all over India."
           </p>
           <div className="mt-6 flex justify-center gap-4">
-            <a href="tel:+919902331774" className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
-              Call
+            <a href="tel:+919902331774" >
+            <img className="h-24 w-auto" src={contact} alt="Contact Now" />
             </a>
-            <a href="https://wa.me/919902331774?text=Hello%2C%20I%20am%20interested%20in%20your%20real%20estate%20services." target="_blank" rel="noopener noreferrer" className="rounded-md bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600">
-  WhatsApp
+            <a href="https://wa.me/919902331774?text=Hello%2C%20I%20am%20interested%20in%20your%20real%20estate%20services." target="_blank" rel="noopener noreferrer" >
+            <img className="h-24 w-auto" src={whatsapp} alt="whatsapp" />
 </a>
 
           </div>

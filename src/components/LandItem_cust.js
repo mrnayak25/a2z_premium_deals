@@ -16,20 +16,20 @@ Details:
     <div className="col-md-3 object-cover transition-transform duration-300 transform hover:scale-105" id='property'>
       <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden" data-aos="fade-left">
         <div className="absolute top-0.1 left-2 z-10" data-aos="fade-down" data-aos-delay="200">
-          <button className="text-white bg-green-500 rounded-b-lg p-2 px-3">For {land.type}</button>
+          <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">For {land.type}</button>
         </div>
         <div className="relative overflow-hidden h-64 transition-transform duration-300 transform hover:scale-110" data-aos="fade-up" data-aos-delay="100">
           <img src={land.imageUrl} alt={land.title} className="w-full h-full object-cover" />
         </div>
-        <div className="p-4 " data-aos="fade-up" data-aos-delay="100">
-          <div className="d-flex justify-between items-center mt-1">
-            <p className=" font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
-            <p className="  text-left text-black-700 ">Size:{land.size}</p>
+        <div className="p-4" data-aos="fade-up" data-aos-delay="100">
+          <div className="flex justify-between items-center mt-1">
+            <p className="font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
+            <p className="text-left text-gray-700">Size: {land.size}</p>
           </div>
-          <h5 className="mt-2 text-2xl font-bold text-left tracking-tight text-gray-900">{land.title}</h5>
-          <p className="text-left whitespace-pre-line">{land.description}</p>
+          <h5 className="mt-2 text-2xl font-extrabold text-left tracking-tight text-gray-900">{land.title}</h5>
+          <p className="text-left whitespace-pre-line text-gray-600">{land.description}</p>
 
-          <div className="d-flex justify-between items-center mt-4">
+          <div className="flex justify-between items-center mt-4">
             <a href="#contact" className="p-1 rounded ms-3 object-cover transition-transform duration-300 transform hover:scale-110">
               <img className="h-auto w-auto" src={contact} alt="Contact Now" />
             </a>
