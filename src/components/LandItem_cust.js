@@ -1,5 +1,6 @@
 import React from 'react';
 import contact from "../images/contact.png";
+import whatsapp from "../images/whatsapp.png";
 
 const LandItem = ({ land }) => {
   // Create the WhatsApp message
@@ -24,20 +25,19 @@ Details:
           <div className="d-flex justify-between items-center mt-1">
             <p className=" font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
             <p className="  text-left text-black-700 ">Size:{land.size}</p>
-
           </div>
           <h5 className="mt-2 text-2xl font-bold text-left tracking-tight text-gray-900">{land.title}</h5>
           <p className="text-left whitespace-pre-line">{land.description}</p>
 
-          <div className="d-flex justify-around align-baseline mt-4">
+          <div className="d-flex justify-between items-center mt-4">
             <a href="#contact" className="p-1 rounded ms-3 object-cover transition-transform duration-300 transform hover:scale-110">
-              <img className="h-auto w-61" src={contact} alt="Contact Now" />
+              <img className="h-auto w-auto" src={contact} alt="Contact Now" />
             </a>
             <a
               href={`https://wa.me/919902331774?text=${encodeURIComponent(whatsappMessage)}`}
               className="p-1 rounded ms-3 object-cover transition-transform duration-300 transform hover:scale-110"
             >
-              <img className="h-auto w-60" src="https://support.unicart.com/wp-content/uploads/2018/05/whatsapp-1-1.jpg" alt="whatsapp" />
+              <img className="h-auto w-auto" src={whatsapp} alt="whatsapp" />
             </a>
           </div>
         </div>
