@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/manage-lands" element={<PrivateRoute element={ManageLands} />} />
+        <Route path="/a2z-admin" element={<PrivateRoute element={ManageLands} />} />
       </Routes>
     </Router>
   );

@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/manage-lands'); // navigate to landing page
+      navigate('/a2z-admin'); // navigate to landing page
     } catch (error) {
       setError(error.message);
     }
@@ -44,9 +44,9 @@ const Login = () => {
                 </div>
                 {error && <div class="text-red-600">{error}</div>}
                 <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign in</button>
-                <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                {/* <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don't have an account? <Link to="/signup" class="text-blue-600 hover:underline">Sign up</Link>
-                </p>
+                </p> */}
               </form>
             </div>
           </div>

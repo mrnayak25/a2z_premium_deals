@@ -12,7 +12,7 @@ const ManageLands = () => {
     const handleLogout = async () => {
       try {
         await logout();
-        Navigate('/manage-lands');
+        Navigate('/a2z-admin');
       } catch (error) {
         console.error('Failed to log out', error);
       }
