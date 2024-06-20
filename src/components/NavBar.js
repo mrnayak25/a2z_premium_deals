@@ -1,21 +1,20 @@
-import { useState } from 'react'
-import { Dialog, DialogPanel } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
+import { Dialog, DialogPanel } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../images/logo_realstate.png'
-import headerImage from '../images/header_image.jpg' 
+import logo from '../images/logo_realstate.png';
+import headerImage from '../images/header_image.jpg';
+
 const navigation = [
- 
-  
   { name: 'About us', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Contact us', href: '#contact' },
-]
+];
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div className="bg-white">
@@ -24,11 +23,7 @@ export default function Example() {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">A2Z Premium Deals</span>
-              <img
-                className="h-14 w-auto"
-                src={logo}
-                alt="A2Z Premium Deals"
-              />
+              <img className="h-14 w-auto" src={logo} alt="A2Z Premium Deals" />
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -60,11 +55,7 @@ export default function Example() {
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">A2Z Premium Deals</span>
-                <img
-                  className="h-8 w-auto"
-                  src={logo}
-                  alt="A2Z Premium Deals"
-                />
+                <img className="h-8 w-auto" src={logo} alt="A2Z Premium Deals" />
               </a>
               <button
                 type="button"
@@ -83,6 +74,7 @@ export default function Example() {
                       key={item.name}
                       href={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
                     </a>
@@ -90,10 +82,11 @@ export default function Example() {
                 </div>
                 <div className="py-6">
                   <a
-                    href="#"
+                    href="#property"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
-                    Log in
+                    Property
                   </a>
                 </div>
               </div>
@@ -103,22 +96,16 @@ export default function Example() {
       </header>
 
       <div className="relative isolate px-6 pt-0 lg:px-8">
-        <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
-          <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-            style={{ clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' }}
-          />
-        </div>
         <div className="mx-auto max-w-2xl py-20 sm:py-40 lg:py-40">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-             A2Z PREMIUM DEALS
-            </h1>
+          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            A2Z PREMIUM DEALS
+          </h1>
           <div className="mt-10 text-center object-cover transition-transform duration-300 transform hover:scale-110">
             <img src={headerImage} alt="Real Estate" className="mx-auto h-100 w-auto rounded-lg shadow-lg" />
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl py-10">
-             The Best Real Estate Agency in Karnataka
+              The Best Real Estate Agency in Karnataka
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               "Your dream property is just a deal away. Discover the best real estate opportunities with us!"
@@ -135,16 +122,8 @@ export default function Example() {
               </a>
             </div>
           </div>
-         
-          
-        </div>
-        <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-          <div
-            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-            style={{ clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)' }}
-          />
         </div>
       </div>
     </div>
-  )
+  );
 }
