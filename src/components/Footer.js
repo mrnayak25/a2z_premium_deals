@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { ref, push } from 'firebase/database';
 import { db } from '../firebase';
+import logo from '../images/logo_realstate.png'
 
 const Footer = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -24,7 +25,7 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-bold mb-4">Contact Us</h2>
             <p>+919902331774</p>
-            <p>+918494972860</p>
+            <p>+918494972860</p><br></br>
             <p>MR. BRAYAN ALPHONSO</p>
             <p>LEO BROTHER'S SHOPPING COMPLEX</p>
             <p>MUKAMAR, UDUPI DIST. 574 111</p>
@@ -69,18 +70,16 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h2 className="text-xl font-bold mb-4">Quick Links</h2>
-            <ul>
-              <li><a href="/" className="text-blue-400 hover:underline">Home</a></li>
-              <li><a href="/about" className="text-blue-400 hover:underline">About Us</a></li>
-              <li><a href="/services" className="text-blue-400 hover:underline">Services</a></li>
-              <li><a href="/contact" className="text-blue-400 hover:underline">Contact</a></li>
-            </ul>
+            <h2 className="text-xl font-bold mb-4">A2Z PREMIUM DEALS</h2>
+            <div className="mt-10 text-center object-cover transition-transform duration-300 transform hover:scale-110">
+            <img src={logo} alt="Real Estate" className="mx-auto h-40 w-auto rounded-lg shadow-lg" />
+          </div>
           </div>
         </div>
         <div className="text-center mt-8">
-          &copy; 2024 A2Z Premium Deals. All rights reserved.
-        </div>
+  &copy; 2024 A2Z Premium Deals. All rights reserved. Developed by <a href="https://svvaap.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">svvaap.com</a>.
+</div>
+
       </div>
     </footer>
   );

@@ -8,7 +8,7 @@ import logo from '../images/logo_realstate.png'
 import headerImage from '../images/header_image.jpg' 
 const navigation = [
  
-  { name: 'Properties', href: '#property' },
+  
   { name: 'About us', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Contact us', href: '#contact' },
@@ -49,8 +49,8 @@ export default function Example() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
+            <a href="#property" className="text-sm font-semibold leading-6 text-gray-900">
+              Property <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -113,7 +113,7 @@ export default function Example() {
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
              A2Z PREMIUM DEALS
             </h1>
-          <div className="mt-10 text-center">
+          <div className="mt-10 text-center object-cover transition-transform duration-300 transform hover:scale-110">
             <img src={headerImage} alt="Real Estate" className="mx-auto h-100 w-auto rounded-lg shadow-lg" />
           </div>
           <div className="text-center">

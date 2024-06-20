@@ -55,7 +55,7 @@ const LandList = () => {
   }
 
   return (
-    <div className="row mx-2 ">
+    <div className="row mx-3">
       {lands.map((land) => (
         <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land)} />
       ))}
