@@ -12,6 +12,7 @@ const LandList = () => {
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const priceRef = useRef(null);
+  const sizeRef= useRef(null);
 
   useEffect(() => {
     const landsRef = ref(db, "lands");
@@ -43,6 +44,7 @@ const LandList = () => {
       title: titleRef.current.value,
       description: descriptionRef.current.value,
       price: priceRef.current.value,
+      size: sizeRef.current.value
     };
 
     await update(ref(db, `lands/${selectedLand.id}`), updatedLand);
@@ -80,7 +82,11 @@ const LandList = () => {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="price" className="form-label">Price</label>
-                    <input type="number" className="form-control" id="price" defaultValue={selectedLand.price} ref={priceRef} />
+                    <input type="text" className="form-control" id="price" defaultValue={selectedLand.price} ref={priceRef} />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="size" className="form-label">Size</label>
+                    <input type="text" className="form-control" id="size" defaultValue={selectedLand.size} ref={sizeRef} />
                   </div>
                 </div>
                 <div className="modal-footer">
