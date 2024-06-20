@@ -1,8 +1,11 @@
-import React from 'react';
+import {React,useState} from 'react';
 import contact from "../images/contact.png";
 import whatsapp from "../images/whatsapp.png";
 
 const LandItem = ({ land }) => {
+
+  const[more,setMore]=useState(false);
+
   // Create the WhatsApp message
   const whatsappMessage = `
 Hi Sir, I am interested in this property which is listed on your jobhunt4u.in website.
@@ -22,12 +25,14 @@ Details:
           <img src={land.imageUrl} alt={land.title} className="w-full h-full object-cover" />
         </div>
         <div className="p-4" data-aos="fade-up" data-aos-delay="100">
-          <div className="flex justify-between items-center mt-1">
+          <div className="flex justify-around items-center mt-1">
             <p className="font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
-            <p className="text-left text-gray-700">Size: {land.size}</p>
+            <div className='w-1 h-9 bg-green-400 rounded-lg'></div>
+            <p className="text-left text-gray-700">{land.size}</p>
           </div>
           <h5 className="mt-2 text-2xl font-extrabold text-left tracking-tight text-gray-900">{land.title}</h5>
-          <p className="text-left whitespace-pre-line text-gray-600">{land.description}</p>
+          <p className="text-left whitespace-pre-line text-gray-600">{more? land.description : land.description.slice(0, 55) }<p onClick={()=>{more?setMore(false):setMore(true)}} className='text-green-400'>...Read {more?'Less':'More'}</p></p>
+
 
           <div className="flex justify-between items-center mt-4">
             <a href="#contact" className="p-1 rounded ms-3 object-cover transition-transform duration-300 transform hover:scale-110">
