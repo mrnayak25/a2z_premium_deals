@@ -20,7 +20,8 @@ const ManageLands = () => {
   return (
     <div>
     <h1 className='text-center font-bold text-xl'>Admin Console</h1>
-    <img src='/path-to-logout-image' alt='logout' className='float-right' onClick={handleLogout} />
+    <img src='https://cdn2.iconfinder.com/data/icons/interface-essentials-1-2/24/logout--logout-frame-leave-exit-arrow-right-circle-512.png' alt='logout' className='float-right h-7' onClick={handleLogout} />
+    
     <LandForm />
     <LandList />
   </div>

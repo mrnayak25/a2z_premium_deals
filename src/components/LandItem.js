@@ -33,10 +33,12 @@ const LandItem = ({ land, deleteLand, editLand }) => (
         </div>
       <div className="p-4">
         
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{land.title}</h5>
-    
-        <p className="mb-3 font-normal text-gray-700">{land.description}</p>
-       <p className="mb-3 font-normal text-gray-700">Price: Rs.{land.price}</p>
+      <div className="flex justify-between items-center mt-1">
+            <p className="font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
+            <p className="text-left text-gray-700">Size: {land.size}</p>
+          </div>
+          <h5 className="mt-2 text-2xl font-extrabold text-left tracking-tight text-gray-900">{land.title}</h5>
+          <p className="text-left whitespace-pre-line text-gray-600">{land.description}</p>
       </div>
     </div>
   </LandItemWrapper>

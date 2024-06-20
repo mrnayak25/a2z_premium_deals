@@ -69,7 +69,7 @@ const LandForm = () => {
           <div className="">
             <h1 className="text-white text-center text-xl block font-medium">Add Information</h1>
             <label htmlFor="title" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-              Land Name
+              Title
             </label>
             <input
               type="text"
@@ -84,7 +84,7 @@ const LandForm = () => {
             <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Description
             </label>
-            <input
+            <textarea
               type="text"
               name="description"
               id="description"
@@ -105,7 +105,7 @@ const LandForm = () => {
               value={land.price}
               onChange={handleChange}
               placeholder="Price"
-              required
+              
             />
             <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Location
@@ -118,7 +118,7 @@ const LandForm = () => {
               value={land.location}
               onChange={handleChange}
               placeholder="Location"
-              required
+              
             />
             <label htmlFor="size" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Size (in acres)
@@ -131,7 +131,7 @@ const LandForm = () => {
               value={land.size}
               onChange={handleChange}
               placeholder="Size in acres"
-              required
+              
             />
             <label htmlFor="type" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Type

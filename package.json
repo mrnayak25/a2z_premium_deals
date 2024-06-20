@@ -1,5 +1,6 @@
 {
   "name": "a2z_premium_deals",
+  "homepage": "https://a2zpremiumdeals.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
