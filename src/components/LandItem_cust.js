@@ -20,9 +20,13 @@ Details:
         <div className="relative overflow-hidden h-64 transition-transform duration-300 transform hover:scale-110" data-aos="fade-up" data-aos-delay="100">
           <img src={land.imageUrl} alt={land.title} className="w-full h-full object-cover" />
         </div>
-        <div className="p-4" data-aos="fade-up" data-aos-delay="100">
-          <p className="mb-2 font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
-          <h5 className="mb-2 text-2xl font-bold text-left tracking-tight text-gray-900">{land.title}</h5>
+        <div className="p-4 " data-aos="fade-up" data-aos-delay="100">
+          <div className="d-flex justify-between items-center mt-1">
+            <p className=" font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
+            <p className="  text-left text-black-700 ">Size:{land.size}</p>
+
+          </div>
+          <h5 className="mt-2 text-2xl font-bold text-left tracking-tight text-gray-900">{land.title}</h5>
           <p className="text-left whitespace-pre-line">{land.description}</p>
 
           <div className="d-flex justify-around align-baseline mt-4">
