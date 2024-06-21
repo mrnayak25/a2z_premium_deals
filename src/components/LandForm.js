@@ -28,7 +28,8 @@ const LandForm = () => {
     price: "",
     title: "",
     description: "",
-    image: null,
+    images: [], // Array to hold selected images
+    imageUrls: [], // Array to hold image download URLs after upload
   });
   const [loading, setLoading] = useState(false); // Loading state
   const [error, setError] = useState("");
@@ -40,8 +41,20 @@ const LandForm = () => {
   };
 
   const handleFileChange = (e) => {
-    setLand({ ...land, image: e.target.files[0] });
+    const files = e.target.files;
+    const imageArray = [];
+    const allowedTypes = ['image/jpeg', 'image/png']; // Define allowed image types
+    for (let i = 0; i < files.length; i++) {
+      if (allowedTypes.includes(files[i].type)) {
+        imageArray.push(files[i]);
+      } else {
+        // Handle error for invalid file type (if needed)
+        console.warn(`File ${files[i].name} is not a valid image type.`);
+      }
+    }
+    setLand({ ...land, images: imageArray });
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,16 +62,21 @@ const LandForm = () => {
       setError("You must agree to the terms and conditions.");
       return;
     }
-    if (land.image) {
-      setLoading(true); // Set loading to true when the upload starts
+    if (land.images && land.images.length > 0) {
+      setLoading(true);
       try {
-        const imageStorageRef = storageRef(storage, `land_images/${land.image.name}`);
-        await uploadBytes(imageStorageRef, land.image);
-        const imageUrl = await getDownloadURL(imageStorageRef);
+        const imageUrls = [];
+        for (let i = 0; i < land.images.length; i++) {
+          const image = land.images[i];
+          const imageStorageRef = storageRef(storage, `land_images/${image.name}`);
+          await uploadBytes(imageStorageRef, image);
+          const imageUrl = await getDownloadURL(imageStorageRef);
+          imageUrls.push(imageUrl);
+        }
 
         const landData = {
           ...land,
-          imageUrl,
+          imageUrls: imageUrls,
         };
 
         const newLandRef = push(ref(db, "lands"));
@@ -512,7 +530,7 @@ const LandForm = () => {
               id="propertyImages"
               className="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
               multiple
-              onChange={handleChange}
+              onChange={handleFileChange}
             />
           </div>
           <div className="mt-4">
