@@ -87,6 +87,7 @@ const LandForm = () => {
           title: "",
           description: "",
           image: null,
+          status: "pending",
         });
         setAgreeToTerms(false);
         setError("");
@@ -110,7 +111,8 @@ const LandForm = () => {
           <div className="">
             <h1 className="text-white text-center text-xl block font-medium">Post Your Property</h1>
             <p className="text-white text-center mb-4">
-              Do you have a property to rent or sell? Use the form below to fill out the details and make a submission. We will review the listing and approve it so it can be shown on the website.
+              Do you have a property to rent or sell? Use the form below to fill out the details and make a submission.
+              We will review the listing and approve it so it can be shown on the website.
             </p>
             <h2 className="text-white text-lg block font-medium mb-2">Personal Details</h2>
             <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
@@ -300,67 +302,48 @@ const LandForm = () => {
                 </label>
               </div>
             </div>
-            <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-              Is this a premium listing?
-            </label>
-            <div className="flex items-center mb-3">
-              <input
-                id="isPremium"
-                type="checkbox"
-                name="isPremium"
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                checked={land.isPremium}
-                onChange={handleChange}
-              />
-              <label htmlFor="isPremium" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Yes
-              </label>
-            </div>
             <label htmlFor="location" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-  Location
-</label>
-<select
-  id="location"
-  name="location"
-  className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-  required
-  value={land.location}
-  onChange={handleChange}
->
-  <option value=""></option>
-  <option value="Bagalkot">Bagalkot</option>
-  <option value="Ballari (Bellary)">Ballari (Bellary)</option>
-  <option value="Belagavi (Belgaum)">Belagavi (Belgaum)</option>
-  <option value="Bengaluru (Bangalore) Rural">Bengaluru (Bangalore) Rural</option>
-  <option value="Bengaluru (Bangalore) Urban">Bengaluru (Bangalore) Urban</option>
-  <option value="Bidar">Bidar</option>
-  <option value="Chamarajanagar">Chamarajanagar</option>
-  <option value="Chikballapur">Chikballapur</option>
-  <option value="Chikkamagaluru (Chikmagalur)">Chikkamagaluru (Chikmagalur)</option>
-  <option value="Chitradurga">Chitradurga</option>
-  <option value="Dakshina Kannada">Dakshina Kannada</option>
-  <option value="Davangere">Davangere</option>
-  <option value="Dharwad">Dharwad</option>
-  <option value="Gadag">Gadag</option>
-  <option value="Hassan">Hassan</option>
-  <option value="Haveri">Haveri</option>
-  <option value="Kalaburagi (Gulbarga)">Kalaburagi (Gulbarga)</option>
-  <option value="Kodagu">Kodagu</option>
-  <option value="Kolar">Kolar</option>
-  <option value="Koppal">Koppal</option>
-  <option value="Mandya">Mandya</option>
-  <option value="Mysuru (Mysore)">Mysuru (Mysore)</option>
-  <option value="Raichur">Raichur</option>
-  <option value="Ramanagara">Ramanagara</option>
-  <option value="Shivamogga (Shimoga)">Shivamogga (Shimoga)</option>
-  <option value="Tumakuru (Tumkur)">Tumakuru (Tumkur)</option>
-  <option value="Udupi">Udupi</option>
-  <option value="Uttara Kannada (Karwar)">Uttara Kannada (Karwar)</option>
-  <option value="Vijayapura (Bijapur)">Vijayapura (Bijapur)</option>
-  <option value="Yadgir">Yadgir</option>
-</select>
-
-
+              Location
+            </label>
+            <select
+              id="location"
+              name="location"
+              className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required
+              value={land.location}
+              onChange={handleChange}>
+              <option value=""></option>
+              <option value="Bagalkot">Bagalkot</option>
+              <option value="Ballari (Bellary)">Ballari (Bellary)</option>
+              <option value="Belagavi (Belgaum)">Belagavi (Belgaum)</option>
+              <option value="Bengaluru (Bangalore) Rural">Bengaluru (Bangalore) Rural</option>
+              <option value="Bengaluru (Bangalore) Urban">Bengaluru (Bangalore) Urban</option>
+              <option value="Bidar">Bidar</option>
+              <option value="Chamarajanagar">Chamarajanagar</option>
+              <option value="Chikballapur">Chikballapur</option>
+              <option value="Chikkamagaluru (Chikmagalur)">Chikkamagaluru (Chikmagalur)</option>
+              <option value="Chitradurga">Chitradurga</option>
+              <option value="Dakshina Kannada">Dakshina Kannada</option>
+              <option value="Davangere">Davangere</option>
+              <option value="Dharwad">Dharwad</option>
+              <option value="Gadag">Gadag</option>
+              <option value="Hassan">Hassan</option>
+              <option value="Haveri">Haveri</option>
+              <option value="Kalaburagi (Gulbarga)">Kalaburagi (Gulbarga)</option>
+              <option value="Kodagu">Kodagu</option>
+              <option value="Kolar">Kolar</option>
+              <option value="Koppal">Koppal</option>
+              <option value="Mandya">Mandya</option>
+              <option value="Mysuru (Mysore)">Mysuru (Mysore)</option>
+              <option value="Raichur">Raichur</option>
+              <option value="Ramanagara">Ramanagara</option>
+              <option value="Shivamogga (Shimoga)">Shivamogga (Shimoga)</option>
+              <option value="Tumakuru (Tumkur)">Tumakuru (Tumkur)</option>
+              <option value="Udupi">Udupi</option>
+              <option value="Uttara Kannada (Karwar)">Uttara Kannada (Karwar)</option>
+              <option value="Vijayapura (Bijapur)">Vijayapura (Bijapur)</option>
+              <option value="Yadgir">Yadgir</option>
+            </select>
 
             <label htmlFor="sublocation" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Sub Location
@@ -414,73 +397,73 @@ const LandForm = () => {
               required
             />
             <label htmlFor="totalArea" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-  Total Property Area
-</label>
-<div className="input-group mb-3">
-  <input
-    type="number"
-    id="property_area"
-    name="totalArea"
-    className="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    value={land.totalArea}
-    onChange={handleChange}
-    placeholder="Total Property Area"
-    required
-  />
-  <select
-    id="property_area_unit"
-    name="propertyAreaUnit"
-    className="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    value={land.propertyAreaUnit}
-    onChange={handleChange}
-    required
-  >
-    <option value="sq. ft." selected>sq. ft.</option>
-    <option value="sq. m.">sq. m.</option>
-    <option value="sq. yd.">sq. yd.</option>
-    <option value="cent">cent</option>
-    <option value="acre">acre</option>
-    <option value="hectare">hectare</option>
-  </select>
-</div>
+              Total Property Area
+            </label>
+            <div className="input-group mb-3">
+              <input
+                type="number"
+                id="property_area"
+                name="totalArea"
+                className="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                value={land.totalArea}
+                onChange={handleChange}
+                placeholder="Total Property Area"
+                required
+              />
+              <select
+                id="property_area_unit"
+                name="propertyAreaUnit"
+                className="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                value={land.propertyAreaUnit}
+                onChange={handleChange}
+                required>
+                <option value="sq. ft." selected>
+                  sq. ft.
+                </option>
+                <option value="sq. m.">sq. m.</option>
+                <option value="sq. yd.">sq. yd.</option>
+                <option value="cent">cent</option>
+                <option value="acre">acre</option>
+                <option value="hectare">hectare</option>
+              </select>
+            </div>
 
-<label htmlFor="propertyType" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-  Property Type
-</label>
-<select
-  id="property_type"
-  name="propertyType"
-  className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-  required
-  value={land.propertyType}
-  onChange={handleChange}
->
-  <option value="select type"></option>
-  <option value="Agricultural Land">Agricultural Land</option>
-  <option value="Farm Land">Farm Land</option>
-  <option value="Farms">Farms</option>
-  <option value="Residential Apartment">Residential Apartment</option>
-  <option value="Flats">Flats</option>
-  <option value="Independent House">Independent House</option>
-  <option value="Villa">Villa</option>
-  <option value="Residential Land">Residential Land</option>
-  <option value="Residential Layouts">Residential Layouts</option>
-  <option value="Studio Apartment">Studio Apartment</option>
-  <option value="New Projects">New Projects</option>
-  <option value="Commercial Buildings">Commercial Buildings</option>
-  <option value="Business Centers">Business Centers</option>
-  <option value="Office Spaces">Office Spaces</option>
-  <option value="Commercial Land">Commercial Land</option>
-  <option value="Industrial Lands">Industrial Lands</option>
-  <option value="Plots">Plots</option>
-  <option value="Sheds">Sheds</option>
-  <option value="Warehouse">Warehouse</option>
-  <option value="Go Down">Go Down</option>
-  <option value="Rentals">Rentals</option>
-  <option value="Resorts">Resorts</option>
-  <option value="Hotels">Hotels</option>
-  <option value="Others">Others</option>
-</select>
+            <label htmlFor="propertyType" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+              Property Type
+            </label>
+            <select
+              id="property_type"
+              name="propertyType"
+              className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              required
+              value={land.propertyType}
+              onChange={handleChange}>
+              <option value="select type"></option>
+              <option value="Agricultural Land">Agricultural Land</option>
+              <option value="Farm Land">Farm Land</option>
+              <option value="Farms">Farms</option>
+              <option value="Residential Apartment">Residential Apartment</option>
+              <option value="Flats">Flats</option>
+              <option value="Independent House">Independent House</option>
+              <option value="Villa">Villa</option>
+              <option value="Residential Land">Residential Land</option>
+              <option value="Residential Layouts">Residential Layouts</option>
+              <option value="Studio Apartment">Studio Apartment</option>
+              <option value="New Projects">New Projects</option>
+              <option value="Commercial Buildings">Commercial Buildings</option>
+              <option value="Business Centers">Business Centers</option>
+              <option value="Office Spaces">Office Spaces</option>
+              <option value="Commercial Land">Commercial Land</option>
+              <option value="Industrial Lands">Industrial Lands</option>
+              <option value="Plots">Plots</option>
+              <option value="Sheds">Sheds</option>
+              <option value="Warehouse">Warehouse</option>
+              <option value="Go Down">Go Down</option>
+              <option value="Rentals">Rentals</option>
+              <option value="Resorts">Resorts</option>
+              <option value="Hotels">Hotels</option>
+              <option value="Others">Others</option>
+            </select>
             <label htmlFor="totalPrice" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Total Sale Price / Rent
             </label>
@@ -507,7 +490,9 @@ const LandForm = () => {
               placeholder="Property Title"
               required
             />
-            <label htmlFor="propertyDescription" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label
+              htmlFor="propertyDescription"
+              className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Property Description
             </label>
             <textarea
@@ -517,8 +502,7 @@ const LandForm = () => {
               value={land.propertyDescription}
               onChange={handleChange}
               placeholder="Property Description"
-              required
-            ></textarea>
+              required></textarea>
             <label htmlFor="propertyImages" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Property Images
             </label>
@@ -548,18 +532,13 @@ const LandForm = () => {
           </div>
           <button
             type="submit"
-            className="w-full mt-4 bg-blue-500 text-white font-medium py-2 rounded-lg focus:outline-none hover:bg-blue-600"
-          >
+            className="w-full mt-4 bg-blue-500 text-white font-medium py-2 rounded-lg focus:outline-none hover:bg-blue-600">
             Submit
           </button>
         </form>
-
-        
-
-      )
-};
-    </div>);
+      )}
+      ;
+    </div>
+  );
 };
 export default LandForm;
-
-

@@ -6,11 +6,13 @@ import AboutUs from "../components/AboutUs";
 import Services from '../components/Services';
 import Footer from '../components/Footer';
 import Feedback from '../components/Feedback';
+import Hero from '../components/Hero';
 
 
 const Home = () => (
   <div>
     <NavBar />
+    <Hero/>
    <LandList />
    <AboutUs/>
    <Services/>

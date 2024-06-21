@@ -13,7 +13,7 @@ const Feedback = () => {
     onValue(feedbackRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const feedbackArray = Object.values(data);
+        const feedbackArray = Object.values(data).filter(feedback => feedback.status === 'approved');
         setFeedbackData(feedbackArray);
       }
     });
