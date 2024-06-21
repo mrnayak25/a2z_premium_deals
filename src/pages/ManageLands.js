@@ -1,6 +1,7 @@
 import React from 'react';
 import LandForm from '../components/LandForm';
 import LandList from '../components/LandList';
+import Footer from '../components/Footer';
 import { useAuth } from '../firebase'; // Adjust the path according to your firebase setup
 import { Navigate } from 'react-router-dom';
 
