@@ -6,11 +6,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo_realstate.png';
 
-const navigation = [
-  { name: 'About us', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Contact us', href: '#contact' },
-];
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,7 +15,7 @@ export default function Example() {
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
-            <Link to="/" className="-m-1.5 p-1.5">
+            <Link to="/a2z-admin" className="-m-1.5 p-1.5">
               <span className="sr-only">A2Z Premium Deals</span>
               <img className="h-14 w-auto" src={logo} alt="A2Z Premium Deals" />
             </Link>
@@ -36,13 +31,17 @@ export default function Example() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                {item.name}
-              </a>
-            ))}
-            <Link to="/sellProperty" className="text-sm font-semibold leading-6 text-gray-900">
-              Sell Property
+          <Link to="/a2z-admin" className="text-sm font-semibold leading-6 text-gray-900">
+              home
+            </Link>
+            <Link to="/a2z-admin/view" className="text-sm font-semibold leading-6 text-gray-900">
+              View Properties
+            </Link>
+            <Link to="/a2z-admin/feedback" className="text-sm font-semibold leading-6 text-gray-900">
+              View Feedback
+            </Link>
+            <Link to="/a2z-admin/add" className="text-sm font-semibold leading-6 text-gray-900">
+              Add Properties
             </Link>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -71,17 +70,20 @@ export default function Example() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
+                <Link to="/a2z-admin"className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+              home
+            </Link>
+            <Link to="/view" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+              View Properties
+            </Link>
+            <Link to="/feedback" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+              View Feedback
+            </Link>
+            <Link to="/add" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+              Add Properties
+            </Link>
+                </div>                      
+
                 <div className="py-6">
                   <a
                     href="#property"
