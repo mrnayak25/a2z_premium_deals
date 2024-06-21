@@ -8,6 +8,7 @@ const Footer = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
+    data.status = "pending";
     try {
       await push(ref(db, 'feedback'), data);
       reset();

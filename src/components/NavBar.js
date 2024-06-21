@@ -5,7 +5,6 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo_realstate.png';
-import headerImage from '../images/header_image.jpg';
 
 const navigation = [
   { name: 'About us', href: '#about' },
@@ -42,6 +41,9 @@ export default function Example() {
                 {item.name}
               </a>
             ))}
+            <Link to="/sellProperty" className="text-sm font-semibold leading-6 text-gray-900">
+              Sell Property
+            </Link>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#property" className="text-sm font-semibold leading-6 text-gray-900">
@@ -53,10 +55,10 @@ export default function Example() {
           <div className="fixed inset-0 z-50" />
           <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
+              <Link to="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">A2Z Premium Deals</span>
                 <img className="h-8 w-auto" src={logo} alt="A2Z Premium Deals" />
-              </a>
+              </Link>
               <button
                 type="button"
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -94,36 +96,6 @@ export default function Example() {
           </DialogPanel>
         </Dialog>
       </header>
-
-      <div className="relative isolate px-6 pt-0 lg:px-8">
-        <div className="mx-auto max-w-2xl py-20 sm:py-40 lg:py-40">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            A2Z PREMIUM DEALS
-          </h1>
-          <div className="mt-10 text-center object-cover transition-transform duration-300 transform hover:scale-110">
-            <img src={headerImage} alt="Real Estate" className="mx-auto h-100 w-auto rounded-lg shadow-lg" />
-          </div>
-          <div className="text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl py-10">
-              The Best Real Estate Agency in Karnataka
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              "Your dream property is just a deal away. Discover the best real estate opportunities with us!"
-            </p>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#contact"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Contact Us
-              </a>
-              <a href="#about" className="text-sm font-semibold leading-6 text-gray-900">
-                Know More <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }

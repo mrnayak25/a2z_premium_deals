@@ -1,10 +1,9 @@
-import {React,useState} from 'react';
+import React, { useState } from 'react';
 import contact from "../images/contact.png";
 import whatsapp from "../images/whatsapp.png";
 
-const LandItem = ({ land }) => {
-
-  const[more,setMore]=useState(false);
+const LandItem = ({ land, deleteLand, editLand }) => {
+  const [more, setMore] = useState(false);
 
   // Create the WhatsApp message
   const whatsappMessage = `
@@ -16,7 +15,7 @@ Details:
   `;
 
   return (
-    <div className="col-md-4 object-cover transition-transform duration-300 transform hover:scale-105" id='property'>
+    <div className="object-cover transition-transform duration-300 transform hover:scale-105">
       <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden" data-aos="fade-left">
         <div className="absolute top-0.1 left-2 z-10" data-aos="fade-down" data-aos-delay="200">
           <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">For {land.type}</button>
@@ -31,8 +30,7 @@ Details:
             <p className="text-left text-gray-700">{land.size}</p>
           </div>
           <h5 className="mt-2 text-2xl font-bold text-left tracking-tight text-gray-900">{land.title}</h5>
-          <p className="text-left whitespace-pre-line text-gray-600">{more? land.description : land.description.slice(0, 55) }<p onClick={()=>{more?setMore(false):setMore(true)}} className='text-green-400'>...Read {more?'Less':'More'}</p></p>
-
+          <p className="text-left whitespace-pre-line text-gray-600">{more ? land.description : land.description.slice(0, 55)}<span onClick={() => setMore(!more)} className='text-green-400 cursor-pointer'>...Read {more ? 'Less' : 'More'}</span></p>
 
           <div className="flex justify-between items-center mt-4">
             <a href="#contact" className="p-1 rounded ms-3 object-cover transition-transform duration-300 transform hover:scale-110">
@@ -42,7 +40,7 @@ Details:
               href={`https://wa.me/919902331774?text=${encodeURIComponent(whatsappMessage)}`}
               className="p-1 rounded ms-3 object-cover transition-transform duration-300 transform hover:scale-110"
             >
-              <img className="h-auto w-auto" src={whatsapp} alt="whatsapp" />
+              <img className="h-auto w-auto" src={whatsapp} alt="WhatsApp" />
             </a>
           </div>
         </div>

@@ -56,11 +56,16 @@ const LandList = () => {
 
   return (
     <>
-    <h1 className=" text-4xl text-ellipsis  font-extrabold m-7 ">Properties</h1>
-    <div className="row mx-4">
-      {lands.map((land) => (
-        <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land)} />
-      ))}
+      <h1 id='property' className="text-4xl font-extrabold m-7">Properties</h1>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap -mx-4">
+          {lands.map((land) => (
+            <div key={land.id} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+              <LandItem land={land} deleteLand={deleteLand} editLand={() => editLand(land)} />
+            </div>
+          ))}
+        </div>
+      </div>
 
       {isModalOpen && (
         <div className="modal fade show" style={{ display: 'block' }}>
@@ -94,7 +99,6 @@ const LandList = () => {
           </div>
         </div>
       )}
-    </div>
     </>
   );
 };
