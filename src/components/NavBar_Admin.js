@@ -1,14 +1,30 @@
 import { useState } from 'react';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import logo from '../images/logo_realstate.png';
+import { useAuth } from '../firebase';
 
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const { logout } = useAuth();
+
+  const handleLogout = async () => {
+    try {
+       // eslint-disable-next-line no-restricted-globals
+      var conf = confirm("Are you sure you want to log out?");
+      if (conf === true) {
+        await logout();
+        Navigate('/a2z-admin');
+      }
+    } catch (error) {
+      console.error('Failed to log out', error);
+    }
+  };
+  
 
   return (
     <div className="bg-white">
@@ -45,9 +61,7 @@ export default function Example() {
             </Link>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#property" className="text-sm font-semibold leading-6 text-gray-900">
-              Property <span aria-hidden="true">&rarr;</span>
-            </a>
+          <img src='https://cdn2.iconfinder.com/data/icons/interface-essentials-1-2/24/logout--logout-frame-leave-exit-arrow-right-circle-512.png' alt='logout' className='float-right h-7' onClick={handleLogout} />
           </div>
         </nav>
         <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>

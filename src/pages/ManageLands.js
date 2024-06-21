@@ -10,21 +10,10 @@ import NavBar_Admin from '../components/NavBar_Admin';
 
 const ManageLands = () => {
 
-    const { currentUser, logout } = useAuth();
-
-    const handleLogout = async () => {
-      try {
-        await logout();
-        Navigate('/a2z-admin');
-      } catch (error) {
-        console.error('Failed to log out', error);
-      }
-    };
   return (
     <div>
       <NavBar_Admin/>
     <h1 className='text-center font-bold text-xl'>Admin Console</h1>
-    <img src='https://cdn2.iconfinder.com/data/icons/interface-essentials-1-2/24/logout--logout-frame-leave-exit-arrow-right-circle-512.png' alt='logout' className='float-right h-7' onClick={handleLogout} />
     <Outlet/>
   </div>
   );
