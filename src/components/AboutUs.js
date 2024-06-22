@@ -22,9 +22,9 @@ function AboutUs() {
 
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPofOc_pK-Fh1jYVUnfPWUq3GPuceQxWBQXA&s" alt="Store Image 1" className="w-full h-auto rounded-lg shadow-lg" data-aos="fade-left" />
-        <img src="https://coralpi.com/wp-content/uploads/2022/06/land-for-sale.jpg" alt="Store Image 2" className="w-full h-auto rounded-lg shadow-lg" data-aos="fade-left" data-aos-delay="100" />
-        <img src="https://housing.com/news/wp-content/uploads/2024/01/Flats-vs-compressed-1.jpg" alt="Store Image 3" className="w-full h-auto rounded-lg shadow-lg" data-aos="fade-left" data-aos-delay="200" />
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPofOc_pK-Fh1jYVUnfPWUq3GPuceQxWBQXA&s" alt="Store 1" className="w-full h-auto rounded-lg shadow-lg" data-aos="fade-left" />
+        <img src="https://coralpi.com/wp-content/uploads/2022/06/land-for-sale.jpg" alt="Store 2" className="w-full h-auto rounded-lg shadow-lg" data-aos="fade-left" data-aos-delay="100" />
+        <img src="https://housing.com/news/wp-content/uploads/2024/01/Flats-vs-compressed-1.jpg" alt="Store  3" className="w-full h-auto rounded-lg shadow-lg" data-aos="fade-left" data-aos-delay="200" />
       </div>
       
       <div className="p-6 m-6 bg-gray-100 rounded-lg" id='contact'>

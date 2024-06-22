@@ -10,6 +10,7 @@ import Sell from "./components/sellLand";
 import LandForm from "./components/LandForm";
 import LandList from "./components/LandList";
 import FeedbackList from "./components/FeedbackList";
+import ViewItem from "./components/ViewItem";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/a2z-admin/feedback" element={<FeedbackList />} />
         </Route>
         <Route path="/sellProperty" element={<Sell />} />
+        <Route path="/viewproperty" element={<ViewItem />} />
       </Routes>
     </Router>
   );
