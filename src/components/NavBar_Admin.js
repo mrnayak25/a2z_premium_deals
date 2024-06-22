@@ -47,10 +47,7 @@ export default function Example() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-          <Link to="/a2z-admin" className="text-sm font-semibold leading-6 text-gray-900">
-              home
-            </Link>
-            <Link to="/a2z-admin/view" className="text-sm font-semibold leading-6 text-gray-900">
+            <Link to="/a2z-admin/" className="text-sm font-semibold leading-6 text-gray-900">
               View Properties
             </Link>
             <Link to="/a2z-admin/feedback" className="text-sm font-semibold leading-6 text-gray-900">

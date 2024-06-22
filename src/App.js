@@ -24,7 +24,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/a2z-admin" element={<PrivateRoute element={ManageLands} />}>
           <Route path="/a2z-admin/add" element={<LandForm />} />
-          <Route path="/a2z-admin/view" element={<LandList setId={setId} />} />
+          <Route path="/a2z-admin/" element={<LandList setId={setId} />} />
           <Route path="/a2z-admin/feedback" element={<FeedbackList />} />
         </Route>
         <Route path="/sellProperty" element={<Sell />} />
