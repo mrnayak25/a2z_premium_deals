@@ -57,12 +57,13 @@ const LandForm = () => {
   
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    setLoading(true);
+   // e.preventDefault();
     if (!agreeToTerms) {
       setError("You must agree to the terms and conditions.");
       return;
     }
-    if (land.images && land.images.length > 0) {
+    if (land.images) {
       setLoading(true);
       try {
         const imageUrls = [];
@@ -116,6 +117,7 @@ const LandForm = () => {
         setLoading(false); // Set loading to false when the upload completes
       }
     } else {
+      alert("upload image")
       setError("Please upload an image.");
     }
   };
@@ -125,13 +127,14 @@ const LandForm = () => {
       {loading ? (
         <Loading />
       ) : (
-        <form onSubmit={handleSubmit} className="bg-gray-900 rounded mt-10 w-50 p-3">
-          <div className="">
+        <div className="bg-gray-900 rounded mt-10 w-90 p-3">
             <h1 className="text-white text-center text-xl block font-medium">Post Your Property</h1>
             <p className="text-white text-center mb-4">
               Do you have a property to rent or sell? Use the form below to fill out the details and make a submission.
               We will review the listing and approve it so it can be shown on the website.
             </p>
+            <div className="d-flex justify-around">
+            <div >
             <h2 className="text-white text-lg block font-medium mb-2">Personal Details</h2>
             <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Is this your property, or are you an agent or builder?
@@ -143,7 +146,7 @@ const LandForm = () => {
                   type="radio"
                   value="Individual"
                   name="ownerType"
-                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
+                  className="w-full h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
                   checked={land.ownerType === "Individual"}
                   onChange={handleChange}
                 />
@@ -272,6 +275,8 @@ const LandForm = () => {
             />
           </div>
           <div className="">
+            </div>
+            <div className="mx-3">
             <h2 className="text-white text-lg block font-medium mb-2">Property Details</h2>
             <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Is this a sell, rent, or lease?
@@ -531,6 +536,7 @@ const LandForm = () => {
               onChange={handleFileChange}
             />
           </div>
+          </div>
           <div className="mt-4">
             <label className="flex items-center">
               <input
@@ -547,11 +553,11 @@ const LandForm = () => {
             </label>
           </div>
           <button
-            type="submit"
-            className="w-full mt-4 bg-blue-500 text-white font-medium py-2 rounded-lg focus:outline-none hover:bg-blue-600">
-            Submit
+            type="Submit"
+            onClick={()=>{handleSubmit()}}
+            >Submit
           </button>
-        </form>
+        </div>
       )}
       ;
     </div>
