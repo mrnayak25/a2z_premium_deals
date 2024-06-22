@@ -55,6 +55,7 @@ const LandForm = () => {
     setLand({ ...land, images: imageArray });
   };
   
+  
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -127,12 +128,18 @@ const LandForm = () => {
       {loading ? (
         <Loading />
       ) : (
+        <form onSubmit={handleSubmit} className= "mt-10 w-50 p-3 text-black">
+          <div className="">
+            <h1 className="t text-center text-xl block font-medium">Post Your Property</h1>
+            <p className=" text-center mb-4">
         <div className="bg-gray-900 rounded mt-10 w-90 p-3">
             <h1 className="text-white text-center text-xl block font-medium">Post Your Property</h1>
             <p className="text-white text-center mb-4">
               Do you have a property to rent or sell? Use the form below to fill out the details and make a submission.
               We will review the listing and approve it so it can be shown on the website.
             </p>
+            <h2 className=" text-lg block font-medium mb-2">Personal Details</h2>
+            <label className="block mb-1 text-sm font-medium text-gray-900 ">
             <div className="d-flex justify-around">
             <div >
             <h2 className="text-white text-lg block font-medium mb-2">Personal Details</h2>
@@ -150,7 +157,7 @@ const LandForm = () => {
                   checked={land.ownerType === "Individual"}
                   onChange={handleChange}
                 />
-                <label htmlFor="Individual" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label htmlFor="Individual" className="ms-2 text-sm font-medium text-gray-900 ">
                   Individual
                 </label>
               </div>
@@ -164,7 +171,7 @@ const LandForm = () => {
                   checked={land.ownerType === "Agent"}
                   onChange={handleChange}
                 />
-                <label htmlFor="Agent" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label htmlFor="Agent" className="ms-2 text-sm font-medium text-gray-900 ">
                   Agent
                 </label>
               </div>
@@ -178,96 +185,96 @@ const LandForm = () => {
                   checked={land.ownerType === "Builder"}
                   onChange={handleChange}
                 />
-                <label htmlFor="Builder" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label htmlFor="Builder" className="ms-2 text-sm font-medium text-gray-900 ">
                   Builder
                 </label>
               </div>
             </div>
-            <label htmlFor="ownerName" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="ownerName" className="block mb-1 text-sm font-medium text-gray-900 ">
               Owner Name
             </label>
             <input
               type="text"
               name="ownerName"
               id="ownerName"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.ownerName}
               onChange={handleChange}
               placeholder="Owner Name"
               required
             />
-            <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-900 ">
               Email
             </label>
             <input
               type="email"
               name="email"
               id="email"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.email}
               onChange={handleChange}
               placeholder="Email"
               required
             />
-            <label htmlFor="addressLine1" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="addressLine1" className="block mb-1 text-sm font-medium text-gray-900 ">
               Address Line 1
             </label>
             <input
               type="text"
               name="addressLine1"
               id="addressLine1"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.addressLine1}
               onChange={handleChange}
               placeholder="Address Line 1"
               required
             />
-            <label htmlFor="addressLine2" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="addressLine2" className="block mb-1 text-sm font-medium text-gray-900 ">
               Address Line 2
             </label>
             <input
               type="text"
               name="addressLine2"
               id="addressLine2"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.addressLine2}
               onChange={handleChange}
               placeholder="Address Line 2"
             />
-            <label htmlFor="city" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="city" className="block mb-1 text-sm font-medium text-gray-900 ">
               City / Village
             </label>
             <input
               type="text"
               name="city"
               id="city"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.city}
               onChange={handleChange}
               placeholder="City / Village"
               required
             />
-            <label htmlFor="zipCode" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="zipCode" className="block mb-1 text-sm font-medium text-gray-900 ">
               Zip Code / Pin Code
             </label>
             <input
               type="text"
               name="zipCode"
               id="zipCode"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.zipCode}
               onChange={handleChange}
               placeholder="Zip Code / Pin Code"
               required
             />
-            <label htmlFor="contactNumber" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="contactNumber" className="block mb-1 text-sm font-medium text-gray-900 ">
               Contact Number
             </label>
             <input
               type="text"
               name="contactNumber"
               id="contactNumber"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.contactNumber}
               onChange={handleChange}
               placeholder="Contact Number"
@@ -278,7 +285,7 @@ const LandForm = () => {
             </div>
             <div className="mx-3">
             <h2 className="text-white text-lg block font-medium mb-2">Property Details</h2>
-            <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label className="block mb-1 text-sm font-medium text-gray-900 ">
               Is this a sell, rent, or lease?
             </label>
             <div className="flex justify-around mb-3">
@@ -292,7 +299,7 @@ const LandForm = () => {
                   checked={land.sellOrRent === "SELL"}
                   onChange={handleChange}
                 />
-                <label htmlFor="sell" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label htmlFor="sell" className="ms-2 text-sm font-medium text-gray-900 ">
                   Sell
                 </label>
               </div>
@@ -306,7 +313,7 @@ const LandForm = () => {
                   checked={land.sellOrRent === "RENT"}
                   onChange={handleChange}
                 />
-                <label htmlFor="rent" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label htmlFor="rent" className="ms-2 text-sm font-medium text-gray-900 ">
                   Rent
                 </label>
               </div>
@@ -320,22 +327,22 @@ const LandForm = () => {
                   checked={land.sellOrRent === "LEASE"}
                   onChange={handleChange}
                 />
-                <label htmlFor="lease" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                <label htmlFor="lease" className="ms-2 text-sm font-medium text-gray-900 ">
                   Lease
                 </label>
               </div>
             </div>
-            <label htmlFor="location" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="location" className="block mb-1 text-sm font-medium text-gray-900 ">
               Location
             </label>
             <select
               id="location"
               name="location"
-              className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
               value={land.location}
               onChange={handleChange}>
-              <option value=""></option>
+            
               <option value="Bagalkot">Bagalkot</option>
               <option value="Ballari (Bellary)">Ballari (Bellary)</option>
               <option value="Belagavi (Belgaum)">Belagavi (Belgaum)</option>
@@ -368,58 +375,58 @@ const LandForm = () => {
               <option value="Yadgir">Yadgir</option>
             </select>
 
-            <label htmlFor="sublocation" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="sublocation" className="block mb-1 text-sm font-medium text-gray-900 ">
               Sub Location
             </label>
             <input
               type="text"
               name="sublocation"
               id="sublocation"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.sublocation}
               onChange={handleChange}
               placeholder="Sub Location"
             />
-            <label htmlFor="propertyAddress" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="propertyAddress" className="block mb-1 text-sm font-medium text-gray-900 ">
               Property Address
             </label>
             <input
               type="text"
               name="propertyAddress"
               id="propertyAddress"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.propertyAddress}
               onChange={handleChange}
               placeholder="Property Address"
               required
             />
-            <label htmlFor="propertyCity" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="propertyCity" className="block mb-1 text-sm font-medium text-gray-900 ">
               Property City / Village
             </label>
             <input
               type="text"
               name="propertyCity"
               id="propertyCity"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.propertyCity}
               onChange={handleChange}
               placeholder="Property City / Village"
               required
             />
-            <label htmlFor="propertyZipCode" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="propertyZipCode" className="block mb-1 text-sm font-medium text-gray-900 ">
               Property Zip Code / Pin Code
             </label>
             <input
               type="text"
               name="propertyZipCode"
               id="propertyZipCode"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.propertyZipCode}
               onChange={handleChange}
               placeholder="Property Zip Code / Pin Code"
               required
             />
-            <label htmlFor="totalArea" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="totalArea" className="block mb-1 text-sm font-medium text-gray-900 ">
               Total Property Area
             </label>
             <div className="input-group mb-3">
@@ -427,7 +434,7 @@ const LandForm = () => {
                 type="number"
                 id="property_area"
                 name="totalArea"
-                className="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="form-control bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value={land.totalArea}
                 onChange={handleChange}
                 placeholder="Total Property Area"
@@ -436,7 +443,7 @@ const LandForm = () => {
               <select
                 id="property_area_unit"
                 name="propertyAreaUnit"
-                className="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                className="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value={land.propertyAreaUnit}
                 onChange={handleChange}
                 required>
@@ -449,17 +456,19 @@ const LandForm = () => {
               </select>
             </div>
 
-            <label htmlFor="propertyType" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="propertyType" className="block mb-1 text-sm font-medium text-gray-900 ">
               Property Type
             </label>
             <select
               id="property_type"
               name="propertyType"
-              className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
               value={land.propertyType}
               onChange={handleChange}>
-              <option value="select type"></option>
+              <option value="" disabled>
+    Select Property Type
+  </option>
               <option value="Agricultural Land">Agricultural Land</option>
               <option value="Farm Land">Farm Land</option>
               <option value="Farms">Farms</option>
@@ -485,27 +494,27 @@ const LandForm = () => {
               <option value="Hotels">Hotels</option>
               <option value="Others">Others</option>
             </select>
-            <label htmlFor="totalPrice" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="totalPrice" className="block mb-1 text-sm font-medium text-gray-900 ">
               Total Sale Price / Rent
             </label>
             <input
               type="text"
               name="totalPrice"
               id="totalPrice"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.totalPrice}
               onChange={handleChange}
               placeholder="Total Sale Price / Rent"
               required
             />
-            <label htmlFor="propertyTitle" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="propertyTitle" className="block mb-1 text-sm font-medium text-gray-900 ">
               Property Title
             </label>
             <input
               type="text"
               name="propertyTitle"
               id="propertyTitle"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.propertyTitle}
               onChange={handleChange}
               placeholder="Property Title"
@@ -513,18 +522,18 @@ const LandForm = () => {
             />
             <label
               htmlFor="propertyDescription"
-              className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+              className="block mb-1 text-sm font-medium text-gray-900 ">
               Property Description
             </label>
             <textarea
               name="propertyDescription"
               id="propertyDescription"
-              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
               value={land.propertyDescription}
               onChange={handleChange}
               placeholder="Property Description"
               required></textarea>
-            <label htmlFor="propertyImages" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            <label htmlFor="propertyImages" className="block mb-1 text-sm font-medium text-gray-900 ">
               Property Images
             </label>
             <input
@@ -547,7 +556,7 @@ const LandForm = () => {
                 onChange={handleChange}
                 required
               />
-              <span className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <span className="ms-2 text-sm font-medium text-gray-900 ">
                 I agree to the terms and conditions
               </span>
             </label>
