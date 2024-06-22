@@ -8,17 +8,20 @@ import Footer from '../components/Footer';
 import Feedback from '../components/Feedback';
 import Hero from '../components/Hero';
 
+function Home(props)  {
 
-const Home = () => (
+  return (
+
   <div>
     <NavBar />
     <Hero/>
-   <LandList />
+   <LandList setLand={props.setLand} setId={props.setId}/>
    <AboutUs/>
    <Services/>
    <Feedback/>
    <Footer/>
   </div>
 );
+}
 
 export default Home;

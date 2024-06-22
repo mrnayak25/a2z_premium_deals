@@ -4,7 +4,7 @@ import { db } from "../firebase";
 import LandItem from "./LandItem_cust";
 import Loading from "./Loading";
 
-const LandList = () => {
+function LandList (props) {
   const [lands, setLands] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedLand, setSelectedLand] = useState(null);
@@ -22,6 +22,7 @@ const LandList = () => {
         loadedLands.push({ id, ...landsData[id] });
       }
       setLands(loadedLands);
+      props.setLand(loadedLands);
       setLoading(false);
     });
   }, []);
@@ -61,7 +62,7 @@ const LandList = () => {
         <div className="flex flex-wrap -mx-4">
           {lands.map((land) => (
             <div key={land.id} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-              <LandItem land={land} deleteLand={deleteLand} editLand={() => editLand(land)} />
+              <LandItem land={land} setId={props.setId} deleteLand={deleteLand} editLand={() => editLand(land)} />
             </div>
           ))}
         </div>

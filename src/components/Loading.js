@@ -3,7 +3,7 @@ import ReactLoading from "react-loading"
 
 function loading() {
   return (
-    <div className='d-flex justify-center pt-56'>
+    <div className='d-flex justify-center'>
        <ReactLoading
                 type="spinningBubbles"
                 color="#0000FF"

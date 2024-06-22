@@ -435,9 +435,7 @@ const LandForm = () => {
                 value={land.propertyAreaUnit}
                 onChange={handleChange}
                 required>
-                <option value="sq. ft." selected>
-                  sq. ft.
-                </option>
+                <option value="sq. ft." selected > sq. ft.</option>
                 <option value="sq. m.">sq. m.</option>
                 <option value="sq. yd.">sq. yd.</option>
                 <option value="cent">cent</option>
