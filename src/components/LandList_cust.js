@@ -30,7 +30,7 @@ function LandList(props) {
       props.setLand(loadedLands);
       setLoading(false);
     });
-  }, [location.key,props]); // Trigger useEffect on location change
+  }, [location.key]); // Trigger useEffect on location change
 
   useEffect(() => {
     filterLands();
