@@ -29,6 +29,7 @@ const LandForm = () => {
     description: "",
     images: [], // Array to hold selected images
     imageUrls: [], // Array to hold image download URLs after upload
+    status: "pending",
   });
   const [loading, setLoading] = useState(false); // Loading state
   const [error, setError] = useState("");
@@ -128,6 +129,7 @@ const LandForm = () => {
                   description: "",
                   images: [],
                   imageUrls: [],
+                  status: "pending",
                 });
                 setAgreeToTerms(false);
                 setError("");
