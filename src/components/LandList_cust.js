@@ -114,11 +114,12 @@ function LandList(props) {
           </select>
         </div>
       </div>
+      <hr/><br/>
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           {filteredLands.map((land) => (
             <div key={land.id} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-              <LandItem land={land} setId={props.setId} />
+             <LandItem land={land} setId={props.setId} />
             </div>
           ))}
         </div>
