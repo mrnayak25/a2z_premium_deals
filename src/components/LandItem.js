@@ -38,6 +38,7 @@ const LandItem = ({ land, deleteLand, editLand,handleStatusChange }) => (
           </div>
           <h5 className="mt-2 text-2xl font-extrabold text-left tracking-tight text-gray-900">{land.title}</h5>
           <p className="text-left whitespace-pre-line text-gray-600">{land.description}</p>
+          <h2 className=" font-semibold whitespace-pre-line text-black bg-blue-400 rounded p-1 m-1">Status :{land.status}</h2>
           <div className="flex justify-between">
               <button 
                 className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"

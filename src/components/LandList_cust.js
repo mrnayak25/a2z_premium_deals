@@ -57,7 +57,7 @@ function LandList(props) {
   return (
     <>
       <div className="flex justify-around">
-        <h1 id="property" className="text-4xl font-extrabold m-7">
+        <h1 id="property" className="text-4xl font-semibold m-7">
           Properties
         </h1>
         <div className="flex justify-end">
