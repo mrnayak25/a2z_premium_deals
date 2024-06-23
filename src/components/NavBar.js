@@ -41,13 +41,13 @@ export default function Example() {
                 {item.name}
               </a>
             ))}
-            <Link to="/sellProperty" className="text-sm font-semibold leading-6 text-gray-900">
-              Sell Property
-            </Link>
+            <a href="#property" className="text-sm font-semibold leading-6 text-gray-900">
+               Property
+            </a>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#property" className="text-sm font-semibold leading-6 text-gray-900">
-              Property <span aria-hidden="true">&rarr;</span>
+            <a href="/sellProperty" className="text-sm font-semibold leading-6 text-gray-900 p-1 outline">
+              Post Your Property <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -90,6 +90,9 @@ export default function Example() {
                   >
                     Property
                   </a>
+                  <a href="/sellProperty" className="text-sm font-semibold leading-6 text-gray-900 p-1 outline" onClick={() => setMobileMenuOpen(false)}>
+              Post Your Property <span aria-hidden="true">&rarr;</span>
+            </a>
                 </div>
               </div>
             </div>

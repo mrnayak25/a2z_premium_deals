@@ -26,18 +26,16 @@ function LandList(props) {
         }
       }
       setLands(loadedLands);
-      setFilteredLands(loadedLands);
-      props.setLand(loadedLands);
       setLoading(false);
     });
-  }, [location.key]); // Trigger useEffect on location change
+  }, [location.key]);
 
   useEffect(() => {
     filterLands();
-  }, [priceRange, sellOrRent, propertyType]);
+  }, [lands, priceRange, sellOrRent, propertyType]);
 
   const filterLands = () => {
-    const filteredLands = lands.filter((land) => {
+    const filtered = lands.filter((land) => {
       const price = parseInt(land.price, 10);
       const [minPrice, maxPrice] = priceRange !== "all" ? priceRange.split("-").map((p) => parseInt(p, 10)) : [0, Infinity];
       return (
@@ -47,7 +45,8 @@ function LandList(props) {
         (propertyType === "all" || land.propertyType.toLowerCase() === propertyType.toLowerCase())
       );
     });
-    setFilteredLands(filteredLands);
+    setFilteredLands(filtered);
+    props.setLand(filtered); // Update the filtered lands in the parent component if needed
   };
 
   if (loading) {
@@ -56,12 +55,16 @@ function LandList(props) {
 
   return (
     <>
-      <div className="flex justify-around">
-        <h1 id="property" className="text-4xl font-semibold m-7">
+      <div className="flex flex-col md:flex-row justify-around items-center md:items-end m-7 space-y-4 md:space-y-0">
+        <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex justify-end">
-          <select id="price" onChange={(e) => setPriceRange(e.target.value)}>
+        <div className="flex flex-col md:flex-row justify-end space-y-4 md:space-y-0 md:space-x-3">
+          <select
+            id="price"
+            className="p-2 border border-gray-300 rounded"
+            onChange={(e) => setPriceRange(e.target.value)}
+          ><option value="all" disabled>Price</option>
             <option value="all">All</option>
             <option value="0-50000">0-50000</option>
             <option value="50001-100000">50001-100000</option>
@@ -69,13 +72,20 @@ function LandList(props) {
             <option value="200001-500000">200001-500000</option>
             <option value="500001-">more</option>
           </select>
-          <select id="sellOrRent" className="mx-3" onChange={(e) => setSellOrRent(e.target.value)}>
-            <option value="all">All</option>
-            <option value="sell">Sell</option>
+          <select
+            id="sellOrRent"
+            className="p-2 border border-gray-300 rounded"
+            onChange={(e) => setSellOrRent(e.target.value)}
+          > <option value="all" disabled>Buy | Rent | Lease</option>
+            <option value="sell">Buy</option>
             <option value="rent">Rent</option>
             <option value="lease">Lease</option>
           </select>
-          <select id="propertyType" onChange={(e) => setPropertyType(e.target.value)}>
+          <select
+            id="propertyType"
+            className="p-2 border border-gray-300 rounded"
+            onChange={(e) => setPropertyType(e.target.value)}
+          > <option value="" disabled>Property Type</option>
             <option value="all">All</option>
             <option value="Agricultural Land">Agricultural Land</option>
             <option value="Farm Land">Farm Land</option>

@@ -14,8 +14,8 @@ function Hero() {
           </div>
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl py-10">
-              The Best Real Estate Agency in Karnataka
-            </h1>
+            Buy, Sell, & Rent Properties</h1> <br/> <h2>The Best Real-Estate Agency In Karnataka</h2>
+           
             <p className="mt-6 text-lg leading-8 text-gray-600">
               "Your dream property is just a deal away. Discover the best real estate opportunities with us!"
             </p>
