@@ -55,6 +55,14 @@ const LandList = () => {
     await remove(ref(db, `lands/${id}`));
     setLands(lands.filter((land) => land.id !== id));
   };
+  const handleStatusChange = async (id, status) => {
+    try {
+      await update(ref(db, `lands/${id}`), { status });
+      alert('Status updated successfully!');
+    } catch (error) {
+      console.error('Error updating status:', error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -93,7 +101,7 @@ const LandList = () => {
   return (
     <div className="row mx-3 mt-20">
       {lands.map((land) => (
-        <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land)} />
+        <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land) } handleStatusChange={handleStatusChange} />
       ))}
 
 {isModalOpen && (

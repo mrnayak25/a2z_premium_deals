@@ -3,15 +3,17 @@ import { ref, onValue } from "firebase/database";
 import { db } from "../firebase";
 import LandItem from "./LandItem_cust";
 import Loading from "./Loading";
+import { useLocation } from "react-router-dom";
 
 function LandList(props) {
   const [lands, setLands] = useState([]);
   const [filteredLands, setFilteredLands] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
   const [propertyType, setPropertyType] = useState("all");
+
+  const location = useLocation();
 
   useEffect(() => {
     const landsRef = ref(db, "lands");
@@ -19,18 +21,20 @@ function LandList(props) {
       const landsData = snapshot.val();
       const loadedLands = [];
       for (const id in landsData) {
-        loadedLands.push({ id, ...landsData[id] });
+        if (landsData[id].status === "approved") {
+          loadedLands.push({ id, ...landsData[id] });
+        }
       }
       setLands(loadedLands);
       setFilteredLands(loadedLands);
       props.setLand(loadedLands);
       setLoading(false);
     });
-  }, []);
+  }, [location.key,props]); // Trigger useEffect on location change
 
   useEffect(() => {
     filterLands();
-  }, [props.search, priceRange, sellOrRent, propertyType]);
+  }, [priceRange, sellOrRent, propertyType]);
 
   const filterLands = () => {
     const filteredLands = lands.filter((land) => {
@@ -57,10 +61,7 @@ function LandList(props) {
           Properties
         </h1>
         <div className="flex justify-end">
-          <select
-            id="price"
-            onChange={(e) => setPriceRange(e.target.value)}
-          >
+          <select id="price" onChange={(e) => setPriceRange(e.target.value)}>
             <option value="all">All</option>
             <option value="0-50000">0-50000</option>
             <option value="50001-100000">50001-100000</option>
@@ -68,20 +69,13 @@ function LandList(props) {
             <option value="200001-500000">200001-500000</option>
             <option value="500001-">more</option>
           </select>
-          <select
-            id="sellOrRent"
-            className="mx-3"
-            onChange={(e) => setSellOrRent(e.target.value)}
-          >
+          <select id="sellOrRent" className="mx-3" onChange={(e) => setSellOrRent(e.target.value)}>
             <option value="all">All</option>
             <option value="sell">Sell</option>
             <option value="rent">Rent</option>
             <option value="lease">Lease</option>
           </select>
-          <select
-            id="propertyType"
-            onChange={(e) => setPropertyType(e.target.value)}
-          >
+          <select id="propertyType" onChange={(e) => setPropertyType(e.target.value)}>
             <option value="all">All</option>
             <option value="Agricultural Land">Agricultural Land</option>
             <option value="Farm Land">Farm Land</option>

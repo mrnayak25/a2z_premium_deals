@@ -10,7 +10,7 @@ const LandItemWrapper = styled.div`
   border-radius: 5px;
 `;
 
-const LandItem = ({ land, deleteLand, editLand }) => (
+const LandItem = ({ land, deleteLand, editLand,handleStatusChange }) => (
   <LandItemWrapper className='col-md-4 '>
     <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
         <div className="absolute top-0 left-0 z-10">
@@ -38,6 +38,20 @@ const LandItem = ({ land, deleteLand, editLand }) => (
           </div>
           <h5 className="mt-2 text-2xl font-extrabold text-left tracking-tight text-gray-900">{land.title}</h5>
           <p className="text-left whitespace-pre-line text-gray-600">{land.description}</p>
+          <div className="flex justify-between">
+              <button 
+                className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded"
+                onClick={() => handleStatusChange(land.id, 'approved')}
+              >
+                Approve
+              </button>
+              <button 
+                className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+                onClick={() => handleStatusChange(land.id, 'declined')}
+              >
+                Decline
+              </button>
+            </div>
       </div>
     </div>
   </LandItemWrapper>
