@@ -44,7 +44,7 @@ const Feedback = () => {
         <div className="w-full md:w-2/3 lg:w-1/2">
           <div className="feedback-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up">
             <img 
-              src={feedbackData[currentIndex].image || 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}
+              src={ 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}
               alt={feedbackData[currentIndex].name}
               className="w-24 h-24 object-cover rounded-full mx-auto mb-4"
             />

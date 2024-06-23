@@ -14,7 +14,7 @@ export default function Example() {
 
   const handleLogout = async () => {
     try {
-       // eslint-disable-next-line no-restricted-globals
+      // eslint-disable-next-line no-restricted-globals
       var conf = confirm("Are you sure you want to log out?");
       if (conf === true) {
         await logout();
@@ -24,10 +24,12 @@ export default function Example() {
       console.error('Failed to log out', error);
     }
   };
-  
+
 
   return (
-    <div className="bg-white">
+    
+    <div className="bg-white p-2">
+      
       <header className="absolute inset-x-0 top-0 z-50">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
           <div className="flex lg:flex-1">
@@ -58,7 +60,7 @@ export default function Example() {
             </Link>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <img src='https://cdn2.iconfinder.com/data/icons/interface-essentials-1-2/24/logout--logout-frame-leave-exit-arrow-right-circle-512.png' alt='logout' className='float-right h-7' onClick={handleLogout} />
+            <img src='https://cdn2.iconfinder.com/data/icons/interface-essentials-1-2/24/logout--logout-frame-leave-exit-arrow-right-circle-512.png' alt='logout' className='float-right h-7' onClick={handleLogout} />
           </div>
         </nav>
         <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -81,27 +83,25 @@ export default function Example() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                <Link to="/a2z-admin"className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-              home
-            </Link>
-            <Link to="/view" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-              View Properties
-            </Link>
-            <Link to="/feedback" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-              View Feedback
-            </Link>
-            <Link to="/add" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-              Add Properties
-            </Link>
-                </div>                      
+
+                  <Link to="/a2z-admin" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                    View Properties
+                  </Link>
+                  <Link to="/a2z-admin/feedback" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                    View Feedback
+                  </Link>
+                  <Link to="/a2z-admin/add" className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                    Add Properties
+                  </Link>
+                </div>
 
                 <div className="py-6">
                   <a
-                    href="#property"
+                    href="/"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Property
+                    A2z Premium Deals
                   </a>
                 </div>
               </div>

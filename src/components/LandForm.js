@@ -149,440 +149,272 @@ const LandForm = () => {
   };
 
   return (
-    <div className="d-flex justify-center">
+    <div className="d-flex  text-black mix-blend-difference">
       {loading ? (
         <Loading />
       ) : (
-        <form onSubmit={handleSubmit} className="mt-10 w-50 p-3 text-black">
-          <div className="">
-            <h1 className="t text-center text-xl block font-medium">Post Your Property</h1>
-            <div className="bg-gray-900 rounded mt-10 w-90 p-3">
-              <h1 className="text-white text-center text-xl block font-medium">Post Your Property</h1>
-              <p className="text-white text-center mb-4">
-                Do you have a property to rent or sell? Use the form below to fill out the details and make a
-                submission. We will review the listing and approve it so it can be shown on the website.
-              </p>
-              <h2 className="text-lg block font-medium mb-2">Personal Details</h2>
-              <div className="">
-                <div>
-                  <h2 className="text-white text-lg block font-medium mb-2">Personal Details</h2>
-                  <label className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">
-                    Is this your property, or are you an agent or builder?
-                  </label>
-                  <div className="flex justify-around mb-3">
-                    <div className="flex items-center">
-                      <input
-                        id="Individual"
-                        type="radio"
-                        value="Individual"
-                        name="ownerType"
-                        className="w-full h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                        checked={land.ownerType === "Individual"}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="Individual" className="ms-2 text-sm font-medium text-gray-900 ">
-                        Individual
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        id="Agent"
-                        type="radio"
-                        value="Agent"
-                        name="ownerType"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                        checked={land.ownerType === "Agent"}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="Agent" className="ms-2 text-sm font-medium text-gray-900 ">
-                        Agent
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        id="Builder"
-                        type="radio"
-                        value="Builder"
-                        name="ownerType"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                        checked={land.ownerType === "Builder"}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="Builder" className="ms-2 text-sm font-medium text-gray-900 ">
-                        Builder
-                      </label>
-                    </div>
-                  </div>
-                  <label htmlFor="ownerName" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Owner Name
-                  </label>
-                  <input
-                    type="text"
-                    name="ownerName"
-                    id="ownerName"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.ownerName}
-                    onChange={handleChange}
-                    placeholder="Owner Name"
-                    required
-                  />
-                  <label htmlFor="email" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.email}
-                    onChange={handleChange}
-                    placeholder="email@example.com"
-                    required
-                  />
-                  <label htmlFor="addressLine1" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Address Line 1
-                  </label>
-                  <input
-                    type="text"
-                    name="addressLine1"
-                    id="addressLine1"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.addressLine1}
-                    onChange={handleChange}
-                    placeholder="Address Line 1"
-                    required
-                  />
-                  <label htmlFor="addressLine2" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Address Line 2
-                  </label>
-                  <input
-                    type="text"
-                    name="addressLine2"
-                    id="addressLine2"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.addressLine2}
-                    onChange={handleChange}
-                    placeholder="Address Line 2"
-                    required
-                  />
-                  <label htmlFor="city" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    City / Village
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    id="city"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.city}
-                    onChange={handleChange}
-                    placeholder="City / Village"
-                    required
-                  />
-                  <label htmlFor="state" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    State
-                  </label>
-                  <select
-                    id="state"
-                    name="state"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.state}
-                    onChange={handleChange}
-                    required>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                    <option value="Daman and Diu">Daman and Diu</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Puducherry">Puducherry</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="West Bengal">West Bengal</option>
-                  </select>
-                  <label htmlFor="zipCode" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Zip Code
-                  </label>
-                  <input
-                    type="text"
-                    name="zipCode"
-                    id="zipCode"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.zipCode}
-                    onChange={handleChange}
-                    placeholder="Zip Code"
-                    required
-                  />
-                  <label htmlFor="contactNumber" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Contact Number
-                  </label>
-                  <input
-                    type="text"
-                    name="contactNumber"
-                    id="contactNumber"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.contactNumber}
-                    onChange={handleChange}
-                    placeholder="Contact Number"
-                    required
-                  />
-                  <h2 className="text-white text-lg block font-medium mb-2">Property Details</h2>
-                  <label className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Is this a sell, rent, or lease?
-                  </label>
-                  <div className="flex justify-around mb-3">
-                    <div className="flex items-center">
-                      <input
-                        id="SELL"
-                        type="radio"
-                        value="SELL"
-                        name="sellOrRent"
-                        className="w-full h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                        checked={land.sellOrRent === "SELL"}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="SELL" className="ms-2 text-sm font-medium text-gray-900 ">
-                        SELL
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        id="RENT"
-                        type="radio"
-                        value="RENT"
-                        name="sellOrRent"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                        checked={land.sellOrRent === "RENT"}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="rent" className="ms-2 text-sm font-medium text-gray-900 ">
-                        Rent
-                      </label>
-                    </div>
-                    <div className="flex items-center">
-                      <input
-                        id="lease"
-                        type="radio"
-                        value="LEASE"
-                        name="sellOrRent"
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                        checked={land.sellOrRent === "LEASE"}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor="lease" className="ms-2 text-sm font-medium text-gray-900 ">
-                        Lease
-                      </label>
-                    </div>
-                  </div>
-                  <label htmlFor="location" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Location
-                  </label>
-                  <select
-                    id="location"
-                    name="location"
-                    className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
-                    value={land.location}
-                    onChange={handleChange}>
-                    <option value="Bagalkot">Bagalkot</option>
-                    <option value="Ballari (Bellary)">Ballari (Bellary)</option>
-                    <option value="Belagavi (Belgaum)">Belagavi (Belgaum)</option>
-                    <option value="Bengaluru (Bangalore) Rural">Bengaluru (Bangalore) Rural</option>
-                    <option value="Bengaluru (Bangalore) Urban">Bengaluru (Bangalore) Urban</option>
-                    <option value="Bidar">Bidar</option>
-                    <option value="Chamarajanagar">Chamarajanagar</option>
-                    <option value="Chikballapur">Chikballapur</option>
-                    <option value="Chikkamagaluru (Chikmagalur)">Chikkamagaluru (Chikmagalur)</option>
-                    <option value="Chitradurga">Chitradurga</option>
-                    <option value="Dakshina Kannada">Dakshina Kannada</option>
-                    <option value="Davangere">Davangere</option>
-                    <option value="Dharwad">Dharwad</option>
-                    <option value="Gadag">Gadag</option>
-                    <option value="Hassan">Hassan</option>
-                    <option value="Haveri">Haveri</option>
-                    <option value="Kalaburagi (Gulbarga)">Kalaburagi (Gulbarga)</option>
-                    <option value="Kodagu">Kodagu</option>
-                    <option value="Kolar">Kolar</option>
-                    <option value="Koppal">Koppal</option>
-                    <option value="Mandya">Mandya</option>
-                    <option value="Mysuru (Mysore)">Mysuru (Mysore)</option>
-                    <option value="Raichur">Raichur</option>
-                    <option value="Ramanagara">Ramanagara</option>
-                    <option value="Shivamogga (Shimoga)">Shivamogga (Shimoga)</option>
-                    <option value="Tumakuru (Tumkur)">Tumakuru (Tumkur)</option>
-                    <option value="Udupi">Udupi</option>
-                    <option value="Uttara Kannada (Karwar)">Uttara Kannada (Karwar)</option>
-                    <option value="Vijayapura (Bijapur)">Vijayapura (Bijapur)</option>
-                    <option value="Yadgir">Yadgir</option>
-                  </select>
+        <form onSubmit={handleSubmit} className="mt-10 w-full max-w-lg mx-auto p-3 text-black">
+  <div className=" rounded-lg p-6">
+    <h1 className="text-white text-center text-2xl font-semibold mb-4">Post Your Property</h1>
+    <p className="text-white text-center mb-6">
+      Do you have a property to rent or sell? Use the form below to fill out the details and make a
+      submission. We will review the listing and approve it so it can be shown on the website.
+    </p>
 
-                  <label htmlFor="sublocation" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Sub-Location
-                  </label>
-                  <input
-                    type="text"
-                    name="sublocation"
-                    id="sublocation"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.sublocation}
-                    onChange={handleChange}
-                    placeholder="Sub-Location"
-                    required
-                  />
-                  <label htmlFor="propertyAddress" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Property Address
-                  </label>
-                  <input
-                    type="text"
-                    name="propertyAddress"
-                    id="propertyAddress"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.propertyAddress}
-                    onChange={handleChange}
-                    placeholder="Property Address"
-                    required
-                  />
-                  <label htmlFor="propertyCity" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Property City / Village
-                  </label>
-                  <input
-                    type="text"
-                    name="propertyCity"
-                    id="propertyCity"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.propertyCity}
-                    onChange={handleChange}
-                    placeholder="Property City / Village"
-                    required
-                  />
-                  <label htmlFor="propertyState" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Property State
-                  </label>
-                  <select
-                    id="propertyState"
-                    name="propertyState"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.propertyState}
-                    onChange={handleChange}
-                    required>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                    <option value="Daman and Diu">Daman and Diu</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Puducherry">Puducherry</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="Tamil Nadu">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="West Bengal">West Bengal</option>
-                  </select>
-                  <label htmlFor="propertyZipCode" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Property Zip Code / Pin Code
-                  </label>
-                  <input
-                    type="text"
-                    name="propertyZipCode"
-                    id="propertyZipCode"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.propertyZipCode}
-                    onChange={handleChange}
-                    placeholder="Property Zip Code"
-                    required
-                  />
-                  <label htmlFor="totalArea" className="block mb-1 text-sm font-medium text-gray-900 ">
-                    Total Area
-                  </label>
-                  <input
-                    type="text"
-                    name="totalArea"
-                    id="totalArea"
-                    className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.totalArea}
-                    onChange={handleChange}
-                    placeholder="Total Area"
-                    required
-                  />
-                  <select
-                    id="property_area_unit"
-                    name="propertyAreaUnit"
-                    className="form-select bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    value={land.propertyAreaUnit}
-                    onChange={handleChange}
-                    required>
-                    <option value="sq. ft." selected>
-                      {" "}
-                      sq. ft.
-                    </option>
-                    <option value="sq. m.">sq. m.</option>
-                    <option value="sq. yd.">sq. yd.</option>
-                    <option value="cent">cent</option>
-                    <option value="acre">acre</option>
-                    <option value="hectare">hectare</option>
-                  </select>
-                </div>
+    {/* Personal Details Section */}
+    <div className="mb-6">
+      <h2 className="text-white text-xl font-semibold mb-4">Personal Details</h2>
+      <div className="mb-4">
+        <label className="block mb-2 text-sm font-medium text-white">Is this your property, or are you an agent or builder?</label>
+        <div className="flex justify-between">
+          <div className="flex items-center">
+            <input
+              id="Individual"
+              type="radio"
+              value="Individual"
+              name="ownerType"
+              className="h-4 w-4 text-blue-600"
+              checked={land.ownerType === "Individual"}
+              onChange={handleChange}
+            />
+            <label htmlFor="Individual" className="ml-2 text-sm font-medium text-white">Individual</label>
+          </div>
+          <div className="flex items-center">
+            <input
+              id="Agent"
+              type="radio"
+              value="Agent"
+              name="ownerType"
+              className="h-4 w-4 text-blue-600"
+              checked={land.ownerType === "Agent"}
+              onChange={handleChange}
+            />
+            <label htmlFor="Agent" className="ml-2 text-sm font-medium text-white">Agent</label>
+          </div>
+          <div className="flex items-center">
+            <input
+              id="Builder"
+              type="radio"
+              value="Builder"
+              name="ownerType"
+              className="h-4 w-4 text-blue-600"
+              checked={land.ownerType === "Builder"}
+              onChange={handleChange}
+            />
+            <label htmlFor="Builder" className="ml-2 text-sm font-medium text-white">Builder</label>
+          </div>
+        </div>
+      </div>
 
-                <label htmlFor="propertyType" className="block mb-1 text-sm font-medium text-gray-900 ">
-                  Property Type
-                </label>
-                <select
-                  id="property_type"
-                  name="propertyType"
-                  className="form-select bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                  value={land.propertyType}
-                  onChange={handleChange}>
-                  <option value="" disabled>
+      {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map((field) => (
+        <div className="mb-4" key={field}>
+          <label htmlFor={field} className="block mb-1 text-sm font-medium text-white">{field.replace(/([A-Z])/g, ' $1').trim()}</label>
+          <input
+            type={field === "email" ? "email" : "text"}
+            name={field}
+            id={field}
+            value={land[field]}
+            onChange={handleChange}
+            placeholder={field.replace(/([A-Z])/g, ' $1').trim()}
+            className="w-full p-2 border rounded"
+            required
+          />
+        </div>
+      ))}
+
+      <div className="mb-4">
+        <label htmlFor="state" className="block mb-1 text-sm font-medium text-white">State</label>
+        <select
+          id="state"
+          name="state"
+          value={land.state}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          required
+        >
+          <option value="Karnataka">Karnataka</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Puducherry">Puducherry</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+        </select>
+      </div>
+    </div>
+
+    {/* Property Details Section */}
+    <div className="mb-6">
+      <h2 className="text-white text-xl font-semibold mb-4">Property Details</h2>
+      <div className="mb-4">
+        <label className="block mb-2 text-sm font-medium text-white">Is this a sell, rent, or lease?</label>
+        <div className="flex justify-between">
+          {["SELL", "RENT", "LEASE"].map((option) => (
+            <div className="flex items-center" key={option}>
+              <input
+                id={option}
+                type="radio"
+                value={option}
+                name="sellOrRent"
+                className="h-4 w-4 text-blue-600"
+                checked={land.sellOrRent === option}
+                onChange={handleChange}
+              />
+              <label htmlFor={option} className="ml-2 text-sm font-medium text-white">{option}</label>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {[
+        { id: "location", type: "select", options: ["Bagalkot", "Ballari (Bellary)", "Belagavi (Belgaum)", "Bengaluru (Bangalore) Rural", "Bengaluru (Bangalore) Urban", "Bidar", "Chamarajanagar", "Chikballapur", "Chikkamagaluru (Chikmagalur)", "Chitradurga", "Dakshina Kannada", "Davangere", "Dharwad", "Gadag", "Hassan", "Haveri", "Kalaburagi (Gulbarga)", "Kodagu", "Kolar", "Koppal", "Mandya", "Mysuru (Mysore)", "Raichur", "Ramanagara", "Shivamogga (Shimoga)", "Tumakuru (Tumkur)", "Udupi", "Uttara Kannada (Karwar)", "Vijayapura (Bijapur)", "Yadgir"] },
+        { id: "sublocation", type: "text" },
+        { id: "propertyAddress", type: "text" },
+        { id: "propertyCity", type: "text" },
+        { id: "propertyZipCode", type: "text" },
+        { id: "price", type: "text" },
+        { id: "title", type: "text" },
+        { id: "totalArea", type: "text" },
+      ].map(({ id, type, options }) => (
+        <div className="mb-4" key={id}>
+          <label htmlFor={id} className="block mb-1 text-sm font-medium text-white">{id.replace(/([A-Z])/g, ' $1').trim()}</label>
+          {type === "text" ? (
+            <input
+              type="text"
+              name={id}
+              id={id}
+              value={land[id]}
+              onChange={handleChange}
+              placeholder={id.replace(/([A-Z])/g, ' $1').trim()}
+              className="w-full p-2 border rounded"
+              required
+            />
+          ) : (
+            <select
+              id={id}
+              name={id}
+              value={land[id]}
+              onChange={handleChange}
+              className="w-full p-2 border rounded"
+              required
+            >
+              {options.map((option) => (
+                <option value={option} key={option}>{option}</option>
+              ))}
+            </select>
+          )}
+        </div>
+      ))}
+
+      
+
+      <div className="mb-4">
+        <label htmlFor="propertyAreaUnit" className="block mb-1 text-sm font-medium text-white">Total Area Unit</label>
+        <select
+          id="property_area_unit"
+          name="propertyAreaUnit"
+          value={land.propertyAreaUnit}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          required
+        >
+          <option value="sq. ft.">sq. ft.</option>
+          <option value="sq. m.">sq. m.</option>
+          <option value="sq. yd.">sq. yd.</option>
+          <option value="cent">cent</option>
+          <option value="acre">acre</option>
+          <option value="hectare">hectare</option>
+        </select>
+      </div>
+      <div className="mb-4">
+        <label htmlFor="propertyState" className="block mb-1 text-sm font-medium text-white">Property State</label>
+        <select
+          id="propertyState"
+          name="propertyState"
+          value={land.propertyState}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          required
+        >
+          <option value="Karnataka">Karnataka</option>
+                  <option value="Andhra Pradesh">Andhra Pradesh</option>
+                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                  <option value="Assam">Assam</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Chandigarh">Chandigarh</option>
+                  <option value="Chhattisgarh">Chhattisgarh</option>
+                  <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                  <option value="Daman and Diu">Daman and Diu</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Lakshadweep">Lakshadweep</option>
+                  <option value="Puducherry">Puducherry</option>
+                  <option value="Goa">Goa</option>
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Haryana">Haryana</option>
+                  <option value="Himachal Pradesh">Himachal Pradesh</option>
+                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Kerala">Kerala</option>
+                  <option value="Madhya Pradesh">Madhya Pradesh</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Manipur">Manipur</option>
+                  <option value="Meghalaya">Meghalaya</option>
+                  <option value="Mizoram">Mizoram</option>
+                  <option value="Nagaland">Nagaland</option>
+                  <option value="Odisha">Odisha</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Rajasthan">Rajasthan</option>
+                  <option value="Sikkim">Sikkim</option>
+                  <option value="Tamil Nadu">Tamil Nadu</option>
+                  <option value="Telangana">Telangana</option>
+                  <option value="Tripura">Tripura</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Uttarakhand">Uttarakhand</option>
+                  <option value="West Bengal">West Bengal</option>
+        </select>
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="propertyType" className="block mb-1 text-sm font-medium text-white">Property Type</label>
+        <select
+          id="property_type"
+          name="propertyType"
+          value={land.propertyType}
+          onChange={handleChange}
+          className="w-full p-2 border rounded"
+          required
+        >
+          <option value="" disabled>
                     Select Property Type
                   </option>
                   <option value="Agricultural Land">Agricultural Land</option>
@@ -609,84 +441,59 @@ const LandForm = () => {
                   <option value="Resorts">Resorts</option>
                   <option value="Hotels">Hotels</option>
                   <option value="Others">Others</option>
-                </select>
-                <label htmlFor="totalPrice" className="block mb-1 text-sm font-medium text-gray-900 ">
-                  Total Sale Price / Rent
-                </label>
-                <input
-                  type="text"
-                  name="price"
-                  id="price"
-                  className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  value={land.price}
-                  onChange={handleChange}
-                  placeholder="Price"
-                  required
-                />
-                <label htmlFor="title" className="block mb-1 text-sm font-medium text-gray-900 ">
-                  Title
-                </label>
-                <input
-                  type="text"
-                  name="title"
-                  id="title"
-                  className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  value={land.title}
-                  onChange={handleChange}
-                  placeholder="Title"
-                  required
-                />
-                <label htmlFor="description" className="block mb-1 text-sm font-medium text-gray-900 ">
-                  Description
-                </label>
-                <textarea
-                  name="description"
-                  id="description"
-                  className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  value={land.description}
-                  onChange={handleChange}
-                  placeholder="Description"
-                  required
-                />
-                <label htmlFor="images" className="block mb-1 text-sm font-medium text-gray-900 ">
-                  Upload Images
-                </label>
-                <input
-                  type="file"
-                  name="images"
-                  id="images"
-                  className="bg-gray-50 border mb-3 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  onChange={handleFileChange}
-                  accept="image/*"
-                  multiple
-                  required
-                />
-                <div className="flex items-center mb-3">
-                  <input
-                    id="agreeToTerms"
-                    type="checkbox"
-                    name="agreeToTerms"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                    checked={agreeToTerms}
-                    onChange={() => setAgreeToTerms(!agreeToTerms)}
-                    required
-                  />
-                  <label htmlFor="agreeToTerms" className="ml-2 text-sm font-medium text-gray-900 ">
-                    I agree to the terms and conditions.
-                  </label>
-                </div>
-                {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
-                <button
-                  type="submit"
-                  className="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  Submit
-                </button>
-              </div>
-            </div>
-          </div>
-        </form>
-      )}
+        </select>
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="description" className="block mb-1 text-sm font-medium text-white">Description</label>
+        <textarea
+          name="description"
+          id="description"
+          value={land.description}
+          onChange={handleChange}
+          placeholder="Description"
+          className="w-full p-2 border rounded"
+          required
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="images" className="block mb-1 text-sm font-medium text-white">Upload Images</label>
+        <input
+          type="file"
+          name="images"
+          id="images"
+          onChange={handleFileChange}
+          accept="image/*"
+          className="w-full p-2 border rounded"
+          multiple
+          required
+        />
+      </div>
+
+      <div className="flex items-center mb-4">
+        <input
+          id="agreeToTerms"
+          type="checkbox"
+          name="agreeToTerms"
+          className="h-4 w-4"
+          checked={agreeToTerms}
+          onChange={() => setAgreeToTerms(!agreeToTerms)}
+          required
+        />
+        <label htmlFor="agreeToTerms" className="ml-2 text-sm font-medium text-white">I agree to the terms and conditions.</label>
+      </div>
+      {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
+      <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+        Submit
+      </button>
     </div>
+  </div>
+</form>
+
+      )
+      }
+    </div >
   );
 };
 
