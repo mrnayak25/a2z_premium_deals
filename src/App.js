@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -24,11 +23,12 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/a2z-admin" element={<PrivateRoute element={ManageLands} />}>
           <Route path="/a2z-admin/add" element={<LandForm />} />
-          <Route path="/a2z-admin/" element={<LandList setId={setId} />} />
+          <Route path="/a2z-admin/" element={<LandList setId={setId} setLand={setLand} />} />
           <Route path="/a2z-admin/feedback" element={<FeedbackList />} />
         </Route>
         <Route path="/sellProperty" element={<Sell />} />
         <Route path="/viewproperty" element={<ViewItem id={id} land={land} />} />
+        <Route path="/property" element={<LandList setId={setId} setLand={setLand} />} />
       </Routes>
     </Router>
   );

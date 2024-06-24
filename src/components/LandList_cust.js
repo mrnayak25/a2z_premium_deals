@@ -31,6 +31,14 @@ function LandList(props) {
   }, [location.key]);
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const type = queryParams.get("type");
+    if (type) {
+      setPropertyType(type);
+    }
+  }, [location.search]);
+
+  useEffect(() => {
     filterLands();
   }, [lands, priceRange, sellOrRent, propertyType]);
 
@@ -64,19 +72,21 @@ function LandList(props) {
             id="price"
             className="p-2 border border-gray-300 rounded"
             onChange={(e) => setPriceRange(e.target.value)}
-          ><option value="all" disabled>Price</option>
-            <option value="all">All</option>
-            <option value="0-50000">0-50000</option>
-            <option value="50001-100000">50001-100000</option>
-            <option value="100001-200000">100001-200000</option>
-            <option value="200001-500000">200001-500000</option>
-            <option value="500001-">more</option>
+          ><option value="" disabled>Price</option>
+            <option value="all">All Price Range</option>
+            <option value="0-500000">Below 5 Lakhs</option>
+            <option value="500000-1000000">5 Lakhs to 10 Lakhs</option>
+            <option value="1000000-2000000">10 Lakhs to 20 Lakhs</option>
+            <option value="2000000-5000000">20 Lakhs to 50 Lakhs</option>
+            <option value="5000000-10000000">50 Lakhs to 1 Crore</option>
+            <option value="10000000">Above 1 Crore</option>
           </select>
           <select
             id="sellOrRent"
             className="p-2 border border-gray-300 rounded"
             onChange={(e) => setSellOrRent(e.target.value)}
-          > <option value="all" disabled>Buy | Rent | Lease</option>
+          >
+            <option value="all">Buy | Rent | Lease</option>
             <option value="sell">Buy</option>
             <option value="rent">Rent</option>
             <option value="lease">Lease</option>
@@ -84,43 +94,25 @@ function LandList(props) {
           <select
             id="propertyType"
             className="p-2 border border-gray-300 rounded"
+            value={propertyType}
             onChange={(e) => setPropertyType(e.target.value)}
-          > <option value="" disabled>Property Type</option>
-            <option value="all">All</option>
-            <option value="Agricultural Land">Agricultural Land</option>
-            <option value="Farm Land">Farm Land</option>
-            <option value="Farms">Farms</option>
-            <option value="Residential Apartment">Residential Apartment</option>
-            <option value="Flats">Flats</option>
-            <option value="Independent House">Independent House</option>
-            <option value="Villa">Villa</option>
-            <option value="Residential Land">Residential Land</option>
-            <option value="Residential Layouts">Residential Layouts</option>
-            <option value="Studio Apartment">Studio Apartment</option>
-            <option value="New Projects">New Projects</option>
-            <option value="Commercial Buildings">Commercial Buildings</option>
-            <option value="Business Centers">Business Centers</option>
-            <option value="Office Spaces">Office Spaces</option>
-            <option value="Commercial Land">Commercial Land</option>
-            <option value="Industrial Lands">Industrial Lands</option>
-            <option value="Plots">Plots</option>
-            <option value="Sheds">Sheds</option>
-            <option value="Warehouse">Warehouse</option>
-            <option value="Go Down">Go Down</option>
-            <option value="Rentals">Rentals</option>
-            <option value="Resorts">Resorts</option>
-            <option value="Hotels">Hotels</option>
-            <option value="Others">Others</option>
+          >
+            <option value="all">Property Type</option>
+            <option value="agricultural land">Agricultural Land</option>
+            <option value="commercial land">Commercial Land</option>
+            <option value="commercial buildings">Commercial Buildings</option>
+            <option value="independent house">Independent House</option>
+            <option value="farm land">Farm Land</option>
+            <option value="plots">Plots</option>
+            <option value="residential land">Residential Land</option>
+            <option value="residential layouts">Residential Layouts</option>
           </select>
         </div>
       </div>
-      <hr/><br/>
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap -mx-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredLands.map((land) => (
-            <div key={land.id} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-             <LandItem land={land} setId={props.setId} />
-            </div>
+            <LandItem key={land.id} land={land} />
           ))}
         </div>
       </div>
