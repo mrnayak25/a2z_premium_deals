@@ -4,8 +4,8 @@ import headerImage from '../images/header_image.jpg';
 function Hero() {
   return (
     <div>
-      <div className="relative isolate px-6 pt-0 lg:px-8">
-        <div className="mx-auto max-w-7xl py-20 sm:py-40 lg:py-40">
+      <div className="relative isolate px-2 pt-0 lg:px-8">
+        <div className="mx-auto max-w-7xl py-5 sm:py-40 lg:py-40">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
             A2Z PREMIUM DEALS
           </h1>

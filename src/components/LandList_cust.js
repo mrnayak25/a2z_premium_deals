@@ -1,9 +1,11 @@
+// src/components/LandList.js
 import React, { useEffect, useState } from "react";
 import { ref, onValue } from "firebase/database";
 import { db } from "../firebase";
 import LandItem from "./LandItem_cust";
 import Loading from "./Loading";
 import { useLocation } from "react-router-dom";
+import { useProperty } from './PropertyContext';
 
 function LandList(props) {
   const [lands, setLands] = useState([]);
@@ -11,7 +13,7 @@ function LandList(props) {
   const [loading, setLoading] = useState(true);
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
-  const [propertyType, setPropertyType] = useState("all");
+  const { propertyType, setPropertyType } = useProperty();
 
   const location = useLocation();
 
@@ -72,7 +74,8 @@ function LandList(props) {
             id="price"
             className="p-2 border border-gray-300 rounded"
             onChange={(e) => setPriceRange(e.target.value)}
-          ><option value="" disabled>Price</option>
+          >
+            <option value="" disabled>Price</option>
             <option value="all">All Price Range</option>
             <option value="0-500000">Below 5 Lakhs</option>
             <option value="500000-1000000">5 Lakhs to 10 Lakhs</option>

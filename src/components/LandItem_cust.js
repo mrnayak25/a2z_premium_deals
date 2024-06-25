@@ -1,4 +1,3 @@
-// src/components/LandItem.js
 import React, { useState } from "react";
 import contact from "../images/contact.png";
 import whatsapp from "../images/whatsapp.png";
@@ -7,7 +6,6 @@ import { Link } from "react-router-dom";
 const LandItem = ({ land, setId }) => {
   const [more, setMore] = useState(false);
 
-  // Create the WhatsApp message
   const whatsappMessage = `
 Hi Sir, I am interested in this property which is listed on your jobhunt4u.in website.
 Details:
