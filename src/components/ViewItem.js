@@ -1,5 +1,6 @@
 import React from "react";
 import Carousel from "./Carousel";
+import NavBar from '../components/NavBar'
 
 function ViewItem({ id, land }) {
   const selectedLand = land.find((item) => item.id === id);
@@ -9,7 +10,7 @@ function ViewItem({ id, land }) {
   }
 
   const whatsappMessage = `
-    Hi Sir, I am interested in this property which is listed on your jobhunt4u.in website.
+    Hi Sir, I am interested in this property which is listed on your A2zpremiumdeals.com website.
     Details:
     - Title: ${selectedLand.title}
     - Description: ${selectedLand.description}
@@ -32,55 +33,63 @@ function ViewItem({ id, land }) {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-around animate__animated animate__fadeIn">
-      <div className="lg:w-1/2 p-4">
+    <>
+    <NavBar />
+    <div className="flex flex-col lg:flex-row items-center justify-around animate__animated animate__fadeIn p-6 bg-gray-100 min-h-screen">
+      <div className="w-100 lg:w-1/2 ">
         <Carousel images={selectedLand.imageUrls || []} />
       </div>
-      <div className="lg:w-1/2 p-4 space-y-4 bg-gray-50 shadow-lg rounded-lg transition-all duration-500 ease-in-out transform hover:scale-105">
-        <h1 className="text-3xl font-bold text-gray-800">{selectedLand.title}</h1>
-        <p className="text-gray-600">{selectedLand.description}</p>
-        <div className="flex flex-col">
-          
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">Location:</h5>
-            <p>{selectedLand.location}</p>
+      <div className="w-100 lg:w-1/2 p-4 space-y-6 bg-white shadow-lg rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+        <h1 className="text-2xl font-bold text-gray-800 ">{selectedLand.title}</h1>
+        <p className="text-gray-600 text-lg">{selectedLand.description}</p>
+        <div className="space-y-3">
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">Location:</h5>
+            <p className="text-gray-600">{selectedLand.location}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">Sub-location:</h5>
-            <p>{selectedLand.sublocation}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">Sub-location:</h5>
+            <p className="text-gray-600">{selectedLand.sublocation}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">Address:</h5>
-            <p> {selectedLand.propertyCity}, {selectedLand.propertyState}, {selectedLand.zipCode}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">Address:</h5>
+            <p className="text-gray-600">{selectedLand.propertyCity}, {selectedLand.propertyState}, {selectedLand.zipCode}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">Price:</h5>
-            <p>₹{selectedLand.price}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">Price:</h5>
+            <p className="text-gray-600">₹{selectedLand.price}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">Property Type:</h5>
-            <p>{selectedLand.propertyType}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">Property Type:</h5>
+            <p className="text-gray-600">{selectedLand.propertyType}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">Total Area:</h5>
-            <p>{selectedLand.totalArea} {selectedLand.propertyAreaUnit}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">Total Area:</h5>
+            <p className="text-gray-600">{selectedLand.totalArea} {selectedLand.propertyAreaUnit}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">For Sell or Rent:</h5>
-            <p>{selectedLand.sellOrRent}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">For Sell or Rent:</h5>
+            <p className="text-gray-600">{selectedLand.sellOrRent}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">State: </h5>
-            <p>{selectedLand.state}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">State:</h5>
+            <p className="text-gray-600">{selectedLand.state}</p>
           </div>
-          <div className="flex justify-normal items-center">
-            <h5 className="text-lg font-bold text-gray-700">Zip Code:<n/> </h5>
-            <p>{selectedLand.zipCode}</p>
+          <div className="flex justify-start items-center">
+            <h5 className="text-lg font-bold text-gray-700 w-1/3">Zip Code:</h5>
+            <p className="text-gray-600">{selectedLand.zipCode}</p>
           </div>
         </div>
-        <button onClick={handleWhatsAppClick} className="btn btn-primary transition-transform duration-300 transform hover:scale-110">Contact on WhatsApp</button>
+        <button 
+          onClick={handleWhatsAppClick} 
+          className="mt-4 w-full bg-green-500 text-white py-3 rounded-lg font-bold transition-transform duration-300 transform hover:scale-110 hover:bg-green-600"
+        >
+          Chat on WhatsApp
+        </button>
       </div>
     </div>
+   
+    </>
   );
 }
 
