@@ -1,4 +1,3 @@
-// src/components/Example.js
 import React, { useState } from "react";
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -7,6 +6,7 @@ import logo from '../images/logo_realstate.png';
 import { useProperty } from './PropertyContext';
 
 const navigation = [
+  { name: 'Home', href: './' },
   { name: 'About us', href: '#about' },
   { name: 'Services', href: '#services' },
   { name: 'Contact', href: '#contact' },
@@ -24,7 +24,7 @@ function Example() {
             <div className="flex lg:flex-1">
               <Link to="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">A2Z Premium Deals</span>
-                <img className="h-8 w-auto" src={logo} alt="" />
+                <img className="h-8 w-auto" src={logo} alt="A2Z Premium Deals" />
               </Link>
             </div>
             <div className="flex lg:hidden">
@@ -91,7 +91,7 @@ function Example() {
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Property
+                    Property Available
                   </a>
                   <a href="/sellProperty" className="text-sm font-semibold leading-6 text-gray-900 p-1 outline" onClick={() => setMobileMenuOpen(false)}>
                     Post Your Property <span aria-hidden="true">&rarr;</span>
@@ -102,32 +102,32 @@ function Example() {
           </DialogPanel>
         </Dialog>
       </header>
-      <div className="mt-20">
-        <div className="container bg-white shadow text-black w-100 p-3 rounded-1 font-bold">
-          <ul className="d-flex justify-content-between">
+      <div className="hidden lg:block mt-20">
+        <div className="container bg-white shadow text-black w-full p-3 rounded-lg font-bold ">
+          <ul className="flex flex-wrap justify-between">
             <li className="nav-item">
-              <a className="nav-link" value="agricultural land" onClick={() => setPropertyType("agricultural land")} href="#property">Agricultural Lands</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("agricultural land")} href="#property">Agricultural Lands</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" value="commercial land" onClick={() => setPropertyType("commercial land")} href="#property">Commercial Lands</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("commercial land")} href="#property">Commercial Lands</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" value="commercial buildings" onClick={() => setPropertyType("commercial buildings")} href="#property">Commercial Buildings</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("commercial buildings")} href="#property">Commercial Buildings</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" value="independent house" onClick={() => setPropertyType("independent house")} href="#property">Independent House</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("independent house")} href="#property">Independent House</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" value="farm land" onClick={() => setPropertyType("farm land")} href="#property">Farm Land</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("farm land")} href="#property">Farm Land</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" value="plots" onClick={() => setPropertyType("plots")} href="#property">Plots</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("plots")} href="#property">Plots</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" value="residential land" onClick={() => setPropertyType("residential land")} href="#property">Residential Land</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("residential land")} href="#property">Residential Land</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" value="residential layouts" onClick={() => setPropertyType("residential layouts")} href="#property">Residential Layouts</a>
+              <a className="nav-link cursor-pointer" onClick={() => setPropertyType("residential layouts")} href="#property">Residential Layouts</a>
             </li>
           </ul>
         </div>
