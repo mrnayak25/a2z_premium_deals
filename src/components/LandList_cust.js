@@ -115,7 +115,7 @@ function LandList(props) {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredLands.map((land) => (
-            <LandItem key={land.id} land={land} />
+            <LandItem key={land.id} land={land} setId={props.setId} />
           ))}
         </div>
       </div>
