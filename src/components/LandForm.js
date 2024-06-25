@@ -215,7 +215,7 @@ const LandForm = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map(
                   (field) => (
                     <div className="mb-4" key={field}>

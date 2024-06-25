@@ -24,7 +24,7 @@ Details:
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">For {land.sellOrRent}</button>
           </div>
           <div
-            className="relative overflow-hidden h-64 transition-transform duration-300 transform hover:scale-110"
+            className="relative overflow-hidden h-auto transition-transform duration-300 transform hover:scale-110"
             data-aos="fade-up"
             data-aos-delay="100">
             {land.imageUrls && land.imageUrls.length > 0 && (
