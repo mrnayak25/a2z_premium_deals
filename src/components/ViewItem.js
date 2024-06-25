@@ -36,10 +36,10 @@ function ViewItem({ id, land }) {
     <>
     <NavBar />
     <div className="flex flex-col lg:flex-row items-center justify-around animate__animated animate__fadeIn p-6 bg-gray-100 min-h-screen">
-      <div className="lg:w-1/2 p-4">
+      <div className="w-100 lg:w-1/2 ">
         <Carousel images={selectedLand.imageUrls || []} />
       </div>
-      <div className="lg:w-1/2 p-4 space-y-6 bg-white shadow-lg rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+      <div className="w-100 lg:w-1/2 p-4 space-y-6 bg-white shadow-lg rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
         <h1 className="text-2xl font-bold text-gray-800 ">{selectedLand.title}</h1>
         <p className="text-gray-600 text-lg">{selectedLand.description}</p>
         <div className="space-y-3">

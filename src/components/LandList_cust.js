@@ -69,10 +69,10 @@ function LandList(props) {
         <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex flex-col md:flex-row justify-end space-y-4 md:space-y-0 md:space-x-3">
+        <div className="flex flex-row md:flex-row justify-normal space-y-0  md:space-y-0 space-x-3 overflow-hidden">
           <select
             id="price"
-            className="p-2 border border-gray-300 rounded"
+            className="p-1 border border-gray-300 rounded max-w-32"
             onChange={(e) => setPriceRange(e.target.value)}
           >
             <option value="" disabled>Price</option>
@@ -86,7 +86,7 @@ function LandList(props) {
           </select>
           <select
             id="sellOrRent"
-            className="p-2 border border-gray-300 rounded"
+            className="p-1 border border-gray-300 rounded "
             onChange={(e) => setSellOrRent(e.target.value)}
           >
             <option value="all">Buy | Rent | Lease</option>
@@ -96,11 +96,11 @@ function LandList(props) {
           </select>
           <select
             id="propertyType"
-            className="p-2 border border-gray-300 rounded"
+            className="p-1 border border-gray-300 rounded max-w-40"
             value={propertyType}
             onChange={(e) => setPropertyType(e.target.value)}
           >
-            <option value="all">Property Type</option>
+            <option value="all">All Property Type</option>
             <option value="agricultural land">Agricultural Land</option>
             <option value="commercial land">Commercial Land</option>
             <option value="commercial buildings">Commercial Buildings</option>
@@ -112,8 +112,8 @@ function LandList(props) {
           </select>
         </div>
       </div>
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="container mx-auto px-4 ">
+        <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredLands.map((land) => (
             <LandItem key={land.id} land={land} setId={props.setId} />
           ))}
