@@ -157,7 +157,7 @@ const LandForm = () => {
       ) : (
         <form onSubmit={handleSubmit} className="mt-10 max-w-50 mx-auto p-3 text-black  flex-row justify-center">
           <div className=" rounded-lg p-6">
-            <h1 className="text-white text-center text-2xl font-semibold mb-4">Post Your Property</h1>
+            <h1 className="text-white text-center text-2xl font-semibold mb-4 underline">Post Your Property</h1>
             <p className="text-white text-center mb-6">
               Do you have a property to rent or sell? Use the form below to fill out the details and make a submission.
               We will review the listing and approve it so it can be shown on the website.
