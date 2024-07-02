@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "./Carousel";
-import NavBar from '../components/NavBar'
+import NavBar2 from './NavBar2.js'
 
 function ViewItem({ id, land }) {
   const selectedLand = land.find((item) => item.id === id);
@@ -34,7 +34,9 @@ function ViewItem({ id, land }) {
 
   return (
     <>
-    <NavBar />
+      <NavBar2/>
+      <h1 className="font-bold p-4">Property Details</h1>
+      <hr></hr>
     <div className="flex flex-col lg:flex-row items-center justify-around animate__animated animate__fadeIn p-6 bg-gray-100 min-h-screen">
       <div className="w-100 lg:w-1/2 ">
         <Carousel images={selectedLand.imageUrls || []} />

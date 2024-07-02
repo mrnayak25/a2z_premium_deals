@@ -75,8 +75,8 @@ function LandList(props) {
             className="p-1 border border-gray-300 rounded max-w-32"
             onChange={(e) => setPriceRange(e.target.value)}
           >
-            <option value="" disabled>Price</option>
-            <option value="all">All Price Range</option>
+       
+            <option value="all">All Price</option>
             <option value="0-500000">Below 5 Lakhs</option>
             <option value="500000-1000000">5 Lakhs to 10 Lakhs</option>
             <option value="1000000-2000000">10 Lakhs to 20 Lakhs</option>
