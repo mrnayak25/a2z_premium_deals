@@ -192,16 +192,12 @@ const LandForm = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map(
-                  (field) => (
+                {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map((field) => (
                     <div className="mb-4" key={field}>
                       <label htmlFor={field} className="block mb-1 text-sm font-medium text-black">
                         {field.replace(/([A-Z])/g, " $1").trim()}
                       </label>
-                      <input
-                        type={field === "email" ? "email" : "text"}
-                        name={field}
-                        id={field}
+                      <input type={field === "email" ? "email" : "text" && field === "contactNumber" ? "number":"text"} name={field} id={field}
                         value={land[field]}
                         onChange={handleChange}
                         placeholder={field.replace(/([A-Z])/g, " $1").trim()}
@@ -209,8 +205,7 @@ const LandForm = () => {
                         required
                       />
                     </div>
-                  )
-                )}
+                  ))}
 
               <div className="mb-4 md:col-span-2">
                 <label htmlFor="state" className="block mb-1 text-sm font-medium text-black">
