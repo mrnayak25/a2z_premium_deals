@@ -16,7 +16,7 @@ function NavBar2() {
     return (
         <>
             <div className="bg-white">
-                <header className="absolute inset-x-0 top-0 z-50 h-100">
+                <header className="absolute inset-x-0 top-0 z-50 ">
                     <div className="px-6 pt-6 lg:px-8">
                         <div className="flex items-center justify-between">
                             <div className="flex lg:flex-1">
