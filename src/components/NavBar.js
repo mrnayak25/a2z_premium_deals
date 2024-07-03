@@ -24,7 +24,7 @@ function Example() {
             <div className="flex lg:flex-1">
               <Link to="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">A2Z Premium Deals</span>
-                <img className="h-8 w-auto" src={logo} alt="A2Z Premium Deals" />
+                <img className="h-9 w-auto" src={logo} alt="A2Z Premium Deals" />
               </Link>
             </div>
             <div className="flex lg:hidden">
