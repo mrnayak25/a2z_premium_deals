@@ -157,7 +157,7 @@ const LandForm = () => {
       ) : (
         <form onSubmit={handleSubmit} className="my-10 w-72 md:w-full md:max-w-5xl mx-auto p-6 bg-gray-200 shadow rounded-lg ">
           <div className="rounded-lg p-6">
-            <h1 className="text-black text-center text-2xl font-semibold mb-4 underline">Post Your Property</h1>
+            <h1 className="text-black text-center text-3xl font-bold mb-4">Post Your Property</h1>
             <p className="text-black text-center mb-6">
               Do you have a property to rent or sell? Use the form below to fill out the details and make a submission.
               We will review the listing and approve it so it can be shown on the website.
@@ -193,15 +193,15 @@ const LandForm = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map((field) => (
-                    <div className="mb-4" key={field}>
+                    <div className="mb-2 md:mb-4 " key={field}>
                       <label htmlFor={field} className="block mb-1 text-sm font-medium text-black">
-                        {field.replace(/([A-Z])/g, " $1").trim()}
+                      {field.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase()).trim()}
                       </label>
                       <input type={field === "email" ? "email" : "text" && field === "contactNumber" ? "number":"text"} name={field} id={field}
                         value={land[field]}
                         onChange={handleChange}
                         placeholder={field.replace(/([A-Z])/g, " $1").trim()}
-                        className="w-full p-2 border rounded bg-white text-black"
+                        className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105" 
                         required
                       />
                     </div>
@@ -216,7 +216,7 @@ const LandForm = () => {
                   name="state"
                   value={land.state}
                   onChange={handleChange}
-                  className="w-full p-2 border rounded bg-white text-black"
+                  className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                   required>
                   <option value="Karnataka">Karnataka</option>
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -272,7 +272,7 @@ const LandForm = () => {
                         type="radio"
                         value={option}
                         name="sellOrRent"
-                        className="h-4 w-4 text-blue-600"
+                        className="h-4 w-4 text-blue-600 "
                         checked={land.sellOrRent === option}
                         onChange={handleChange}
                       />
@@ -332,7 +332,7 @@ const LandForm = () => {
               ].map(({ id, type, options }) => (
                 <div className="mb-4" key={id}>
                   <label htmlFor={id} className="block mb-1 text-sm font-medium text-black">
-                    {id.replace(/([A-Z])/g, " $1").trim()}
+                  {id.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase()).trim()}
                   </label>
                   {type === "text" ? (
                     <input
@@ -342,7 +342,7 @@ const LandForm = () => {
                       value={land[id]}
                       onChange={handleChange}
                       placeholder={id.replace(/([A-Z])/g, " $1").trim()}
-                      className="w-full p-2 border rounded bg-white text-black"
+                      className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                       required
                     />
                   ) : (
@@ -351,7 +351,7 @@ const LandForm = () => {
                       name={id}
                       value={land[id]}
                       onChange={handleChange}
-                      className="w-full p-2 border rounded bg-white text-black"
+                      className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                       required>
                       {options.map((option) => (
                         <option value={option} key={option}>
@@ -372,7 +372,7 @@ const LandForm = () => {
                   name="propertyAreaUnit"
                   value={land.propertyAreaUnit}
                   onChange={handleChange}
-                  className="w-full p-2 border rounded bg-white text-black"
+                  className="w-full p-2 border rounded bg-white  text-black ring-2  hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                   required>
                   <option value="sq. ft.">sq. ft.</option>
                   <option value="sq. m.">sq. m.</option>
@@ -391,7 +391,7 @@ const LandForm = () => {
                   name="propertyState"
                   value={land.propertyState}
                   onChange={handleChange}
-                  className="w-full p-2 border rounded bg-white text-black"
+                  className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                   required>
                   <option value="Karnataka">Karnataka</option>
                   <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -441,7 +441,7 @@ const LandForm = () => {
                   name="propertyType"
                   value={land.propertyType}
                   onChange={handleChange}
-                  className="w-full p-2 border rounded bg-white text-black"
+                  className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                   required>
                   <option value="" disabled>
                     Select Property Type
@@ -483,12 +483,12 @@ const LandForm = () => {
                   id="propertyImages"
                   multiple
                   onChange={handleFileChange}
-                  className="w-full p-2 border rounded bg-white text-black"
+                  className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                 />
               </div>
 
               <div className="mb-4 md:col-span-3">
-                <label htmlFor="description" className="block mb-1 text-sm font-medium text-black">
+                <label htmlFor="description" className="block mb-1 text-base font-medium text-black">
                   Description
                 </label>
                 <textarea
@@ -498,7 +498,7 @@ const LandForm = () => {
                   onChange={handleChange}
                   placeholder="Enter a brief description of the property"
                   rows="4"
-                  className="w-full p-2 border rounded bg-white text-black"
+                  className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-95"
                   required
                 />
               </div>

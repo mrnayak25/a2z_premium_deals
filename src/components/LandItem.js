@@ -11,7 +11,8 @@ const LandItemWrapper = styled.div`
 `;
 
 const LandItem = ({ land, deleteLand, editLand,handleStatusChange }) => (
-  <LandItemWrapper className='col-md-4 '>
+  <div className="object-cover transition-transform duration-300 transform hover:scale-105">
+  <div>
     <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
         <div className="absolute top-0 left-0 z-10">
             <button className="text-white bg-green-500 rounded-lg p-2">For {land.sellOrRent}</button>
@@ -55,7 +56,8 @@ const LandItem = ({ land, deleteLand, editLand,handleStatusChange }) => (
             </div>
       </div>
     </div>
-  </LandItemWrapper>
+    </div>
+    </div>
 );
 
 export default LandItem;

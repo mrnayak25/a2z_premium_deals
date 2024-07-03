@@ -99,10 +99,14 @@ const LandList = () => {
     return <Loading />;
   }
   return (
-    <div className="row mx-3 mt-20">
+    <>
+    <div className="container mx-auto px-4 mt-10 ">
+        <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {lands.map((land) => (
         <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land) } handleStatusChange={handleStatusChange} />
       ))}
+      </div>
+      </div>
 
 {isModalOpen && (
       <div className="modal fade show" style={{ display: 'block' }}>
@@ -205,7 +209,7 @@ const LandList = () => {
     </div>
     
       )}
-    </div>
+    </>
   );
 };
 
