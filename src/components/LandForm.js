@@ -155,7 +155,7 @@ const LandForm = () => {
       {loading ? (
         <Loading />
       ) : (
-        <form onSubmit={handleSubmit} className="my-10 max-w-5xl mx-auto p-6 bg-gray-200 shadow rounded-lg ">
+        <form onSubmit={handleSubmit} className="my-10 w-72 md:w-full md:max-w-5xl mx-auto p-6 bg-gray-200 shadow rounded-lg ">
           <div className="rounded-lg p-6">
             <h1 className="text-black text-center text-2xl font-semibold mb-4 underline">Post Your Property</h1>
             <p className="text-black text-center mb-6">
@@ -171,7 +171,7 @@ const LandForm = () => {
                   Is this your property, or are you an agent or builder?
                 </label>
                 <br />
-                <div className="flex justify-between mx-52">
+                <div className="flex justify-between md:mx-52">
                   {["Individual", "Agent", "Builder"].map((type) => (
                     <div className="flex items-center" key={type}>
                       <input
