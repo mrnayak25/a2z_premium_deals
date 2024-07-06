@@ -12,6 +12,7 @@ import LandList from "./components/LandList";
 import FeedbackList from "./components/FeedbackList";
 import ViewItem from "./components/ViewItem";
 import { PropertyProvider } from "./components/PropertyContext";
+import ViewItemOwner from "./components/ViewItem_owner";
 
 function App() {
   const [id, setId] = useState(null);
@@ -28,6 +29,7 @@ function App() {
             <Route path="/a2z-admin/add" element={<LandForm />} />
             <Route path="/a2z-admin/" element={<LandList setId={setId} setLand={setLand} />} />
             <Route path="/a2z-admin/feedback" element={<FeedbackList />} />
+            <Route path="/a2z-admin/viewproperty_owner" element={<ViewItemOwner id={id} land={land} />} />
           </Route>
           <Route path="/sellProperty" element={<Sell />} />
           <Route path="/viewproperty" element={<ViewItem id={id} land={land} />} />
@@ -37,6 +39,5 @@ function App() {
     </PropertyProvider>
   );
 }
-
 
 export default App;

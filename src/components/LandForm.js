@@ -32,7 +32,6 @@ const LandForm = () => {
     status: "pending",
   });
   const [loading, setLoading] = useState(false); // Loading state
-  const [error, setError] = useState("");
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false); // State for success modal
 
@@ -60,7 +59,7 @@ const LandForm = () => {
     e.preventDefault();
 
     if (!agreeToTerms) {
-      setError("You must agree to the terms and conditions.");
+      alert("You must agree to the terms and conditions.");
       return;
     }
     
@@ -135,7 +134,7 @@ const LandForm = () => {
                   status: "pending",
                 });
                 setAgreeToTerms(false);
-                setError("");
+                alert("");
                 setLoading(false);
                 setShowSuccessModal(true); // Show success modal
                 
@@ -145,11 +144,11 @@ const LandForm = () => {
         }
       } catch (error) {
         console.error("Error adding document: ", error);
-        setError("Error adding document");
+        alert("Error adding document");
         setLoading(false);
       }
     } else {
-      setError("Please upload an image.");
+      alert("Please upload an image.");
     }
   };
 

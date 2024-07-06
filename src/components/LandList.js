@@ -4,7 +4,7 @@ import { ref, onValue, update,remove } from 'firebase/database';
 import LandItem from "../components/LandItem";
 import Loading from "../components/Loading";
 
-const LandList = () => {
+const LandList = (props) => {
   const [lands, setLands] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedLand, setSelectedLand] = useState(null);
@@ -44,7 +44,9 @@ const LandList = () => {
       });
       setLands(lands);
       setLoading(false);
+      props.setLand(lands);
     });
+     // eslint-disable-next-line
   }, []);
 
   const editLand = (land) => {
@@ -103,7 +105,7 @@ const LandList = () => {
     <div className="container mx-auto px-4 mt-10 ">
         <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {lands.map((land) => (
-        <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land) } handleStatusChange={handleStatusChange} />
+        <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land) } handleStatusChange={handleStatusChange} setId={props.setId}/>
       ))}
       </div>
       </div>
@@ -129,7 +131,7 @@ const LandList = () => {
               <div className="mb-3">
                 <label htmlFor="price" className="form-label">Price</label>
                 <input type="text" className="form-control" id="price" defaultValue={selectedLand.price} ref={priceRef} />
-              </div>
+              </div> 
               <div className="mb-3">
                 <label htmlFor="ownerName" className="form-label">Owner Name</label>
                 <input type="text" className="form-control" id="ownerName" defaultValue={selectedLand.ownerName} ref={ownerNameRef} />
