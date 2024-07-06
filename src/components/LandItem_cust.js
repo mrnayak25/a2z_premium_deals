@@ -60,7 +60,7 @@ Details:
              <div className="flex bg-green-700 rounded-lg ring-1 ring-green-700 transition-transform duration-300 transform hover:scale-110">
         <button 
           className="btn-outline-success rounded-lg bg-white text-sm p-1 hover:text-green-700 ">
-          Chat on WhatsApp
+           WhatsApp
         </button><img className=" m-1 mx-2 h-7" src={whatsapp} alt="call"/>
         </div>
             </a>

@@ -1,8 +1,8 @@
 import React from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import contact from "../images/contact.png";
-import whatsapp from "../images/whatsapp.png";
+import callpng from '../images/phone.png'
+import whatsapp from '../images/whatsapp_img.png'
 
 
 AOS.init();
@@ -28,7 +28,7 @@ function AboutUs() {
       </div>
       
       <div className="p-6 m-6 bg-gray-100 rounded-lg" id='contact'>
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">Contact Us</h2><br></br>
+        <h2 className="text-4xl font-bold text-center mb-8">Contact Us</h2><br></br>
         <div className="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up">
           <p className="mt-2 text-lg leading-8 text-gray-600">
             <strong>Phone:</strong> <br></br>
@@ -42,10 +42,17 @@ function AboutUs() {
           </p>
           <div className="mt-6 flex justify-center gap-4">
             <a href="tel:+919902331774" >
-            <img className="h-24 w-auto" src={contact} alt="Contact Now" />
+            <div className="flex bg-blue-600 mx-3 rounded-lg ring-1 ring-blue-600 transition-transform duration-300 transform hover:scale-110">
+        <button type="button" class="btn btn-outline-primary rounded-lg  bg-white p-1 hover:text-blue-600 ">Contact Us
+          </button><img className=" m-1 h-7" src={callpng} alt="call"/></div>
             </a>
             <a href="https://wa.me/919902331774?text=Hello%2C%20I%20am%20interested%20in%20your%20real%20estate%20services." target="_blank" rel="noopener noreferrer" >
-            <img className="h-24 w-auto" src={whatsapp} alt="whatsapp" />
+            <div className="flex bg-green-700 rounded-lg ring-1 ring-green-700 transition-transform duration-300 transform hover:scale-110">
+        <button 
+          className="btn btn-outline-success rounded-lg bg-white p-1 hover:text-green-700 ">
+          Chat on WhatsApp
+        </button><img className=" m-1 mx-2 h-7" src={whatsapp} alt="call"/>
+        </div>
 </a>
 
           </div>
