@@ -24,11 +24,12 @@ Details:
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">For {land.sellOrRent}</button>
           </div>
           <div
-            className="relative overflow-hidden h-auto transition-transform duration-300 transform hover:scale-110"
+            className="relative overflow-hidden h-52" // Set fixed height here
             data-aos="fade-up"
-            data-aos-delay="100">
+            data-aos-delay="100"
+          >
             {land.imageUrls && land.imageUrls.length > 0 && (
-              <img src={land.imageUrls[0]} alt="Property1" className="property-image" />
+              <img src={land.imageUrls[0]} alt="Property1" className="h-full w-full object-cover" /> // Ensure the image covers the container
             )}
           </div>
         </Link>
@@ -49,18 +50,18 @@ Details:
           </Link>
           <div className="flex justify-between items-center mt-4">
             <a href="#contact">
-              <div className="flex bg-blue-600 mx-3 rounded-lg p-1 transition-transform duration-300 transform hover:scale-110">
+              <div className="flex bg-blue-600 mx-3 rounded-lg ring-1 ring-blue-600 transition-transform duration-300 transform hover:scale-110">
         <button type="button" class="btn-outline-primary rounded-lg  bg-white p-1 hover:text-blue-600 ">Contact Us
           </button><img className=" m-1 h-7" src={callpng} alt="call"/></div>
             </a>
             <a
               href={`https://wa.me/919902331774?text=${encodeURIComponent(whatsappMessage)}`} >
 
-             <div className="flex bg-green-700 rounded-lg p-1 transition-transform duration-300 transform hover:scale-110">
+             <div className="flex bg-green-700 rounded-lg ring-1 ring-green-700 transition-transform duration-300 transform hover:scale-110">
         <button 
           className="btn-outline-success rounded-lg bg-white text-sm p-1 hover:text-green-700 ">
           Chat on WhatsApp
-        </button><img className=" m-1 mx-1.5 h-7" src={whatsapp} alt="call"/>
+        </button><img className=" m-1 mx-2 h-7" src={whatsapp} alt="call"/>
         </div>
             </a>
            

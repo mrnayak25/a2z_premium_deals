@@ -102,7 +102,7 @@ const LandList = (props) => {
   }
   return (
     <>
-    <div className="container mx-auto px-4 mt-10 ">
+    <div className="container mx-auto px-4 my-10 ">
         <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {lands.map((land) => (
         <LandItem key={land.id} land={land} deleteLand={deleteLand} editLand={() => editLand(land) } handleStatusChange={handleStatusChange} setId={props.setId}/>

@@ -134,7 +134,6 @@ const LandForm = () => {
                   status: "pending",
                 });
                 setAgreeToTerms(false);
-                alert("");
                 setLoading(false);
                 setShowSuccessModal(true); // Show success modal
                 

@@ -14,6 +14,7 @@ function LandList(props) {
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
   const { propertyType, setPropertyType } = useProperty();
+  const [itemsToShow, setItemsToShow] = useState(9);
 
   const location = useLocation();
 
@@ -59,6 +60,10 @@ function LandList(props) {
     props.setLand(filtered); // Update the filtered lands in the parent component if needed
   };
 
+  const handleViewMore = () => {
+    setItemsToShow((prev) => prev + 9);
+  };
+
   if (loading) {
     return <Loading />;
   }
@@ -69,13 +74,12 @@ function LandList(props) {
         <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex flex-row md:flex-row justify-normal space-y-0  md:space-y-0 space-x-3 overflow-hidden">
+        <div className="flex flex-row md:flex-row justify-normal space-y-0 md:space-y-0 space-x-3 overflow-hidden">
           <select
             id="price"
             className="p-1 border border-gray-300 rounded max-w-32"
             onChange={(e) => setPriceRange(e.target.value)}
           >
-       
             <option value="all">All Price</option>
             <option value="0-500000">Below 5 Lakhs</option>
             <option value="500000-1000000">5 Lakhs to 10 Lakhs</option>
@@ -114,10 +118,20 @@ function LandList(props) {
       </div>
       <div className="container mx-auto px-4 ">
         <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-          {filteredLands.map((land) => (
+          {filteredLands.slice(0, itemsToShow).map((land) => (
             <LandItem key={land.id} land={land} setId={props.setId} />
           ))}
         </div>
+        {itemsToShow < filteredLands.length && (
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={handleViewMore}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              View More
+            </button>
+          </div>
+        )}
       </div>
     </>
   );
