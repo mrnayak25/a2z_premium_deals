@@ -58,10 +58,12 @@ const LandForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!agreeToTerms) {
       setError("You must agree to the terms and conditions.");
       return;
     }
+    
     if (land.images.length > 0) {
       setLoading(true);
       try {
@@ -136,6 +138,7 @@ const LandForm = () => {
                 setError("");
                 setLoading(false);
                 setShowSuccessModal(true); // Show success modal
+                
               }
             }
           );
@@ -150,12 +153,33 @@ const LandForm = () => {
     }
   };
 
+  if(showSuccessModal){
+    return(
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold mb-4">Success</h2>
+        <p className="mb-4">Your property has been successfully submitted.</p>
+        <button
+          onClick={() => setShowSuccessModal(false)}
+          className="py-2 px-4 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-200"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+    )
+  }
+
   return (
     <div className="d-flex text-black">
       {loading ? (
+        <div className="mx-auto">
         <Loading />
+        </div>
       ) : (
-        <form onSubmit={handleSubmit} className="my-10 w-72 md:w-full md:max-w-5xl mx-auto p-6 bg-gray-200 shadow rounded-lg ">
+        <form
+          onSubmit={handleSubmit}
+          className="my-10 w-72 md:w-full md:max-w-5xl mx-auto p-6 bg-gray-200 shadow rounded-lg ">
           <div className="rounded-lg p-6">
             <h1 className="text-black text-center text-3xl font-bold mb-4">Post Your Property</h1>
             <p className="text-black text-center mb-6">
@@ -192,99 +216,107 @@ const LandForm = () => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map((field) => (
+                {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map(
+                  (field) => (
                     <div className="mb-2 md:mb-4 " key={field}>
                       <label htmlFor={field} className="block mb-1 text-sm font-medium text-black">
-                      {field.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase()).trim()}
+                        {field
+                          .replace(/([A-Z])/g, " $1")
+                          .replace(/^./, (str) => str.toUpperCase())
+                          .trim()}
                       </label>
-                      <input type={field === "email" ? "email" : "text" && field === "contactNumber" ? "number":"text"} name={field} id={field}
+                      <input
+                        type={field === "email" ? "email" : "text" && field === "contactNumber" ? "number" : "text"}
+                        name={field}
+                        id={field}
                         value={land[field]}
                         onChange={handleChange}
                         placeholder={field.replace(/([A-Z])/g, " $1").trim()}
-                        className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105" 
+                        className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
                         required
                       />
                     </div>
-                  ))}
+                  )
+                )}
 
-              <div className="mb-4 md:col-span-2">
-                <label htmlFor="state" className="block mb-1 text-sm font-medium text-black">
-                  State
-                </label>
-                <select
-                  id="state"
-                  name="state"
-                  value={land.state}
-                  onChange={handleChange}
-                  className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
-                  required>
-                  <option value="Karnataka">Karnataka</option>
-                  <option value="Andhra Pradesh">Andhra Pradesh</option>
-                  <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-                  <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                  <option value="Assam">Assam</option>
-                  <option value="Bihar">Bihar</option>
-                  <option value="Chandigarh">Chandigarh</option>
-                  <option value="Chhattisgarh">Chhattisgarh</option>
-                  <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
-                  <option value="Daman and Diu">Daman and Diu</option>
-                  <option value="Delhi">Delhi</option>
-                  <option value="Lakshadweep">Lakshadweep</option>
-                  <option value="Puducherry">Puducherry</option>
-                  <option value="Goa">Goa</option>
-                  <option value="Gujarat">Gujarat</option>
-                  <option value="Haryana">Haryana</option>
-                  <option value="Himachal Pradesh">Himachal Pradesh</option>
-                  <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                  <option value="Jharkhand">Jharkhand</option>
-                  <option value="Kerala">Kerala</option>
-                  <option value="Madhya Pradesh">Madhya Pradesh</option>
-                  <option value="Maharashtra">Maharashtra</option>
-                  <option value="Manipur">Manipur</option>
-                  <option value="Meghalaya">Meghalaya</option>
-                  <option value="Mizoram">Mizoram</option>
-                  <option value="Nagaland">Nagaland</option>
-                  <option value="Odisha">Odisha</option>
-                  <option value="Punjab">Punjab</option>
-                  <option value="Rajasthan">Rajasthan</option>
-                  <option value="Sikkim">Sikkim</option>
-                  <option value="Tamil Nadu">Tamil Nadu</option>
-                  <option value="Telangana">Telangana</option>
-                  <option value="Tripura">Tripura</option>
-                  <option value="Uttar Pradesh">Uttar Pradesh</option>
-                  <option value="Uttarakhand">Uttarakhand</option>
-                  <option value="West Bengal">West Bengal</option>
-                </select>
+                <div className="mb-4 md:col-span-2">
+                  <label htmlFor="state" className="block mb-1 text-sm font-medium text-black">
+                    State
+                  </label>
+                  <select
+                    id="state"
+                    name="state"
+                    value={land.state}
+                    onChange={handleChange}
+                    className="w-full p-2 border rounded bg-white text-black ring-2 hover:ring-black focus:ring-0 transition-transform duration-300 hover:scale-105"
+                    required>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chandigarh">Chandigarh</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                    <option value="Daman and Diu">Daman and Diu</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Lakshadweep">Lakshadweep</option>
+                    <option value="Puducherry">Puducherry</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                  </select>
+                </div>
               </div>
-            </div>
             </div>
 
             {/* Property Details Section */}
-            <div className="">
-              <h2 className="text-black text-xl font-semibold mb-4">Property Details</h2>
-              <div className="mb-4 md:mx-52">
-                <label className="block mb-2 text-sm font-medium text-black">Is this a sell, rent, or lease?</label>
-                <div className="flex justify-between">
-                  {["SELL", "RENT", "LEASE"].map((option) => (
-                    <div className="flex items-center" key={option}>
-                      <input
-                        id={option}
-                        type="radio"
-                        value={option}
-                        name="sellOrRent"
-                        className="h-4 w-4 text-blue-600 "
-                        checked={land.sellOrRent === option}
-                        onChange={handleChange}
-                      />
-                      <label htmlFor={option} className="ml-2 text-sm font-medium text-black">
-                        {option}
-                      </label>
-                    </div>
-                  ))}
-                </div>
+            <div>
+            <h2 className="text-black text-xl font-semibold mb-4">Property Details</h2>
+            <div className="mb-4 md:mx-52">
+              <label className="block mb-2 text-sm font-medium text-black">Is this a sell, rent, or lease?</label>
+              <div className="flex justify-between">
+                {["SELL", "RENT", "LEASE"].map((option) => (
+                  <div className="flex items-center" key={option}>
+                    <input
+                      id={option}
+                      type="radio"
+                      value={option}
+                      name="sellOrRent"
+                      className="h-4 w-4 text-blue-600 "
+                      checked={land.sellOrRent === option}
+                      onChange={handleChange}
+                    />
+                    <label htmlFor={option} className="ml-2 text-sm font-medium text-black">
+                      {option}
+                    </label>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {[
                 {
                   id: "location",
@@ -332,7 +364,10 @@ const LandForm = () => {
               ].map(({ id, type, options }) => (
                 <div className="mb-4" key={id}>
                   <label htmlFor={id} className="block mb-1 text-sm font-medium text-black">
-                  {id.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase()).trim()}
+                    {id
+                      .replace(/([A-Z])/g, " $1")
+                      .replace(/^./, (str) => str.toUpperCase())
+                      .trim()}
                   </label>
                   {type === "text" ? (
                     <input
@@ -502,30 +537,24 @@ const LandForm = () => {
                   required
                 />
               </div>
-
-             
-              </div>
-
-              <div className="flex items-center mb-4">
-                <input
-                  id="termsConditions"
-                  type="checkbox"
-                  className="h-4 w-4 text-blue-600"
-                  checked={land.termsConditions}
-                  onChange={handleChange}
-                  required
-                />
-                <label htmlFor="termsConditions" className="ml-2 text-sm font-medium text-black">
-                  I agree to the terms and conditions
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="w-52 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-200">
-                Submit
-              </button>
             </div>
+
+            <input
+              id="termsConditions"
+              type="checkbox"
+              className="h-4 w-4 text-blue-600"
+              checked={agreeToTerms}
+              onChange={(e) => setAgreeToTerms(e.target.checked)}
+            />
+            <label htmlFor="termsConditions" className="ml-2 text-sm font-medium text-black">
+              I agree to the terms and conditions
+            </label>
+            </div>
+            <button
+              type="submit"
+              className="w-52 mt-10 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-200">
+              Submit
+            </button>
           </div>
         </form>
       )}
