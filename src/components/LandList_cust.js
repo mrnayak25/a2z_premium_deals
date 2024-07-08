@@ -14,8 +14,7 @@ function LandList(props) {
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
   const { propertyType, setPropertyType } = useProperty();
-  const [itemsToShow, setItemsToShow] = useState(9);
-
+  const [itemsToShow, setItemsToShow] = useState(9); // Initial number of items to display
   const location = useLocation();
 
   useEffect(() => {
@@ -60,13 +59,17 @@ function LandList(props) {
     props.setLand(filtered); // Update the filtered lands in the parent component if needed
   };
 
-  const handleViewMore = () => {
-    setItemsToShow((prev) => prev + 9);
-  };
-
   if (loading) {
     return <Loading />;
   }
+
+  const handleViewMore = () => {
+    setItemsToShow(itemsToShow + 9); // Increment the number of items to show by 9
+  };
+
+  const handleViewLess = () => {
+    setItemsToShow(9); // Reset to initial number of items to show
+  };
 
   return (
     <>
@@ -74,7 +77,7 @@ function LandList(props) {
         <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex flex-row md:flex-row justify-normal space-y-0 md:space-y-0 space-x-3 overflow-hidden">
+        <div className="flex flex-row md:flex-row justify-normal ring-4 rounded-lg p-1  ring-blue-950 space-y-0  md:space-y-0 space-x-3 overflow-hidden">
           <select
             id="price"
             className="p-1 border border-gray-300 rounded max-w-32"
@@ -122,13 +125,23 @@ function LandList(props) {
             <LandItem key={land.id} land={land} setId={props.setId} />
           ))}
         </div>
-        {itemsToShow < filteredLands.length && (
-          <div className="flex justify-center mt-6">
+        {filteredLands.length > itemsToShow && (
+          <div className="flex justify-center mt-4">
             <button
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
               onClick={handleViewMore}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               View More
+            </button>
+          </div>
+        )}
+        {itemsToShow > 9 && (
+          <div className="flex justify-center mt-4">
+            <button
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+              onClick={handleViewLess}
+            >
+              View Less
             </button>
           </div>
         )}
