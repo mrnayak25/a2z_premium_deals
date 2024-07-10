@@ -75,7 +75,7 @@ function AboutUs() {
           <div className="mt-6 flex justify-center gap-4">
             <a href="tel:+919902331774">
               <div className="flex bg-blue-600 mx-3 rounded-lg ring-1 ring-blue-600 transition-transform duration-300 transform hover:scale-110">
-                <button type="button" class="btn btn-outline-primary rounded-lg  bg-white p-1 hover:text-blue-600 ">
+                <button type="button" className="btn btn-outline-primary rounded-lg  bg-white p-1 hover:text-blue-600 ">
                   Contact Us
                 </button>
                 <img className=" m-1 h-7" src={callpng} alt="call" />

@@ -35,7 +35,7 @@ function Carousel({ images }) {
           <button
             key={index}
             type="button"
-            className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-blue-500' : 'bg-white'}`}
+            className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-green-500' : 'bg-white'}`}
             onClick={() => setCurrentSlide(index)}
             aria-current={index === currentSlide}
             aria-label={`Slide ${index + 1}`}
@@ -47,7 +47,7 @@ function Carousel({ images }) {
         className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={prevSlide}
       >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 focus:ring-4 focus:outline-none">
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-green-300/80 group-hover:bg-green-500 focus:ring-4 focus:outline-none">
           <svg
             className="w-4 h-4 text-white group-hover:text-gray-800"
             aria-hidden="true"
@@ -65,7 +65,7 @@ function Carousel({ images }) {
         className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={nextSlide}
       >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 focus:ring-4 focus:outline-none">
+        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-green-300/80 group-hover:bg-green-500 focus:ring-4 focus:outline-none">
           <svg
             className="w-4 h-4 text-white group-hover:text-gray-800"
             aria-hidden="true"
