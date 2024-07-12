@@ -77,7 +77,7 @@ function LandList(props) {
         <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex flex-row md:flex-row justify-normal ring-4 rounded-lg p-1  ring-blue-950 space-y-0  md:space-y-0 space-x-3 overflow-hidden">
+        <div className="flex flex-row md:flex-row justify-normal ring-4 rounded-lg p-1  ring-blue-950/50 px-3 space-y-0  md:space-y-0 space-x-3 overflow-hidden transition-transform duration-400 hover:scale-105">
           <select
             id="price"
             className="p-1 border border-gray-300 rounded max-w-32"
@@ -93,7 +93,7 @@ function LandList(props) {
           </select>
           <select
             id="sellOrRent"
-            className="p-1 border border-gray-300 rounded "
+            className="p-1 border border-gray-300 rounded mx-3 "
             onChange={(e) => setSellOrRent(e.target.value)}
           >
             <option value="all">Buy | Rent | Lease</option>
@@ -119,29 +119,24 @@ function LandList(props) {
           </select>
         </div>
       </div>
-      <div className="container mx-auto px-4 ">
-        <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform">
+        <div className={`grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6`}>
           {filteredLands.slice(0, itemsToShow).map((land) => (
             <LandItem key={land.id} land={land} setId={props.setId} />
           ))}
         </div>
+        <div className=" w-auto h-1 mx-20 mt-4 shadow-xl shadow-green-500 rounded-full bg-green-500 backdrop-blur-sm " data-aos="fade-up" data-aos-delay="200"></div>
         {filteredLands.length > itemsToShow && (
-          <div className="flex justify-center mt-4">
-            <button
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-              onClick={handleViewMore}
-            >
-              View More
+          <div className="flex justify-center">
+            <button className="px-4 py-2 bg-green-500 rounded-b-xl border-t-0 text-white hover:bg-green-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewMore}>
+              <i className="fa-solid fa-angle-down mr-1"></i> View More
             </button>
           </div>
         )}
         {itemsToShow > 9 && (
-          <div className="flex justify-center mt-4">
-            <button
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-              onClick={handleViewLess}
-            >
-              View Less
+          <div className="flex justify-center">
+            <button className="px-4 py-2 bg-green-500 rounded-b-xl border-t-0 text-white hover:bg-green-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewLess}>
+              <i className="fa-solid fa-angle-up mr-1"></i> View Less
             </button>
           </div>
         )}
