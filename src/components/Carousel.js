@@ -26,7 +26,7 @@ function Carousel({ images }) {
             }`}
             style={{ transform: `translateX(${(index - currentSlide) * 100}%)` }}
           >
-            <img src={image} className="block w-full h-full object-cover" alt={`Property Image ${index + 1}`} />
+            <img src={image} className="block w-full h-full object-cover" alt={`Property ${index + 1}`} />
           </div>
         ))}
       </div>

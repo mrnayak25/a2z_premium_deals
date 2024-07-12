@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
-import { ref, onValue, update,remove } from 'firebase/database';
+import { ref, onValue, update } from 'firebase/database';
 import LandItem from "../components/LandItem";
 import Loading from "../components/Loading";
-import ViewItem_owner from "../components/ViewItem_owner";
+//import ViewItem_owner from "../components/ViewItem_owner";
 
 const LandList = (props) => {
   const [lands, setLands] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedLandId, setSelectedLandId] = useState(null);
+ // const [selectedLandId, setSelectedLandId] = useState(null);
 
   useEffect(() => {
     const landRef = ref(db, 'lands');

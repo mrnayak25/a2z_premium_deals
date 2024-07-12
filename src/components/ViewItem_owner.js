@@ -44,9 +44,12 @@ function ViewItem_owner({ id, land, setLands, setSelectedLandId }) {
   };
 
   const deleteLand = async () => {
+    //eslint-disable-next-line no-restricted-globals
+    if(confirm("Are you sure you want to delete it?")){
     await remove(ref(db, `lands/${id}`));
    // setLands(prevLands => prevLands.filter((land) => land.id !== id));
    // setSelectedLandId(null);
+  }
   };
 
   const handleSubmit = async (e) => {
@@ -93,10 +96,10 @@ function ViewItem_owner({ id, land, setLands, setSelectedLandId }) {
        
           <Carousel images={selectedLand.imageUrls || []} />
         </div>
-        <div className="w-100 lg:w-1/2 p-4 space-y-6 bg-white shadow-lg rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-105">
+        <div className="w-100 lg:w-1/2 p-4 space-y-6 transition-transform duration-500 ease-in-out transform hover:scale-100">
           <h1 className="text-2xl font-bold text-gray-800 ">{selectedLand.title}</h1>
           <p className="text-gray-600 text-lg">{selectedLand.description}</p>
-          <div className="absolute top-2 right-2 z-10 flex space-x-2">
+          <div className="absolute top-2 right-2 z-10 flex space-x-4">
         <button onClick={() => editLand()} className="text-white bg-blue-500 p-2 rounded hover:bg-blue-600">
           <FontAwesomeIcon icon={faPenToSquare} />
         </button>
@@ -137,7 +140,7 @@ function ViewItem_owner({ id, land, setLands, setSelectedLandId }) {
               <h5 className="text-lg font-bold text-gray-700 w-1/3">Total Area:</h5>
               <p className="text-gray-600">{selectedLand.totalArea} {selectedLand.propertyAreaUnit}</p>
             </div>
-            <h2 className=" font-semibold whitespace-pre-line text-black bg-blue-400 rounded p-1 m-1">Status :{selectedLand.status}</h2>
+            <h2 className=" font-semibold whitespace-pre-line text-black bg-blue-300 rounded p-1 m-1">Status :{selectedLand.status}</h2>
        
             <div className="flex justify-around">
           <button

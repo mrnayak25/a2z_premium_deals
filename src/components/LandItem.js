@@ -9,7 +9,7 @@ const LandItem = ({ land, deleteLand, editLand, handleStatusChange, setId }) => 
         <button className="text-white bg-green-500 rounded-lg p-2">For {land.sellOrRent}</button>
       </div>
       <Link to="/a2z-admin/viewproperty_owner" onClick={() => setId(land.id)}>
-        <div className="relative overflow-hidden h-64">
+        <div className="relative overflow-hidden h-52">
           {land.imageUrls && land.imageUrls.length > 0 && (
             <img src={land.imageUrls[0]} alt="Property1" className="property-image" />
           )}
@@ -24,7 +24,7 @@ const LandItem = ({ land, deleteLand, editLand, handleStatusChange, setId }) => 
           </div>
           <h5 className="mt-2 text-2xl font-extrabold text-left tracking-tight text-gray-900">{land.title}</h5>
           <p className="text-left whitespace-pre-line text-gray-600">{land.description}</p>
-          <h2 className=" font-semibold whitespace-pre-line text-black bg-blue-400 rounded p-1 m-1">Status :{land.status}</h2>
+          <h2 className=" font-semibold whitespace-pre-line text-black bg-blue-200 rounded p-1 m-1">Status :{land.status}</h2>
         </Link>
         <div className="flex justify-between">
           <button

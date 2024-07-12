@@ -3,7 +3,7 @@ import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo_realstate.png';
-import { useProperty } from './PropertyContext';
+//import { useProperty } from './PropertyContext';
 
 const navigation = [
     { name: 'Home', href: './' },
@@ -11,7 +11,7 @@ const navigation = [
 
 function NavBar2() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const { setPropertyType } = useProperty();
+    // const { setPropertyType } = useProperty();
 
     return (
         <>

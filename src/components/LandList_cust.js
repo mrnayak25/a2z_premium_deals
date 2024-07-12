@@ -38,10 +38,12 @@ function LandList(props) {
     if (type) {
       setPropertyType(type);
     }
+    // eslint-disable-next-line 
   }, [location.search]);
 
   useEffect(() => {
     filterLands();
+// eslint-disable-next-line 
   }, [lands, priceRange, sellOrRent, propertyType]);
 
   const filterLands = () => {
