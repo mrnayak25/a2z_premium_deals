@@ -7,12 +7,13 @@ import Services from '../components/Services';
 import Footer from '../components/Footer';
 import Feedback from '../components/Feedback';
 import Hero from '../components/Hero';
+import '../App.css'
 
 function Home(props)  {
 
   return (
 
-  <div>
+  <div id="home">
     <NavBar />
     <Hero/>
    <LandList setLand={props.setLand} setId={props.setId}/>

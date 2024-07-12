@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+#home{
+  background: rgb(243,244,245);
+  background: radial-gradient(circle, rgba(243,244,245,1) 0%, rgba(252,253,254,1) 19%, rgba(192,210,245,1) 32%, rgba(251,252,253,1) 45%, rgba(201,216,246,1) 56%, rgba(255,255,255,1) 72%, rgba(171,195,242,1) 80%, rgba(236,240,250,1) 86%, rgba(213,221,240,1) 93%, rgba(174,191,227,1) 100%);
+}
 
 .App-logo {
   height: 40vmin;

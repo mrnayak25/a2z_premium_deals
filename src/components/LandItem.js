@@ -1,6 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 // LandItem.js
@@ -9,14 +7,6 @@ const LandItem = ({ land, deleteLand, editLand, handleStatusChange, setId }) => 
     <div className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
         <button className="text-white bg-green-500 rounded-lg p-2">For {land.sellOrRent}</button>
-      </div>
-      <div className="absolute top-2 right-2 z-10 flex space-x-2">
-        <button onClick={() => editLand(land)} className="text-white bg-blue-500 p-2 rounded hover:bg-blue-600">
-          <FontAwesomeIcon icon={faPenToSquare} />
-        </button>
-        <button onClick={() => deleteLand(land.id)} className="text-white bg-red-500 p-2 rounded hover:bg-red-600">
-          <FontAwesomeIcon icon={faTrash} />
-        </button>
       </div>
       <Link to="/a2z-admin/viewproperty_owner" onClick={() => setId(land.id)}>
         <div className="relative overflow-hidden h-64">
