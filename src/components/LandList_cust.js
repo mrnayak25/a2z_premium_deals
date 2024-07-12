@@ -79,7 +79,7 @@ function LandList(props) {
         <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex flex-row md:flex-row justify-normal ring-4 rounded-lg p-1  ring-blue-950/50 px-3 space-y-0  md:space-y-0 space-x-3 overflow-hidden transition-transform duration-400 hover:scale-105">
+        <div className="flex flex-row md:flex-row justify-normal  px-3 space-y-0  md:space-y-0 space-x-3 overflow-hidden transition-transform duration-400 hover:scale-105">
           <select
             id="price"
             className="p-1 border border-gray-300 rounded max-w-32"
@@ -121,7 +121,7 @@ function LandList(props) {
           </select>
         </div>
       </div>
-      <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform">
+      <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform mb-5">
         <div className={`grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6`}>
           {filteredLands.slice(0, itemsToShow).map((land) => (
             <LandItem key={land.id} land={land} setId={props.setId} />
