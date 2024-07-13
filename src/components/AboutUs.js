@@ -43,59 +43,96 @@ function AboutUs() {
         />
       </div>
 
-      <div className="p-6 m-6 bg-gray-100 rounded-lg" id="contact">
-        <h2 className="text-4xl font-bold text-center mb-8">Contact Us</h2>
-        <br></br>
-        <div className="bg-white rounded-lg shadow-lg p-6" data-aos="fade-up">
-          <p className="mt-2 text-lg leading-8 text-gray-600">
-            <strong>Phone:</strong> <br></br>
-            <a href="tel:+919902331774" className="text-black-600 ">
-              {" "}
-              +919902331774
-            </a>
-            ,
-            <a href="tel:+918494972860" className="text-black-600 ">
-              {" "}
-              +918494972860
-            </a>
-            <br />
-            <strong>
-              Contact Person:<br></br>
-            </strong>{" "}
-            Mr. Brayan Alphonso
-            <br />
-            <strong>
-              Address:<br></br>
-            </strong>{" "}
-            Leo Brother's Shopping Complex, Mukamar, Udupi Dist. 574 111, Karnataka, India
-          </p>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
-            "A2Z Premium Deals - Your trusted partner in real estate, serving Karnataka and all over India."
-          </p>
-          <div className="mt-6 flex justify-center gap-4">
-            <a href="tel:+919902331774">
-              <div className="flex bg-blue-600 mx-3 rounded-lg ring-1 ring-blue-600 transition-transform duration-300 transform hover:scale-110">
-                <button type="button" className="btn btn-outline-primary rounded-lg  bg-white p-1 hover:text-blue-600 ">
-                  Contact Us
-                </button>
-                <img className=" m-1 h-7" src={callpng} alt="call" />
+     
+
+
+      <div class="max-w-6xl mx-auto sm:px-6 lg:px-8" id="contact">
+        <div class="mt-8 overflow-hidden">
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="p-6 mr-2 bg-gray-100 dark:bg-gray-800 sm:rounded-lg">
+              <h1 class="text-4xl sm:text-5xl text-gray-800 dark:text-white font-bold tracking-tight">
+                Get in touch
+              </h1>
+              <p class="text-normal text-lg sm:text-2xl font-medium text-gray-600 dark:text-gray-400 mt-2">
+                Fill in the form to start a conversation
+              </p>
+
+              <div class="flex items-center mt-8 text-white dark:text-gray-400">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div class="ml-4 text-md tracking-wide font-semibold w-100">
+                  Leo Brother's Shopping Complex, Mukamar, Udupi Dist. 574 111, Karnataka, India
+                </div>
               </div>
-            </a>
-            <a
-              href="https://wa.me/919902331774?text=Hello%2C%20I%20am%20interested%20in%20your%20real%20estate%20services."
-              target="_blank"
-              rel="noopener noreferrer">
-              <div className="flex bg-green-700 rounded-lg ring-1 ring-green-700 transition-transform duration-300 transform hover:scale-110">
-                <button className="btn btn-outline-success rounded-lg bg-white p-1 hover:text-green-700 ">
-                  Chat on WhatsApp
-                </button>
-                <img className=" m-1 mx-2 h-7" src={whatsapp} alt="call" />
+
+              <div class="flex items-center mt-4 text-white dark:text-gray-400">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-white">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <div class="ml-4 text-md tracking-wide font-semibold w-40">
+                  <a href="tel:+919902331774" className="text-black-600 ">
+                    {" "}
+                    +919902331774
+                  </a>
+
+                  <a href="tel:+918494972860" className="text-black-600 ">
+                    {" "}
+                    +918494972860
+                  </a>
+                </div>
               </div>
-            </a>
+
+              <div class="flex justify-around items-center mt-8 text-gray-600 dark:text-gray-400">
+                <a href="tel:+919902331774">
+                  <div className="flex bg-blue-600 mx-3 rounded-lg ring-1 ring-blue-600 transition-transform duration-300 transform hover:scale-110">
+                    <button type="button" className="btn btn-outline-primary rounded-lg  bg-white p-1 hover:text-blue-600 ">
+                      Contact Us
+                    </button>
+                    <img className=" m-1 h-7" src={callpng} alt="call" />
+                  </div>
+                </a>
+                <a
+                  href="https://wa.me/919902331774?text=Hello%2C%20I%20am%20interested%20in%20your%20real%20estate%20services."
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  <div className="flex bg-green-700 rounded-lg ring-1 ring-green-700 transition-transform duration-300 transform hover:scale-110">
+                    <button className="btn btn-outline-success rounded-lg bg-white p-1 hover:text-green-700 ">
+                      Chat on WhatsApp
+                    </button>
+                    <img className=" m-1 mx-2 h-7" src={whatsapp} alt="call" />
+                  </div>
+                </a>
+              </div>
+
+            </div>
+
+            <form class="p-6 flex flex-col justify-center">
+              <div class="flex flex-col">
+                <label for="name" class="hidden">Full Name</label>
+                <input type="name" name="name" id="name" placeholder="Full Name" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" />
+              </div>
+
+              <div class="flex flex-col mt-2">
+                <label for="email" class="hidden">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" />
+              </div>
+
+              <div class="flex flex-col mt-2">
+                <label for="tel" class="hidden">Number</label>
+                <input type="tel" name="tel" id="tel" placeholder="Telephone Number" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" />
+              </div>
+
+              <button type="submit" class="md:w-32 bg-indigo-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300">
+                Submit
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+
   );
 }
 

@@ -36,6 +36,7 @@ const FeedbackList = () => {
           <div key={feedback.id} className="bg-gray-800 text-white p-4 rounded-lg shadow-lg transition transform hover:scale-105 duration-300">
             <h3 className="text-xl font-bold mb-2">{feedback.name}</h3>
             <p className="mb-2"><strong>Email:</strong> {feedback.email}</p>
+            <p className="mb-2"><strong>Position:</strong> {feedback.job}</p>
             <p className="mb-2"><strong>Message:</strong> {feedback.message}</p>
             <p className="mb-4"><strong>Status:</strong> {feedback.status}</p>
             <div className="flex justify-between">

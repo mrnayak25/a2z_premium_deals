@@ -19,49 +19,50 @@ const Feedback = () => {
     });
   }, []);
 
-  const nextFeedback = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbackData.length);
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % feedbackData.length);
+    }, 5000); // Change slide every 5 seconds
 
-  const prevFeedback = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + feedbackData.length) % feedbackData.length);
-  };
+    return () => clearInterval(interval);
+  }, [feedbackData]);
 
   return (
-    <div className="p-6 m-6 bg-gray-100 rounded-lg items-center">
-    <h1 className="text-3xl font-bold text-center mb-8" data-aos="fade-up">Our Clients Say</h1>
-    <p className="text-center text-gray-700 mb-8" data-aos="fade-up">Here's what our clients have to say about our services.</p>
-    
-    <div className="flex justify-center items-center space-x-4">
-      <button
-        onClick={prevFeedback}
-        className=" text-black text-2xl px-4 py-2 rounded object-cover transition-transform duration-300 transform hover:scale-150"
-      >
-        &lt;
-      </button>
-
-      {feedbackData.length > 0 && (
-        <div className="w-full md:w-2/3 lg:w-1/2">
-          <div className="feedback-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up">
-            <img 
-              src={ 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}
-              alt={feedbackData[currentIndex].name}
-              className="w-24 h-24 object-cover rounded-full mx-auto mb-4"
-            />
-            <h2 className="text-xl font-bold mb-2 text-center">{feedbackData[currentIndex].name}</h2>
-            <p className="text-gray-700 text-center">{feedbackData[currentIndex].message}</p>
-          </div>
+   
+    <div className="flex justify-center items-center mb-7">
+    {feedbackData.length > 0 && (
+      <section className="relative isolate overflow-hidden bg-white w-full max-w-4xl px-6 py-10 sm:py-32 lg:px-8 ">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
+        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+        <div className="mx-auto max-w-2xl lg:max-w-4xl">
+        <h2 class="mb-12 text-center text-2xl text-gray-900 font-bold md:text-4xl">What's our customers say</h2>
+          <figure className="mt-7">
+            <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+              <p>
+                "{feedbackData[currentIndex].message}"
+              </p>
+            </blockquote>
+            <figcaption className="mt-7">
+              <img
+                alt=""
+                src="https://cdn-icons-png.flaticon.com/128/17140/17140038.png"
+                className="mx-auto h-10 w-10 rounded-full"
+              />
+              <div className="mt-4 flex items-center justify-center space-x-3 text-base">
+                <div className="font-semibold text-gray-900">{feedbackData[currentIndex].name}</div>
+                <svg width={3} height={3} viewBox="0 0 2 2" aria-hidden="true" className="fill-gray-900">
+                  <circle r={1} cx={1} cy={1} />
+                </svg>
+                <div className="text-gray-600">{feedbackData[currentIndex].job}</div>
+              </div>
+            </figcaption>
+          </figure>
         </div>
-      )}
-
-      <button
-        onClick={nextFeedback}
-        className=" text-black text-2xl px-4 py-2 rounded object-cover transition-transform duration-300 transform hover:scale-150"
-      >
-        &gt;
-      </button>
-    </div>
+      </section>
+    )}
   </div>
+  
+   
   );
 };
 

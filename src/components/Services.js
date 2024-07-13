@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 const Services = () => {
   return (
-    <div className="p-6 m-6 bg-gray-100 rounded-lg" id='services'>
+    <div className=" skeleton p-6 m-6 bg-gray-100 rounded-lg" id='services'>
       <h1 className="text-3xl font-bold text-center mb-8" data-aos="fade-up">Our Services</h1>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="service-card bg-white rounded-lg shadow-lg p-6" data-aos="fade-up">
         <a href="#property">
-          <img 
+          <img skeleton 
             src="https://m.economictimes.com/thumb/msid-54865485,width-1200,height-900,resizemode-4,imgsize-59263/rely-on-experts-if-buying-real-estate-in-another-city.jpg"
             alt="Buy Property"
             className="w-full h-48 object-cover rounded-lg mb-4"
