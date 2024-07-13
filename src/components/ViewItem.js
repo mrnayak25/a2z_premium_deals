@@ -1,6 +1,5 @@
 import React from "react";
 import Carousel from "./Carousel";
-import NavBar2 from './NavBar2.js'
 import callpng from '../images/phone.png'
 import whatsapp from '../images/whatsapp_img.png'
 import background from '../images/leaves.webp'
