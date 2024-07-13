@@ -19,11 +19,11 @@ const Footer = () => {
   };
 
   return (<>
-    <footer className="footer bg-base-200 text-base-content p-10">
+    <footer className="footer bg-base-200 text-base-content p-3 md:p-10">
   <div className="container mx-auto">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {/* Contact Details */}
-      <aside>
+      <aside className='hidden md:block'>
         <h2 className="footer-title text-xl font-bold mb-4">Contact Us</h2>
         <p>+919902331774</p>
         <p>+918494972860</p><br />
@@ -42,7 +42,7 @@ const Footer = () => {
             <input
               type="text"
               {...register('name', { required: true })}
-              className="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded"
+              className="w-full px-3 py-2 bg-gray-200  border border-gray-600 rounded  focus:border-blue-400"
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">Name is required</p>}
           </div>
@@ -51,7 +51,7 @@ const Footer = () => {
             <input
               type="email"
               {...register('email', { required: true })}
-              className="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded"
+              className="w-full px-3 py-2 bg-gray-200  border border-gray-600 rounded focus:border-blue-400"
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">Email is required</p>}
           </div>
@@ -59,11 +59,11 @@ const Footer = () => {
             <label className="block text-sm font-medium mb-1">Message</label>
             <textarea
               {...register('message', { required: true })}
-              className="w-full px-3 py-2 bg-gray-700 text-white border border-gray-600 rounded"
+              className="w-full px-3 py-2 bg-gray-200  border border-gray-600 rounded  focus:border-blue-400"
             ></textarea>
             {errors.message && <p className="text-red-500 text-sm mt-1">Message is required</p>}
           </div>
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+          <button type="submit" className="btn btn-outline-primary px-4 py-2 rounded">
             Submit
           </button>
         </form>

@@ -43,7 +43,7 @@ function ViewItem({ id, land }) {
 
   return (
     <div styles={{ backgroundImage:`url(${background})`}}>
-      <button className="btn btn-outline-primary absolute top-4 left-6"onClick={handleBack}><i class="fa-solid fa-arrow-left"></i></button>
+      <button className="btn btn-outline-danger absolute top-4 left-6"onClick={handleBack}><i class="fa-solid fa-arrow-left"></i></button>
       <h1 className="font-bold p-4">Property Details</h1>
       <h1 className="text-2xl font-bold text-gray-800 ">{selectedLand.title}</h1>
         <p className="text-gray-600 text-lg">{selectedLand.description}</p>
@@ -92,12 +92,12 @@ function ViewItem({ id, land }) {
           </div>
         </div> <div className="d-flex justify-around ">
           <div className="flex bg-blue-600 mx-3 rounded-lg p-1 transition-transform duration-300 transform hover:scale-110">
-        <button type="button" class="btn btn-outline-primary bg-white font-bold  hover:text-blue-600 ">Contact Us
+        <button type="button" class="btn btn-outline-primary bg-white font-bold text-xs md:text-lg hover:text-blue-600 ">Contact Us
           </button><img className="mx-2 w-7" src={callpng} alt="call"/></div>
        <div className="flex bg-green-700 rounded-lg p-1 transition-transform duration-300 transform hover:scale-110">
         <button 
           onClick={handleWhatsAppClick} 
-          className="btn btn-outline-success bg-white font-bold  hover:text-green-700 ">
+          className="btn btn-outline-success text-xs md:text-lg bg-white font-bold  hover:text-green-700 ">
           Chat on WhatsApp
         </button><img className="mx-2 w-7" src={whatsapp} alt="call"/>
         </div>
