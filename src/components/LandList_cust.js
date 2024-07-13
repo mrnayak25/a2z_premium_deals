@@ -79,10 +79,10 @@ function LandList(props) {
         <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex flex-row md:flex-row justify-normal  px-3 space-y-0  md:space-y-0 space-x-3 overflow-hidden transition-transform duration-400 hover:scale-105">
+        <div className="flex flex-row md:flex-row justify-between  px-3 space-y-0   transition-transform duration-400 hover:scale-105 ">
           <select
             id="price"
-            className="p-1 border border-gray-300 rounded max-w-32"
+            className="p-1 border border-gray-300 rounded max-w-fit"
             onChange={(e) => setPriceRange(e.target.value)}
           >
             <option value="all">All Price</option>
@@ -95,7 +95,7 @@ function LandList(props) {
           </select>
           <select
             id="sellOrRent"
-            className="p-1 border border-gray-300 rounded mx-3 "
+            className="p-1 border border-gray-300 rounded mx-1"
             onChange={(e) => setSellOrRent(e.target.value)}
           >
             <option value="all">Buy | Rent | Lease</option>
