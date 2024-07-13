@@ -177,7 +177,7 @@ const LandForm = () => {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className="my-10 w-72 md:w-full md:max-w-5xl mx-auto p-6 bg-gray-200 shadow rounded-lg ">
+          className="my-10  md:w-full md:max-w-5xl mx-auto p-6 bg-gray-200 shadow rounded-lg ">
           <div className="rounded-lg p-6">
             <h1 className="text-black text-center text-3xl font-bold mb-4">Post Your Property</h1>
             <p className="text-black text-center mb-6">
@@ -186,7 +186,7 @@ const LandForm = () => {
             </p>
 
             {/* Personal Details Section */}
-            <div className="mb-6 ">
+            <div className="mb-4 ">
               <h2 className="text-black text-xl font-semibold mb-4">Personal Details</h2>
               <div className="mb-4">
                 <label className="block mb-2 text-sm font-medium text-black">
@@ -213,7 +213,7 @@ const LandForm = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 {["ownerName", "email", "addressLine1", "addressLine2", "city", "zipCode", "contactNumber"].map(
                   (field) => (
                     <div className="mb-2 md:mb-4 " key={field}>
@@ -314,7 +314,7 @@ const LandForm = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {[
                 {
                   id: "location",
