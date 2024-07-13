@@ -19,8 +19,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer bg-base-200 text-base-content p-3 md:p-10">
-      <div className="container mx-auto">
+    <footer className="footer bg-base-200 text-base-content p-3 md:p-10 shadow" >
+      <div className="container mx-auto" >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Contact Details */}
           <aside className="hidden md:block">
