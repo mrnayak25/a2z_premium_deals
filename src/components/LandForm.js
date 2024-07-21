@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { ref, set, push } from "firebase/database";
 import { ref as storageRef, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../firebase";
-import Loading from "./Loading"; // Import the Loading component
+import Loading from "./Loading";
+import watermark from 'watermarkjs'; // Import watermarkjs
 
 const LandForm = () => {
   const [land, setLand] = useState({
@@ -27,13 +28,13 @@ const LandForm = () => {
     price: "",
     title: "",
     description: "",
-    images: [], // Array to hold selected images
-    imageUrls: [], // Array to hold image download URLs after upload
+    images: [],
+    imageUrls: [],
     status: "pending",
   });
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
   const [agreeToTerms, setAgreeToTerms] = useState(false);
-  const [showSuccessModal, setShowSuccessModal] = useState(false); // State for success modal
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -43,131 +44,125 @@ const LandForm = () => {
   const handleFileChange = (e) => {
     const files = e.target.files;
     const imageArray = [];
-    const allowedTypes = ["image/jpeg", "image/png"]; // Define allowed image types
+    const allowedTypes = ["image/jpeg", "image/png"];
     for (let i = 0; i < files.length; i++) {
       if (allowedTypes.includes(files[i].type)) {
         imageArray.push(files[i]);
       } else {
-        // Handle error for invalid file type (if needed)
         console.warn(`File ${files[i].name} is not a valid image type.`);
       }
     }
     setLand({ ...land, images: imageArray });
   };
 
+  const applyWatermark = async (image) => {
+    return new Promise((resolve, reject) => {
+      watermark([image])
+        .dataUrl(watermark.text.center('A2Z PREMIUM DEALS', 'bold 48px Arial', '#FFF', 0.6))
+        .then((dataUrl) => {
+          resolve(dataUrl);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
+  };
+  
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     if (!agreeToTerms) {
-      alert("You must agree to the terms and conditions.");
+      alert("Please agree to the terms and conditions before submitting.");
       return;
     }
     
-    if (land.images.length > 0) {
-      setLoading(true);
-      try {
-        const imageUrls = [];
-        for (let i = 0; i < land.images.length; i++) {
-          const image = land.images[i];
-          const imageStorageRef = storageRef(storage, `land_images/${image.name}`);
-          const uploadTask = uploadBytesResumable(imageStorageRef, image);
-
+    setLoading(true);
+  
+    try {
+      const dbRef = ref(db, "lands");
+      const newLandRef = push(dbRef);
+      const imageUrls = [];
+      
+      for (const image of land.images) {
+        const watermarkedImage = await applyWatermark(image);
+  
+        const blob = await (await fetch(watermarkedImage)).blob();
+        
+        const storagePath = `land_images/${newLandRef.key}/${image.name}`;
+        const storageReference = storageRef(storage, storagePath);
+        const uploadTask = uploadBytesResumable(storageReference, blob);
+  
+        await new Promise((resolve, reject) => {
           uploadTask.on(
             "state_changed",
-            (snapshot) => {
-              // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              console.log("Upload is " + progress + "% done");
-              switch (snapshot.state) {
-                case "paused":
-                  console.log("Upload is paused");
-                  break;
-                case "running":
-                  console.log("Upload is running");
-                  break;
-                default:
-                  console.log("error");
-              }
-            },
-            (error) => {
-              // Handle unsuccessful uploads
-              console.error("Error during upload:", error);
-            },
+            null,
+            reject,
             async () => {
-              // Handle successful uploads on complete
-              const imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
-              imageUrls.push(imageUrl);
-
-              if (imageUrls.length === land.images.length) {
-                const landData = {
-                  ...land,
-                  imageUrls: imageUrls,
-                };
-
-                const newLandRef = push(ref(db, "lands"));
-                await set(newLandRef, landData);
-                setLand({
-                  ownerType: "Individual",
-                  ownerName: "",
-                  email: "",
-                  addressLine1: "",
-                  addressLine2: "",
-                  city: "",
-                  state: "Karnataka",
-                  zipCode: "",
-                  contactNumber: "",
-                  sellOrRent: "SELL",
-                  isPremium: false,
-                  location: "",
-                  sublocation: "",
-                  propertyAddress: "",
-                  propertyCity: "",
-                  propertyState: "Karnataka",
-                  propertyZipCode: "",
-                  propertyType: "",
-                  totalArea: "",
-                  price: "",
-                  title: "",
-                  description: "",
-                  images: [],
-                  imageUrls: [],
-                  status: "pending",
-                });
-                setAgreeToTerms(false);
-                setLoading(false);
-                setShowSuccessModal(true); // Show success modal
-                
-              }
+              const downloadUrl = await getDownloadURL(uploadTask.snapshot.ref);
+              imageUrls.push(downloadUrl);
+              resolve();
             }
           );
-        }
-      } catch (error) {
-        console.error("Error adding document: ", error);
-        alert("Error adding document");
-        setLoading(false);
+        });
       }
-    } else {
-      alert("Please upload an image.");
+  
+      await set(newLandRef, {
+        ...land,
+        imageUrls,
+      });
+  
+      setLoading(false);
+      setShowSuccessModal(true);
+      setLand({
+        ownerType: "Individual",
+        ownerName: "",
+        email: "",
+        addressLine1: "",
+        addressLine2: "",
+        city: "",
+        state: "Karnataka",
+        zipCode: "",
+        contactNumber: "",
+        sellOrRent: "SELL",
+        location: "",
+        sublocation: "",
+        propertyAddress: "",
+        propertyCity: "",
+        propertyState: "Karnataka",
+        propertyZipCode: "",
+        propertyType: "",
+        totalArea: "",
+        price: "",
+        title: "",
+        description: "",
+        images: [],
+        imageUrls: [],
+        status: "pending",
+      });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      setLoading(false);
     }
   };
+  
 
-  if(showSuccessModal){
-    return(
+  if (showSuccessModal) {
+    return (
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-4">Success</h2>
-        <p className="mb-4">Your property has been successfully submitted.</p>
-        <button
-          onClick={() => setShowSuccessModal(false)}
-          className="py-2 px-4 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-200"
-        >
-          Close
-        </button>
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h2 className="text-2xl font-bold mb-4">Success</h2>
+          <p className="mb-4">Your property has been successfully submitted.</p>
+          <button
+            onClick={() => setShowSuccessModal(false)}
+            className="py-2 px-4 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition duration-200"
+          >
+            Close
+          </button>
+        </div>
       </div>
-    </div>
-    )
+    );
   }
-
   return (
     <div className="d-flex text-black">
       {loading ? (
