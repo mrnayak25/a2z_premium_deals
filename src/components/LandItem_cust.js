@@ -3,7 +3,7 @@ import callpng from '../images/phone.png'
 import whatsapp from '../images/whatsapp_img.png'
 import { Link } from "react-router-dom";
 
-const LandItem = ({ land, setId }) => {
+const LandItem = ({ land, setId ,index }) => {
   const [more, setMore] = useState(false);
 
   const whatsappMessage = `
@@ -20,16 +20,18 @@ Details:
         className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden"
         data-aos="fade-left">
         <Link to="/viewproperty" onClick={() => setId(land.id)}>
-          <div className="absolute top-0.1 left-2 z-10" data-aos="fade-down" data-aos-delay="200">
+        <div className="absolute top-0.1 left-2 z-10" data-aos="fade-down" data-aos-delay="200">
+            <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">{index}</button>
+          </div>
+          <div className="absolute top-0.1 right-2 z-10" data-aos="fade-down" data-aos-delay="200">
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">For {land.sellOrRent}</button>
           </div>
-          <div
-            className="relative overflow-hidden h-52" // Set fixed height here
-            data-aos="fade-up"
-            data-aos-delay="100"
+          <div className="relative overflow-hidden h-52" data-aos="fade-up"  data-aos-delay="100"
           >
             {land.imageUrls && land.imageUrls.length > 0 && (
-              <img src={land.imageUrls[0]} alt="Property1" className="h-full w-full object-cover" /> // Ensure the image covers the container
+              <img src={land.imageUrls[0]} alt="Property1" className="h-full w-full object-cover flex-auto" />
+              //    Ensure the image covers the container 
+              
             )}
           </div>
         </Link>
@@ -42,7 +44,7 @@ Details:
             </div>
             <h5 className="mt-2 text-2xl font-bold text-left tracking-tight text-gray-900">{land.title}</h5>
             <p className="text-left whitespace-pre-line text-gray-600 pr-7">
-              {more ? land.description : land.description.slice(0, 55)}
+              {more ? land.description : land.description.slice(0, 33)}
               <span onClick={() => setMore(!more)} className="text-green-400 cursor-pointer">
                 ...Read {more ? "Less" : "More"}
               </span>

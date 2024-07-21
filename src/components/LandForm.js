@@ -171,7 +171,7 @@ const LandForm = () => {
   return (
     <div className="d-flex text-black">
       {loading ? (
-        <div className="mx-auto">
+        <div className="m-auto">
         <Loading />
         </div>
       ) : (
