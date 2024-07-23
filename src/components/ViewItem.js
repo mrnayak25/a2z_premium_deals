@@ -3,9 +3,10 @@ import Carousel from "./Carousel";
 import callpng from '../images/phone.png'
 import whatsapp from '../images/whatsapp_img.png'
 import background from '../images/leaves.webp'
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useParams } from "react-router-dom";
 
-function ViewItem({ id, land }) {
+function ViewItem({ land }) {
+  const {id}=useParams();
   const selectedLand = land.find((item) => item.id === id);
   const navigate = useNavigate();
 

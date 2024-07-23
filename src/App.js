@@ -32,7 +32,7 @@ function App() {
             <Route path="/a2z-admin/viewproperty_owner" element={<ViewItemOwner id={id} land={land} />} />
           </Route>
           <Route path="/sellProperty" element={<Sell />} />
-          <Route path="/viewproperty" element={<ViewItem id={id} land={land} />} />
+          <Route path="/viewproperty/:id" element={<ViewItem id={id} land={land} />} />
           <Route path="/property" element={<LandList setId={setId} setLand={setLand} />} />
         </Routes>
       </Router>

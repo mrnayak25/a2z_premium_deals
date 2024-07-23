@@ -19,7 +19,7 @@ Details:
       <div
         className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden"
         data-aos="fade-left">
-        <Link to="/viewproperty" onClick={() => setId(land.id)}>
+        <Link to={`/viewproperty/${land.id}`}>
         <div className="absolute top-0.1 left-2 z-10" data-aos="fade-down" data-aos-delay="200">
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">{index}</button>
           </div>
@@ -36,7 +36,7 @@ Details:
           </div>
         </Link>
         <div className="p-4" data-aos="fade-up" data-aos-delay="100">
-          <Link to="/viewproperty" onClick={() => setId(land.id)}>
+          <Link to={`/viewproperty/${land.id}`}>
             <div className="flex justify-around items-center mt-1">
               <p className="font-bold text-left text-green-700 text-2xl">₹{land.price}</p>
               <div className="w-1 h-9 bg-green-400 rounded-lg"></div>
