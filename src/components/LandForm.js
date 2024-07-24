@@ -58,7 +58,7 @@ const LandForm = () => {
   const applyWatermark = async (image) => {
     return new Promise((resolve, reject) => {
       watermark([image])
-        .dataUrl(watermark.text.center('A2Z PREMIUM DEALS', 'bold 48px Arial', '#FFF', 0.6))
+        .dataUrl(watermark.text.center('A2Z PREMIUM DEALS', 'bold 48px Arial', '#FFF', 0.8))
         .then((dataUrl) => {
           resolve(dataUrl);
         })

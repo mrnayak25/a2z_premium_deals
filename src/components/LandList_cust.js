@@ -1,11 +1,10 @@
-// src/components/LandList.js
 import React, { useEffect, useState } from "react";
 import { ref, onValue } from "firebase/database";
 import { db } from "../firebase";
 import LandItem from "./LandItem_cust";
 import Loading from "./Loading";
 import { useLocation } from "react-router-dom";
-import { useProperty } from './PropertyContext';
+import { useProperty } from "./PropertyContext";
 
 function LandList(props) {
   const [lands, setLands] = useState([]);
@@ -43,7 +42,7 @@ function LandList(props) {
 
   useEffect(() => {
     filterLands();
-// eslint-disable-next-line 
+    // eslint-disable-next-line 
   }, [lands, priceRange, sellOrRent, propertyType]);
 
   const filterLands = () => {
@@ -79,7 +78,7 @@ function LandList(props) {
         <h1 id="property" className="text-4xl font-semibold">
           Properties
         </h1>
-        <div className="flex flex-row md:flex-row justify-between  px-3 space-y-0   transition-transform duration-400 hover:scale-105 ">
+        <div className="flex flex-row md:flex-row justify-between px-3 space-y-0 transition-transform duration-400 hover:scale-105">
           <select
             id="price"
             className="p-1 border border-gray-300 rounded max-w-fit"
@@ -124,10 +123,10 @@ function LandList(props) {
       <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform mb-5">
         <div className={`grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6`}>
           {filteredLands.slice(0, itemsToShow).map((land) => (
-            <LandItem key={land.id} land={land} setId={props.setId} index={filteredLands.index(land)} />
+            <LandItem key={land.id} land={land} setId={props.setId} index={filteredLands.indexOf(land)+1} />
           ))}
         </div>
-        <div className=" w-auto h-1 mx-20 mt-4 shadow-xl shadow-green-500 rounded-full bg-green-500 backdrop-blur-sm " data-aos="fade-up" data-aos-delay="200"></div>
+        <div className="w-auto h-1 mx-20 mt-4 shadow-xl shadow-green-500 rounded-full bg-green-500 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200"></div>
         {filteredLands.length > itemsToShow && (
           <div className="flex justify-center">
             <button className="px-4 py-2 bg-green-500 rounded-b-xl border-t-0 text-white hover:bg-green-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewMore}>

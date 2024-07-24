@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import callpng from '../images/phone.png'
 import whatsapp from '../images/whatsapp_img.png'
 import { Link } from "react-router-dom";
+import share from '../images/sharethis-64.png'
 
 const LandItem = ({ land, setId ,index }) => {
   const [more, setMore] = useState(false);
@@ -12,20 +13,45 @@ Details:
 - Title: ${land.title}
 - Description: ${land.description}
 - Price: Rs.${land.price}
+- Url: https://a2zpremiumdeals.com/viewproperty/${land.id}
   `;
+
+  const handleShare = async () => {
+    const shareData = {
+      title: land.title,
+      text: `Check out this property on A2Z PREMIUM DEALS \n Title: ${land.title}\n Description: ${land.description}\n Price: Rs.${land.price}`,
+      url: `https://a2zpremiumdeals.com/viewproperty/${land.id}`,
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+        console.log('Shared successfully');
+      } else {
+        console.log('Web Share API not supported in this browser.');
+        // Fallback to custom share dialog or copy to clipboard
+      }
+    } catch (err) {
+      console.error('Error sharing:', err);
+    }
+  };
 
   return (
     <div className="object-cover transition-transform duration-300 transform hover:scale-105">
       <div
         className="relative max-w-sm bg-white border transition-transform duration-300 transform hover:scale-105 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 overflow-hidden"
         data-aos="fade-left">
-        <Link to={`/viewproperty/${land.id}`}>
+      
         <div className="absolute top-0.1 left-2 z-10" data-aos="fade-down" data-aos-delay="200">
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">{index}</button>
           </div>
           <div className="absolute top-0.1 right-2 z-10" data-aos="fade-down" data-aos-delay="200">
-            <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">For {land.sellOrRent}</button>
+            <button onClick={handleShare} className="text-white bg-blue-700 rounded-b-lg p-2 py-2.5 px-3 font-medium  transition-transform duration-300 hover:scale-110"><img className='h-5' src={share} alt="share"/></button>
           </div>
+          <div className="absolute top-40 right-2 z-10" data-aos="fade-down" data-aos-delay="200">
+            <button className="text-white bg-green-500 rounded-lg p-2 px-3 font-medium">For {land.sellOrRent}</button>
+          </div>
+            <Link to={`/viewproperty/${land.id}`}>
           <div className="relative overflow-hidden h-52" data-aos="fade-up"  data-aos-delay="100"
           >
             {land.imageUrls && land.imageUrls.length > 0 && (
@@ -33,6 +59,7 @@ Details:
               //    Ensure the image covers the container 
               
             )}
+            
           </div>
         </Link>
         <div className="p-4" data-aos="fade-up" data-aos-delay="100">
