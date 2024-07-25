@@ -3,6 +3,8 @@ import callpng from '../images/phone.png'
 import whatsapp from '../images/whatsapp_img.png'
 import { Link } from "react-router-dom";
 import share from '../images/sharethis-64.png'
+import { RWebShare } from "react-web-share";
+
 
 const LandItem = ({ land, setId ,index }) => {
   const [more, setMore] = useState(false);
@@ -13,28 +15,27 @@ Details:
 - Title: ${land.title}
 - Description: ${land.description}
 - Price: Rs.${land.price}
-- Url: https://a2zpremiumdeals.com/viewproperty/${land.id}
-  `;
+- Url: https://a2zpremiumdeals.com/viewproperty/${land.id}`;
 
-  const handleShare = async () => {
-    const shareData = {
-      title: land.title,
-      text: `Check out this property on A2Z PREMIUM DEALS \n Title: ${land.title}\n Description: ${land.description}\n Price: Rs.${land.price}`,
-      url: `https://a2zpremiumdeals.com/viewproperty/${land.id}`,
-    };
+  // const handleShare = async () => {
+  //   const shareData = {
+  //     title: land.title,
+  //     text: `Check out this property on A2Z PREMIUM DEALS \n Title: ${land.title}\n Description: ${land.description}\n Price: Rs.${land.price}`,
+  //     url: `https://a2zpremiumdeals.com/viewproperty/${land.id}`,
+  //   };
 
-    try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-        console.log('Shared successfully');
-      } else {
-        console.log('Web Share API not supported in this browser.');
-        // Fallback to custom share dialog or copy to clipboard
-      }
-    } catch (err) {
-      console.error('Error sharing:', err);
-    }
-  };
+  //   try {
+  //     if (navigator.share) {
+  //       await navigator.share(shareData);
+  //       console.log('Shared successfully');
+  //     } else {
+  //       console.log('Web Share API not supported in this browser.');
+  //       // Fallback to custom share dialog or copy to clipboard
+  //     }
+  //   } catch (err) {
+  //     console.error('Error sharing:', err);
+  //   }
+  // };
 
   return (
     <div className="object-cover transition-transform duration-300 transform hover:scale-105">
@@ -46,7 +47,16 @@ Details:
             <button className="text-white bg-green-500 rounded-b-lg p-2 px-3 font-medium">{index}</button>
           </div>
           <div className="absolute top-0.1 right-2 z-10" data-aos="fade-down" data-aos-delay="200">
-            <button onClick={handleShare} className="text-white bg-blue-700 rounded-b-lg p-2 py-2.5 px-3 font-medium  transition-transform duration-300 hover:scale-110"><img className='h-5' src={share} alt="share"/></button>
+          <RWebShare
+        data={{
+          text: `Check out this property on A2Z PREMIUM DEALS \n Title: ${land.title}\n Description: ${land.description}\n Price: Rs.${land.price}`,
+          url: `https://a2zpremiumdeals.com/viewproperty/${land.id}`,
+          title: land.title,
+        }}
+        onClick={() => console.log("shared successfully!")}
+      >
+            <button className="text-white bg-blue-700 rounded-b-lg p-2 py-2.5 px-3 font-medium  transition-transform duration-300 hover:scale-110"><img className='h-5' src={share} alt="share"/></button>
+          </RWebShare>
           </div>
           <div className="absolute top-40 right-2 z-10" data-aos="fade-down" data-aos-delay="200">
             <button className="text-white bg-green-500 rounded-lg p-2 px-3 font-medium">For {land.sellOrRent}</button>
