@@ -2,6 +2,7 @@ import React from "react";
 import background from "../images/buildings.png";
 import bg1 from "../images/bg_1.png";
 import family from "../images/family_img.png";
+
 //import headerImage from '../images/header_image.jpg';
 
 function Hero() {

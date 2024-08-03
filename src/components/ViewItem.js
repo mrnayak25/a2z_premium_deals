@@ -52,7 +52,7 @@ function ViewItem({ land }) {
         <Carousel images={selectedLand.imageUrls || []} />
       </div>
       <div className="w-100 lg:w-1/2 px-4 space-y-6 ">
-        
+         
         <div className="space-y-3">
           <div className="flex justify-start ">
             <h5 className="text-lg font-bold text-gray-700 mx-3">Location:</h5>
