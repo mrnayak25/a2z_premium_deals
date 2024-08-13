@@ -6,6 +6,7 @@ import ManageLands from "./pages/ManageLands";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import PrivateRoute from "./components/PrivateRoute";
+import"./App.css";
 import Sell from "./components/sellLand";
 import LandForm from "./components/LandForm";
 import LandList from "./components/LandList";

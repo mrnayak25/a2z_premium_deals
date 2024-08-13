@@ -65,20 +65,22 @@ function LandList(props) {
   }
 
   const handleViewMore = () => {
-    setItemsToShow(itemsToShow + 9); // Increment the number of items to show by 9
+    setItemsToShow(itemsToShow + 8); // Increment the number of items to show by 9
   };
 
   const handleViewLess = () => {
-    setItemsToShow(9); // Reset to initial number of items to show
+    setItemsToShow(8); // Reset to initial number of items to show
   };
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-around items-center md:items-end m-7 space-y-4 md:space-y-0">
-        <h1 id="property" className="text-4xl font-semibold">
-          Properties
-        </h1>
-        <div className="flex flex-row md:flex-row justify-between px-3 space-y-0 transition-transform duration-400 hover:scale-105">
+      <div className="flex flex-col md:flex-row justify-between items-center md:items-end m-7 space-y-4 md:space-y-0">
+      {/* <div className="p-4 md:p-8 max-w-[1440px] mx-auto overflow-hidden relative"> */}
+        <div className="flex flex-col ms-10 text-start font-roboto">
+          <span className="text-orange-500">Best Choices</span>
+          <span className="text-2xl text-sky-900 font-semibold">Popular Properties</span>
+        </div>
+        <div className="flex flex-row me-2 md:flex-row justify-between px-3 space-y-0 transition-transform duration-400 hover:scale-105">
           <select
             id="price"
             className="p-1 border border-gray-300 rounded max-w-fit"
@@ -121,22 +123,22 @@ function LandList(props) {
         </div>
       </div>
       <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform mb-5">
-        <div className={`grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6`}>
+        <div className={`grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6`}>
           {filteredLands.slice(0, itemsToShow).map((land) => (
             <LandItem key={land.id} land={land} setId={props.setId} index={filteredLands.indexOf(land)+1} />
           ))}
         </div>
-        <div className="w-auto h-1 mx-20 mt-4 shadow-xl shadow-green-500 rounded-full bg-green-500 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200"></div>
+        <div className="w-auto h-1 mx-20 mt-4 shadow-xl shadow-orange-400 rounded-full bg-orange-500 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200"></div>
         {filteredLands.length > itemsToShow && (
           <div className="flex justify-center">
-            <button className="px-4 py-2 bg-green-500 rounded-b-xl border-t-0 text-white hover:bg-green-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewMore}>
+            <button className="px-4 py-2 bg-orange-500 rounded-b-xl border-t-0 text-white hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewMore}>
               <i className="fa-solid fa-angle-down mr-1"></i> View More
             </button>
           </div>
         )}
         {itemsToShow > 9 && (
           <div className="flex justify-center">
-            <button className="px-4 py-2 bg-green-500 rounded-b-xl border-t-0 text-white hover:bg-green-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewLess}>
+            <button className="px-4 py-2 bg-orange-500 rounded-b-xl border-t-0 text-white hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewLess}>
               <i className="fa-solid fa-angle-up mr-1"></i> View Less
             </button>
           </div>
