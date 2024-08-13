@@ -6,7 +6,7 @@ import { FaHandshake } from "react-icons/fa";
 
 const Services = () => {
   return (
-    <div className="w-11/12 m-auto flex flex-col md:flex-row justify-between items-center md:space-x-10 space-y-10 md:space-y-0 py-10">
+    <div id="services" className="w-11/12 m-auto flex flex-col md:flex-row justify-between items-center md:space-x-10 space-y-10 md:space-y-0 py-10">
     {/* right side */}
     <div className=" flex space-x-4 md:space-x-10">
       <div className="mt-10 space-y-4">
@@ -47,7 +47,7 @@ const Services = () => {
     {/* left side */}
     <div className=" w-1/2 md:1/2 space-y-5">
       <h1 className="text-6xl font-bold">
-        Know <span className=" text-orange-600">ur Services</span>
+        Know <span className=" text-orange-600">Our Services</span>
       </h1>
       <p className="  text-gray-500">
         We are a leading Real Estate company, specializing in property sales,
