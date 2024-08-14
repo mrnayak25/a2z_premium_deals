@@ -9,6 +9,8 @@ import Feedback from "../components/Feedback";
 import Hero from "../components/Hero";
 import Header from "../components/Header";
 import "../App.css";
+import Value from "../components/Value";
+import Contact from "../components/Contact";
 
 function Home(props) {
   return (
@@ -19,7 +21,9 @@ function Home(props) {
           <Hero />
       </div>
       <LandList setLand={props.setLand} setId={props.setId} />
-      <AboutUs />
+      {/* <AboutUs /> */}
+      <Value/>
+      <Contact/>
       <Services />
       <Feedback />
       <Footer />
