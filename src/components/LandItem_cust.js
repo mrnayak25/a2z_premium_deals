@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import callpng from "../images/phone.png";
-import whatsapp from "../images/whatsapp_img.png";
+import React from "react";
+// import callpng from "../images/phone.png"; { useState }
+// import whatsapp from "../images/whatsapp_img.png";
 import { Link } from "react-router-dom";
 import share from "../images/sharethis-64.png";
 import { RWebShare } from "react-web-share";
 
 const LandItem = ({ land, setId, index }) => {
-  const [more, setMore] = useState(false);
+ // const [more, setMore] = useState(false);
 
-  const whatsappMessage = `
-Hi Sir, I am interested in this property which is listed on your jobhunt4u.in website.
-Details:
-- Title: ${land.title}
-- Description: ${land.description}
-- Price: Rs.${land.price}
-- Url: https://a2zpremiumdeals.com/viewproperty/${land.id}`;
+//   const whatsappMessage = `
+// Hi Sir, I am interested in this property which is listed on your jobhunt4u.in website.
+// Details:
+// - Title: ${land.title}
+// - Description: ${land.description}
+// - Price: Rs.${land.price}
+// - Url: https://a2zpremiumdeals.com/viewproperty/${land.id}`;
 
   // const handleShare = async () => {
   //   const shareData = {

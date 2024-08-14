@@ -23,7 +23,7 @@ const Hero = () => {
               className="font-semibold text-[3.8rem] leading-[4rem] lg:text-[3rem] lg:leading-[3.5rem] sm:text-[2.5rem] sm:leading-[3rem]"
             >
               Discover
-              <br /><span class="bg-gradient-to-r from-yellow-200 via-white to-blue-200 bg-clip-text text-transparent animate-gradient">Most Suitable</span>
+              <br /><span className="bg-gradient-to-r from-yellow-200 via-white to-blue-200 bg-clip-text text-transparent animate-gradient">Most Suitable</span>
               <br /> Property
             </motion.h1>
           </div>
