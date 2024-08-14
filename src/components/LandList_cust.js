@@ -14,7 +14,8 @@ function LandList(props) {
   const [sellOrRent, setSellOrRent] = useState("all");
   const { propertyType, setPropertyType } = useProperty();
   const [itemsToShow, setItemsToShow] = useState(9); // Initial number of items to display
-  const location = useLocation();
+  const loc = useLocation();
+  const [isRotated,setIsRotated]=useState(false);
 
   useEffect(() => {
     const landsRef = ref(db, "lands");
@@ -29,21 +30,21 @@ function LandList(props) {
       setLands(loadedLands);
       setLoading(false);
     });
-  }, [location.key]);
+  }, [loc.key]);
 
   useEffect(() => {
-    const queryParams = new URLSearchParams(location.search);
+    const queryParams = new URLSearchParams(loc.search);
     const type = queryParams.get("type");
     if (type) {
       setPropertyType(type);
     }
     // eslint-disable-next-line 
-  }, [location.search]);
+  }, [loc.search]);
 
   useEffect(() => {
     filterLands();
     // eslint-disable-next-line 
-  }, [lands, priceRange, sellOrRent, propertyType]);
+  }, [lands, priceRange, sellOrRent, propertyType,props.location]);
 
   const filterLands = () => {
     const filtered = lands.filter((land) => {
@@ -53,7 +54,8 @@ function LandList(props) {
         price >= minPrice &&
         (maxPrice ? price <= maxPrice : true) &&
         (sellOrRent === "all" || land.sellOrRent.toLowerCase() === sellOrRent.toLowerCase()) &&
-        (propertyType === "all" || land.propertyType.toLowerCase() === propertyType.toLowerCase())
+        (propertyType === "all" || land.propertyType.toLowerCase() === propertyType.toLowerCase())&&
+        (props.location === "" || land.location.toLowerCase().includes(props.location.toLowerCase())) // Filter by location
       );
     });
     setFilteredLands(filtered);
@@ -77,9 +79,10 @@ function LandList(props) {
       <div className="flex flex-col md:flex-row justify-between items-center md:items-end m-7 space-y-4 md:space-y-0">
       {/* <div className="p-4 md:p-8 max-w-[1440px] mx-auto overflow-hidden relative"> */}
         <div className="flex flex-col ms-10 text-start font-roboto">
-          <span className="text-orange-500">Best Choices</span>
-          <span className="text-2xl text-sky-900 font-semibold">Popular Properties</span>
+          <span className="text-xl text-orange-500">Best Choices</span>
+          <span className="text-4xl text-sky-900 font-semibold">Popular Properties</span>
         </div>
+        <div className="flex justify-center items-center text-center">
         <div className="flex flex-row me-2 md:flex-row justify-between px-3 space-y-0 transition-transform duration-400 hover:scale-105">
           <select
             id="price"
@@ -120,6 +123,22 @@ function LandList(props) {
             <option value="residential land">Residential Land</option>
             <option value="residential layouts">Residential Layouts</option>
           </select>
+        </div>
+        <i
+  className={`fa-solid fa-arrows-rotate text-xl text-orange-500 mx-4 font-bold transition-transform duration-500 ease-in-out ${
+    isRotated ? 'rotate-360' : ''
+  }`}
+  onClick={() => {
+    props.setLocation("");
+    setFilteredLands(lands);
+    setIsRotated(true);
+    setPriceRange("all");
+    setSellOrRent("all");
+    setPropertyType("all");
+    setTimeout(() => setIsRotated(false), 500); // Reset rotation after animation
+  }}
+></i>
+
         </div>
       </div>
       <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform mb-5">

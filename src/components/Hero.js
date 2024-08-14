@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { HiLocationMarker } from "react-icons/hi";
 import CountUp from "react-countup";
 import { motion } from 'framer-motion';
 import image from '../images/hero-image.png';
 
-const Hero = () => {
+const Hero = ({ setLocation,location }) => {
+  const [inputValue, setInputValue] = useState("");
+  useEffect(()=>{
+    setInputValue(location)
+  },[location]);
+
+  const handleSearch = () => {
+    setLocation(inputValue); // Set the location state in the parent component
+  };
   return (
     <section className="text-white relative pb-8 z-10">
       <div className="flex justify-around items-end p-8 w-full mx-auto max-w-[1440px]">
@@ -41,9 +49,16 @@ const Hero = () => {
               type="text" 
               className="border-none outline-none w-full px-2 text-black"
               placeholder="Enter location"
+              value={inputValue} // Bind input value to state
+              onChange={(e) => setInputValue(e.target.value)} // Update state on input change
             />
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg">Search</button>
-          </div>
+            <button 
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg"
+              onClick={handleSearch} // Call handleSearch on button click
+            >
+              Search
+            </button>
+            </div>
 
           <div className="flex justify-between space-x-8 w-full">
             <div className="flex flex-col items-center text-center">

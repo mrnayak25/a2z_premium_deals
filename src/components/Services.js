@@ -8,7 +8,7 @@ const Services = () => {
     <div className="flex flex-col md:flex-row justify-center items-center py-8 px-4">
       {/* left side */}
       <div className="w-full md:w-1/2 flex flex-col justify-end items-end text-end md:text-left space-y-5">
-        <h1 className="text-4xl md:text-6xl font-bold text-end">
+        <h1 className="text-3xl md:text-5xl font-bold text-end">
           Know <span className="text-orange-600">Our Services</span>
         </h1>
         <p className="text-gray-500 text-sm md:text-base pe-4">
