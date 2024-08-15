@@ -46,40 +46,40 @@ function Contact() {
               </div>
 
               {/* --- Second Row --- */}
-              <div className="flex flex-col  gap-6">
-                {/* -- WhatsApp Chat -- */}
-                <div className="items-center w-full md:w-96 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
-                  <div className="flex items-center gap-4">
-                    <div className="p-2 bg-gray-200 text-orange-500 rounded-md">
-                      <BsWhatsapp size={25} />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-lg font-semibold">Chat on WhatsApp</span>
-                      <span className="text-gray-500">
-                        <a
-                          href="https://wa.me/919902331774?text=Hello%2C%20I%20need%20more%20info%20about%20A2Z%20Premium%20Deals..."
-                          className="text-gray-500 hover:text-green-500"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Brayan Alphonso: +91 9902331774
-                        </a>
-                      </span>
-                      <span className="text-gray-500">
-                        <a
-                          href="https://wa.me/918494972860?text=Hello%2C%20I%20need%20more%20info%20about%20A2Z%20Premium%20Deals..."
-                          className="text-gray-500 hover:text-green-500"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          A2Z Office: +91 8494972860
-                        </a>
-                      </span>
-                    </div>
 
+              {/* -- WhatsApp Chat -- */}
+              <div className="items-center w-full md:w-96 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="p-2 bg-gray-200 text-orange-500 rounded-md">
+                    <BsWhatsapp size={25} />
                   </div>
+                  <div className="flex flex-col">
+                    <span className="text-lg font-semibold">Chat on WhatsApp</span>
+                    <span className="text-gray-500">
+                      <a
+                        href="https://wa.me/919902331774?text=Hello%2C%20I%20need%20more%20info%20about%20A2Z%20Premium%20Deals..."
+                        className="text-gray-500 hover:text-green-500"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Brayan Alphonso: +91 9902331774
+                      </a>
+                    </span>
+                    <span className="text-gray-500">
+                      <a
+                        href="https://wa.me/918494972860?text=Hello%2C%20I%20need%20more%20info%20about%20A2Z%20Premium%20Deals..."
+                        className="text-gray-500 hover:text-green-500"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        A2Z Office: +91 8494972860
+                      </a>
+                    </span>
+                  </div>
+
                 </div>
               </div>
+
 
               {/* -- Address -- */}
               <div className="items-center w-full md:w-96 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
