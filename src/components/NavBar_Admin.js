@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { Dialog, DialogPanel } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../images/logo_realstate.png';
@@ -13,7 +11,7 @@ export default function Example() {
 
   const handleLogout = async () => {
     try {
-      // eslint-disable-next-line no-restricted-globals
+     // eslint-disable-next-line no-restricted-globals
       var conf = confirm("Are you sure you want to log out?");
       if (conf === true) {
         await logout();
@@ -45,7 +43,7 @@ export default function Example() {
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+              <i className="fa-solid fa-bars h-6 w-6" aria-hidden="true"></i>
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
@@ -68,9 +66,8 @@ export default function Example() {
             />
           </div>
         </nav>
-        <Dialog className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-          <div className="fixed inset-0 z-50" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        {mobileMenuOpen && (
+          <div className="fixed inset-0 z-50 bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <Link to="/" className="-m-1.5 p-1.5" onClick={handleMobileLinkClick}>
                 <span className="sr-only">A2Z Premium Deals</span>
@@ -82,7 +79,7 @@ export default function Example() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                <i className="fa-solid fa-x h-6 w-6" aria-hidden="true"></i>
               </button>
             </div>
             <div className="mt-6 flow-root">
@@ -104,16 +101,16 @@ export default function Example() {
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     onClick={() => { handleMobileLinkClick(); setMobileMenuOpen(false); }}
                   >
-                    A2z Premium Deals
+                    A2Z Premium Deals
                   </a>
                 </div>
               </div>
             </div>
-          </DialogPanel>
-        </Dialog>
+          </div>
+        )}
       </header>
-      
-      <footer className="fixed bottom-0 left-0 z-10 w-full text-center  bg-black text-white">
+
+      <footer className="fixed bottom-0 left-0 z-10 w-full text-center bg-black text-white">
         Build By SVVAAP Team
       </footer>
     </div>

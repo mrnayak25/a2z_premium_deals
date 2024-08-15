@@ -76,7 +76,7 @@ function LandList(props) {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-end m-7 space-y-4 md:space-y-0">
+      <div id="properties" className="flex flex-col md:flex-row justify-between items-center md:items-end m-7 space-y-4 md:space-y-0">
       {/* <div className="p-4 md:p-8 max-w-[1440px] mx-auto overflow-hidden relative"> */}
         <div className="flex flex-col ms-10 text-start font-roboto">
           <span className="text-xl text-orange-500">Best Choices</span>
