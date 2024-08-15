@@ -27,35 +27,39 @@ const Services = () => {
       {/* right side */}
       <div className="w-full md:w-1/2 flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:space-x-10">
         <div className="space-y-4">
-          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5 drop-shadow-2xl rounded-md">
+          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5 drop-shadow-2xl rounded-md transition-transform duration-200 hover:scale-105">
+            <a href='.'>
             <MdHomeRepairService size={"1.8rem"} />
             <h1 className="text-lg md:text-xl font-bold">Buy Property</h1>
             <p className="text-xs">
               Find your dream home with our extensive listings. We provide personalized assistance to ensure you get the best deals on premium properties.
-            </p>
+            </p></a>
           </div>
-          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5  drop-shadow-2xl rounded-md">
-            <FaHandshake size={"1.8rem"} />
+          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5  drop-shadow-2xl rounded-md transition-transform duration-200 hover:scale-105">
+          <a href='.'><FaHandshake size={"1.8rem"} />
             <h1 className="text-lg md:text-xl font-bold">Rent Property</h1>
             <p className="text-xs">
               Explore a wide range of rental properties that suit your lifestyle and budget. We make renting easy and hassle-free.
-            </p>
+            </p></a>
           </div>
         </div>
         <div className="space-y-4">
-          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5 drop-shadow-2xl rounded-md">
+          
+          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5 drop-shadow-2xl rounded-md transition-transform duration-200 hover:scale-105">
+            <a href='/sellProperty'>
           <i class="fa-solid fa-indian-rupee-sign text-2xl"></i>
             <h1 className="text-lg md:text-xl font-bold">Sell Property</h1>
             <p className="text-xs">
               Get the best value for your property with our expert selling services. We provide comprehensive support from listing to closing the deal.
-            </p>
+            </p></a>
           </div>
-          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5 drop-shadow-2xl rounded-md">
+          <div className="w-full md:w-48 flex flex-col items-center bg-white text-center p-3 py-5 drop-shadow-2xl rounded-md transition-transform duration-200 hover:scale-105">
+            <a href="/.">
             <GiHouseKeys size={"1.8rem"} />
             <h1 className="text-lg md:text-xl font-bold">Lease Property</h1>
             <p className="text-xs">
               Our company prides itself on timely delivery, ensuring prompt and efficient service to our customers.
-            </p>
+            </p></a>
           </div>
         </div>
       </div>

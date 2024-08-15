@@ -125,7 +125,7 @@ function LandList(props) {
           </select>
         </div>
         <i
-  className={`fa-solid fa-arrows-rotate text-xl text-orange-500 mx-4 font-bold transition-transform duration-500 ease-in-out ${
+  className={`fa-solid fa-arrows-rotate text-xl text-orange-500 mx-4 font-bold transition-transform duration-500 ease-in-out hover:rotate-360 ${
     isRotated ? 'rotate-360' : ''
   }`}
   onClick={() => {

@@ -21,7 +21,7 @@ const Header = () => {
   ];
 
   return (
-    <section className="text-white z-[99]">
+    <section className="text-white z-[99]" id=".">
       <div className="flex justify-between items-center py-4 px-8">
         <img src={logo} alt="logo" width={50} />
 
