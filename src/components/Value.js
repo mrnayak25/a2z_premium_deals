@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HiShieldCheck } from "react-icons/hi";
+import { HiShieldCheck ,HiDocument, HiOfficeBuilding} from "react-icons/hi";
 import { MdCancel, MdAnalytics, MdOutlineArrowDropDown } from "react-icons/md";
 import image from "../images/value.png";
 
@@ -10,26 +10,29 @@ function Value() {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-  const data = [
-    {
-      icon: <HiShieldCheck />,
-      heading: "Best interest rates on the market",
-      detail:
-        "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
-    },
-    {
-      icon: <MdCancel />,
-      heading: "Prevent unstable prices",
-      detail:
-        "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
-    },
-    {
-      icon: <MdAnalytics />,
-      heading: "Best price on the market",
-      detail:
-        "Exercitation in fugiat est ut ad ea cupidatat ut in cupidatat occaecat ut occaecat consequat est minim minim esse tempor laborum consequat esse adipisicing eu reprehenderit enim.",
-    },
-  ];
+  
+
+const data = [
+  {
+    icon: <HiShieldCheck />, // Existing icon for security
+    heading: "Secure and Trusted",
+    detail:
+      "We prioritize your safety and ensure that all transactions are secure and reliable. Trust us to handle all aspects with integrity and professionalism.",
+  },
+  {
+    icon: <HiDocument />, // New icon for paperwork
+    heading: "We Will Handle All the Government Paperwork",
+    detail:
+      "Navigating through government paperwork can be daunting. We take care of all the necessary documentation and legalities for you, making the process smooth and hassle-free.",
+  },
+  {
+    icon: <HiOfficeBuilding />, // New icon for property management
+    heading: "Expert Property Management",
+    detail:
+      "Our experienced team will manage all aspects of property transactions, from buying and selling to leasing. We ensure a seamless experience with our expertise in property management.",
+  },
+];
+
 
   return (
     <>
@@ -59,7 +62,7 @@ function Value() {
           {/* --- Right Side ---*/}
           <div className="flex flex-col gap-3 w-full md:w-1/2">
             <div>
-              <span className="text-orange-500">Our Value</span><br />
+              <span className="text-orange-500 text-xl">Our Value</span><br />
               <span className="text-2xl font-bold text-gray-800">Value We Give to You</span>
             </div>
             <span className="text-gray-600">
