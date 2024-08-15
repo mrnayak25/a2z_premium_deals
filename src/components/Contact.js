@@ -6,7 +6,7 @@ import image from "../images/contact.jpg";
 
 function Contact() {
   return (
-    <section id="contact-us" className="py-12">
+    <section id="contact" className="py-12">
       <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-6xl mx-auto gap-8 px-4">
         {/* --- Left Side --- */}
         <div className="flex flex-col gap-2 md:w-1/2">

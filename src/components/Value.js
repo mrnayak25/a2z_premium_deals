@@ -32,11 +32,25 @@ function Value() {
   ];
 
   return (
+    <>
+     <div className="p-6" id="about">
+      <h1 className="text-4xl font-bold text-center mb-8">About Us</h1>
+      <div className="mb-8">
+        <p className="text-lg text-gray-700 mb-4" data-aos="fade-in">
+          Welcome to A2Z Premium Deals, your ultimate destination for premium property transactions. We connect you with
+          dream homes and prime investment opportunities with a focus on customer satisfaction and personalized service.
+        </p>
+        <p className="text-lg text-gray-700 mb-4" data-aos="fade-in" data-aos-delay="100">
+          Whether buying, selling, or renting, A2Z Premium Deals provides top-notch support and the best deals in the
+          real estate market.
+        </p>
+      </div>
+      </div>
     <section id="value" className="flex flex-col items-center justify-center w-full px-4 py-12">
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 w-full max-w-6xl">
         {/* --- Left Side ---*/}
         <div className="w-full md:w-1/2">
-          <div className="w-full overflow-hidden rounded-t-[15rem] border-8 sm:w-full sm:h-[35rem] border-[8px] border-[rgba(232,232,232,0.93)]">
+          <div className="w-full overflow-hidden rounded-t-[15rem] border-8 sm:w-full sm:h-[35rem]  border-[rgba(232,232,232,0.93)]">
             <img src={image} alt="" className="w-full h-full object-cover" />
           </div>
         </div>
@@ -84,6 +98,7 @@ function Value() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
