@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ref, push } from 'firebase/database';
 import { db } from '../firebase';
@@ -6,6 +6,7 @@ import logo from '../images/logo_realstate.png';
 
 const Footer = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const onSubmit = async (data) => {
     data.status = "pending";
@@ -16,6 +17,7 @@ const Footer = () => {
     } catch (error) {
       console.error('Error submitting feedback:', error);
     }
+    setIsModalOpen(false);
   };
 
   return (
@@ -34,7 +36,37 @@ const Footer = () => {
           </aside>
 
           {/* Feedback Form */}
+         {!isModalOpen &&(
+          <div>
+            <h1 className="bg-orange-500 text-white p-2 text-2xl font-bold rounded-md shadow-md" 
+            onClick={()=>{
+              setIsModalOpen(true);
+            }}>Feedback</h1>
+          </div>
+         )}
+
+          {/* Quick Links */}
           <aside>
+            <h2 className="footer-title text-xl font-bold mb-4">A2Z PREMIUM DEALS</h2>
+            <div className="mt-10 text-center object-cover transition-transform duration-300 transform hover:scale-110">
+              <img src={logo} alt="Real Estate" className="mx-auto h-40 w-auto rounded-lg shadow-lg" />
+            </div>
+          </aside>
+        </div>
+        <div className="text-center mt-8">
+          &copy; 2024 A2Z Premium Deals. All rights reserved. Developed by <a href="https://svvaap.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">svvaap.com</a>.
+        </div>
+      </div>
+      
+
+      {isModalOpen && (
+        <div className="modal fade show bg-black/50" style={{ display: 'block' }}>
+          <div className="modal-dialog modal-dialog-scrollable text-white modal-dialog-centered ">
+            <div className="modal-content bg-sky-900">
+              <div className="modal-header">
+                <h5 className="modal-title">Edit Land</h5>
+                <button type="button" className="btn-close" aria-label="Close" onClick={() => setIsModalOpen(false)}></button>
+            </div>
             <h2 className="footer-title text-xl font-bold mb-4">Feedback</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
@@ -72,24 +104,15 @@ const Footer = () => {
                 ></textarea>
                 {errors.message && <p className="text-red-500 text-sm mt-1">Message is required</p>}
               </div>
-              <button type="submit" className="btn btn-outline-primary px-4 py-2 rounded">
-                Submit
-              </button>
-            </form>
-          </aside>
-
-          {/* Quick Links */}
-          <aside>
-            <h2 className="footer-title text-xl font-bold mb-4">A2Z PREMIUM DEALS</h2>
-            <div className="mt-10 text-center object-cover transition-transform duration-300 transform hover:scale-110">
-              <img src={logo} alt="Real Estate" className="mx-auto h-40 w-auto rounded-lg shadow-lg" />
-            </div>
-          </aside>
+              <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" onClick={() => setIsModalOpen(false)}>Close</button>
+                  <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
+            </form> 
+             </div>
+          </div>
         </div>
-        <div className="text-center mt-8">
-          &copy; 2024 A2Z Premium Deals. All rights reserved. Developed by <a href="https://svvaap.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">svvaap.com</a>.
-        </div>
-      </div>
+      )}
     </footer>
   );
 };
