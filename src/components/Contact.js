@@ -21,40 +21,68 @@ function Contact() {
 
           {/* --- Contact Modes --- */}
           <div className="flex flex-col mt-8 gap-4">
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-6 items-center">
               {/* -- Call Details -- */}
-              <div className="items-center w-full md:w-64 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
+              <div className="items-center w-full md:w-96 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
                 <div className="flex items-center gap-4">
                   <div className="p-2 bg-gray-200 text-orange-500 rounded-md">
                     <MdCall size={25} />
                   </div>
                   <div className="flex flex-col">
                     <span className="text-lg font-semibold">Call</span>
-                    <span className="text-gray-500">Brayan Alphonso: +91 99023 31774</span>
-                    <span className="text-gray-500">A2Z Office: +91 84949 72860</span>
+                    <span className="text-gray-500">
+                      <a href="tel:+919902331774" className="text-gray-500 hover:text-orange-500">
+                        Brayan Alphonso: +91 9902331774
+                      </a>
+                    </span>
+                    <span className="text-gray-500">
+                      <a href="tel:+918494972860" className="text-gray-500 hover:text-orange-500">
+                        A2Z Office: +91 8494972860
+                      </a>
+                    </span>
                   </div>
+
                 </div>
               </div>
 
               {/* --- Second Row --- */}
               <div className="flex flex-col  gap-6">
                 {/* -- WhatsApp Chat -- */}
-                <div className="items-center w-full md:w-64 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
+                <div className="items-center w-full md:w-96 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
                   <div className="flex items-center gap-4">
                     <div className="p-2 bg-gray-200 text-orange-500 rounded-md">
                       <BsWhatsapp size={25} />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-lg font-semibold">Chat on WhatsApp</span>
-                      <span className="text-gray-500">Brayan Alphonso: +91 99023 31774</span>
-                      <span className="text-gray-500">A2Z Office: +91 84949 72860</span>
+                      <span className="text-gray-500">
+                        <a
+                          href="https://wa.me/919902331774?text=Hello%2C%20I%20need%20more%20info%20about%20A2Z%20Premium%20Deals..."
+                          className="text-gray-500 hover:text-green-500"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Brayan Alphonso: +91 9902331774
+                        </a>
+                      </span>
+                      <span className="text-gray-500">
+                        <a
+                          href="https://wa.me/918494972860?text=Hello%2C%20I%20need%20more%20info%20about%20A2Z%20Premium%20Deals..."
+                          className="text-gray-500 hover:text-green-500"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          A2Z Office: +91 8494972860
+                        </a>
+                      </span>
                     </div>
+
                   </div>
                 </div>
               </div>
 
               {/* -- Address -- */}
-              <div className="items-center w-full md:w-64 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
+              <div className="items-center w-full md:w-96 p-4 border border-gray-300 rounded-md gap-4 transition-transform transform hover:scale-110 shadow-sm">
                 <div className="flex items-center gap-4">
                   <div className="p-2 bg-gray-200 text-orange-500 rounded-md">
                     <MdLocationOn size={25} />
@@ -62,12 +90,20 @@ function Contact() {
                   <div className="flex flex-col">
                     <span className="text-lg font-semibold">Address</span>
                     <span className="text-gray-500">
-                      MR. BRAYAN ALPHONSO <br />
-                      LEO BROTHER'S SHOPPING COMPLEX <br />
-                      MUKAMAR, UDUPI DIST. 574 111 <br />
-                      KARNATAKA, INDIA
+                      <a
+                        href="https://maps.google.com/?cid=10587554036520004588&entry=gps"
+                        className="text-gray-500 hover:text-blue-500"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        MR. BRAYAN ALPHONSO <br />
+                        LEO BROTHER'S SHOPPING COMPLEX <br />
+                        MUKAMAR, UDUPI DIST. 574 111 <br />
+                        KARNATAKA, INDIA
+                      </a>
                     </span>
                   </div>
+
                 </div>
               </div>
             </div>
