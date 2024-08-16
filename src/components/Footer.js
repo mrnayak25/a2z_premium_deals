@@ -4,6 +4,8 @@ import { ref, push } from 'firebase/database';
 import { db } from '../firebase';
 import logo from '../images/logo_realstate.png';
 import { FaTwitter, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa'; // Import new icons
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -25,13 +27,15 @@ const Footer = () => {
     <>
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto text-center flex flex-col items-center">
-          <img src={logo} alt="Logo" className="w-24 h-24 mb-4"/>
+          <img src={logo} alt="Logo" className="w-24 h-24 mb-3" />
           <h2 className="text-2xl font-bold mb-4">A2Z PREMIUM DEALS</h2>
           <nav className="mb-4">
-            <a href="#" className="mx-4 hover:underline">Features</a>
-            <a href="#" className="mx-4 hover:underline">Tradings</a>
-            <a href="#" className="mx-4 hover:underline">About</a>
+            <a href="#job" className="mx-4 hover:underline">Find Job</a>
+            <Link to="/sellProperty" className="mx-4 hover:underline">Post Job</Link>
+            <a href="#contact" className="mx-4 hover:underline">Contact Us</a>
+            <a href="#about" className="mx-4 hover:underline">About</a>
           </nav>
+
           <div className="flex justify-center mb-4">
             <a href="#" className="mx-3 text-xl hover:text-blue-400"><FaTwitter /></a>
             <a href="#" className="mx-3 text-xl hover:text-pink-400"><FaInstagram /></a>
@@ -49,7 +53,7 @@ const Footer = () => {
               </button>
             </div>
           )}
-          
+
           {isModalOpen && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
               <div className="bg-white text-black rounded-lg shadow-lg w-full max-w-md p-6">
@@ -123,8 +127,13 @@ const Footer = () => {
             </div>
           )}
           <p className="text-gray-400 mt-4">
-            &copy; 2024 A2Z Premium Deals. All rights reserved. Developed by <a href="https://svvaap.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">svvaap.com</a>.
+            &copy; 2024 A2Z Premium Deals. All rights reserved. <br />
+            Developed by
+            <a href="https://wa.me/7899535703?text=hii%2C%20SVVAAP%20INNOVATIONS" target="_blank" rel="noopener noreferrer" className="inline-block ml-1">
+              <img src="https://sen10games.in/img/svvaap%20innovation%20logo%20-%20white.png" alt="SVVAAP Innovations" className="w-24 h-auto inline" />
+            </a>.
           </p>
+
         </div>
       </footer>
     </>
