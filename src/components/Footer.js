@@ -30,8 +30,8 @@ const Footer = () => {
           <img src={logo} alt="Logo" className="w-24 h-24 mb-3" />
           <h2 className="text-2xl font-bold mb-4">A2Z PREMIUM DEALS</h2>
           <nav className="mb-4">
-            <a href="#job" className="mx-4 hover:underline">Find Job</a>
-            <Link to="/sellProperty" className="mx-4 hover:underline">Post Job</Link>
+            <a href="#properties" className="mx-4 hover:underline">Find Property</a>
+            <Link to="/sellProperty" className="mx-4 hover:underline">Post Property</Link>
             <a href="#contact" className="mx-4 hover:underline">Contact Us</a>
             <a href="#about" className="mx-4 hover:underline">About</a>
           </nav>
