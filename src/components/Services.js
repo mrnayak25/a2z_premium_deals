@@ -5,7 +5,7 @@ import { FaHandshake } from "react-icons/fa";
 
 const Services = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center py-8 px-4">
+    <div className="flex flex-col md:flex-row justify-center items-center py-8 px-4" id='services'>
       {/* left side */}
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center  space-y-5 m-3">
         <h1 className="text-3xl md:text-5xl font-bold text-end ">

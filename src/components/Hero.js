@@ -27,7 +27,7 @@ const Hero = ({ setLocation, location }) => {
       }, 10);
     };
 
-    incrementCount(9000, setPremiumProductsCount);
+    incrementCount(900, setPremiumProductsCount);
     incrementCount(2000, setHappyCustomersCount);
     incrementCount(30, setProjectBuildsCount);
   }, []);
@@ -84,7 +84,7 @@ const Hero = ({ setLocation, location }) => {
               <span className="text-[2rem]">
                 {premiumProductsCount}<span className="text-orange-500">+</span>
               </span>
-              <span className="text-gray-300">Premium Products</span>
+              <span className="text-gray-300">Premium Property</span>
             </div>
 
             <div className="flex flex-col items-center text-center">

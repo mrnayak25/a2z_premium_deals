@@ -23,15 +23,20 @@ const Header = () => {
   return (
     <section className="text-white z-[99]" id=".">
       <div className="flex justify-between items-center py-4 px-8">
-        <img src={logo} alt="logo" width={50} />
+        {/* Logo and Site Name */}
+        <div className="flex items-center">
+          <img src={logo} alt="logo" width={40} className="mr-2" />
+          <h1 className="text-lg font-bold items-center">A2Z Premium Deals</h1>
+        </div>
 
+        {/* Desktop Menu */}
         <OutsideClickHandler
           onOutsideClick={() => {
             setMenuOpened(false);
           }}
         >
           <div
-            className={`md:flex gap-8 md:relative md:bg-transparent md:text-white md:flex-row md:gap-8 transition-all duration-300`}
+            className={`hidden md:flex gap-8 md:relative md:bg-transparent md:text-white md:flex-row md:gap-8 transition-all duration-300`}
             style={getMenuStyles(menuOpened)}
           >
             {navigation.map((item) => (
@@ -46,14 +51,16 @@ const Header = () => {
             ))}
           </div>
         </OutsideClickHandler>
+
+        {/* Mobile Menu Icon */}
         <div className="block md:hidden" onClick={() => setMenuOpened((prev) => !prev)}>
           <BiMenuAltRight size={30} />
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 w-[60%] h-full bg-white text-black p-12 shadow-md transform transition-transform duration-300 ease-in-out md:hidden`}
+        className={`fixed top-0 right-0 w-[60%] h-full bg-white text-black p-12 shadow-md transform transition-transform duration-300 ease-in-out z-50 md:hidden `}
         style={getMenuStyles(menuOpened)}
       >
         {navigation.map((item) => (
