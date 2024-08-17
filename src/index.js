@@ -6,13 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { LandProvider } from './context/LandContext';
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+     <LandProvider>
     <App />
+    </LandProvider>
   </React.StrictMode>
 );
 // Inside your main component or useEffect

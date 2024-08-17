@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { ref, onValue } from "firebase/database";
-import { db } from "../firebase";
 import LandItem from "./LandItem_cust";
 import Loading from "./Loading";
 import { useLocation } from "react-router-dom";
 import { useProperty } from "./PropertyContext";
+import { useLands } from "../context/LandContext";
 
 const LandList = (props) => {
-  const [lands, setLands] = useState([]);
   const [filteredLands, setFilteredLands] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
   const { propertyType, setPropertyType } = useProperty();
@@ -18,20 +15,7 @@ const LandList = (props) => {
   const [isRotated, setIsRotated] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
-    const landsRef = ref(db, "lands");
-    onValue(landsRef, (snapshot) => {
-      const landsData = snapshot.val();
-      const loadedLands = [];
-      for (const id in landsData) {
-        if (landsData[id].status === "approved") {
-          loadedLands.push({ id, ...landsData[id] });
-        }
-      }
-      setLands(loadedLands);
-      setLoading(false);
-    });
-  }, [loc.key]);
+  const { lands, loading } = useLands();
 
   useEffect(() => {
     const queryParams = new URLSearchParams(loc.search);
@@ -39,11 +23,11 @@ const LandList = (props) => {
     if (type) {
       setPropertyType(type);
     }
-  }, [loc.search]);
+  }, [loc.search,setPropertyType]);
 
   useEffect(() => {
     filterLands();
-  }, [lands, priceRange, sellOrRent, propertyType, props.location]);
+  }, [lands, priceRange, sellOrRent, propertyType, props.location,]);
 
   const filterLands = () => {
     const filtered = lands.filter((land) => {

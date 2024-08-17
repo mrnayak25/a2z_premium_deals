@@ -4,15 +4,18 @@ import callpng from '../images/phone.png'
 import whatsapp from '../images/whatsapp_img.png'
 import background from '../images/leaves.webp'
 import { useNavigate ,useParams } from "react-router-dom";
+import { useLands } from "../context/LandContext";
 
-function ViewItem({ land }) {
-  const {id}=useParams();
-  const selectedLand = land.find((item) => item.id === id);
+function ViewItem() {
+  const { id } = useParams();
+  const { lands, loading } = useLands();
   const navigate = useNavigate();
 
-  const handleBack = () => {
-    navigate(-1); // This navigates to the previous page
-  };
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const selectedLand = lands.find((item) => item.id === id);
 
   if (!selectedLand) {
     return <div>Property not found</div>;
@@ -43,7 +46,7 @@ function ViewItem({ land }) {
 
   return (
     <div styles={{ backgroundImage:`url(${background})`}}>
-      <button className="btn btn-outline-danger absolute top-4 left-6"onClick={handleBack}><i class="fa-solid fa-arrow-left"></i></button>
+      <button className="btn btn-outline-danger absolute top-4 left-6"onClick={()=>{navigate(-1);}}><i class="fa-solid fa-arrow-left"></i></button>
       <h1 className="font-bold p-4">Property Details</h1>
       <h1 className="text-2xl font-bold text-gray-800 ">{selectedLand.title}</h1>
         <p className="text-gray-600 text-lg">{selectedLand.description}</p>
