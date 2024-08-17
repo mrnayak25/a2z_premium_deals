@@ -45,7 +45,7 @@ const LandItem = ({ land, setId, index }) => {
   <div className="flex flex-col items-start gap-2.5 p-3 rounded-lg mx-auto transition-transform duration-300 ease-in hover:scale-105 hover:bg-gradient-to-b hover:from-transparent hover:to-blue-100/75 hover:shadow-xl">
     <div className="max-h-xl text-sm">
       <div className="absolute top-0.2 left-4 z-10" data-aos="fade-down" data-aos-delay="400">
-        <button className="text-white bg-orange-500  p-2 font-medium">{index}</button>
+        <button className="text-white bg-orange-500  p-2 font-medium rounded-br-lg rounded-tl-lg">{index}</button>
       </div>
       <div className="absolute top-0.1 right-4 z-10" data-aos="fade-down" data-aos-delay="400">
         <RWebShare
@@ -55,8 +55,8 @@ const LandItem = ({ land, setId, index }) => {
             title: land.title,
           }}
           onClick={() => console.log("shared successfully!")}>
-          <button className="text-white bg-orange-500  p-2 font-medium">
-            <img className="h-4 transition-transform duration-300 hover:scale-110" src={share} alt="share" />
+          <button className="text-white bg-orange-500  p-2 font-medium rounded-bl-lg rounded-tr-lg">
+            <img className="h-4 transition-transform  duration-300 hover:scale-110" src={share} alt="share" />
           </button>
         </RWebShare>
       </div>
