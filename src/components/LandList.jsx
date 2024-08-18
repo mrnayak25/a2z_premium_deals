@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { ref, onValue, update } from 'firebase/database';
-import LandItem from "../components/LandItem";
-import Loading from "../components/Loading";
+import LandItem from "./LandItem";
+import Loading from "./Loading";
 //import ViewItem_owner from "../components/ViewItem_owner";
 
 const LandList = (props) => {

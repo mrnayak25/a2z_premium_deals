@@ -1,7 +1,7 @@
 import React from "react";
 //import { useProperty } from './PropertyContext';
-import LandForm from './LandForm';
-import NavBar2 from './NavBar2.js'
+import LandForm from './LandForm.jsx';
+import NavBar2 from './NavBar2.jsx'
 import "../App.css"
 
 

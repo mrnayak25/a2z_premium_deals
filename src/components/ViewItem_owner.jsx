@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { db } from '../firebase';
+import { db } from '../firebase.js';
 import { ref, update, remove } from 'firebase/database';
-import Carousel from "./Carousel.js";
+import Carousel from "./Carousel.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
