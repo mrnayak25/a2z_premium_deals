@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import { ref, push } from 'firebase/database';
 import { db } from '../firebase';
 import logo from '../images/logo_realstate.png';
-import { FaTwitter, FaInstagram, FaYoutube, FaGithub } from 'react-icons/fa'; // Import new icons
+import terms from '../images/a2zpremiumdeals - Terms and Conditions.pdf';
+import { FaTwitter, FaInstagram, FaYoutube, FaGithub, FaFacebook } from 'react-icons/fa'; // Import new icons
 import { Link } from 'react-router-dom';
 
 
@@ -28,7 +29,8 @@ const Footer = () => {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto text-center flex flex-col items-center">
           <img src={logo} alt="Logo" className="w-24 h-24 mb-3" />
-          <h2 className="text-2xl font-bold mb-4">A2Z PREMIUM DEALS</h2>
+          <h2 className="text-2xl font-bold mb-2">A2Z PREMIUM DEALS</h2>
+          <a href={terms}  target="_blank" rel="noopener noreferrer"><p className='m-2 mb-4'>Terms & Condition</p></a>
           <nav className="mb-4 flex align-middle ">
             <a href="#properties" className="mx-4 hover:underline">Find Property</a>
             <Link to="/sellProperty" className="mx-4 hover:underline" onClick={() => window.scrollTo(0, 0)}>
@@ -40,9 +42,10 @@ const Footer = () => {
           </nav>
 
           <div className="flex justify-center mb-4">
+           
+            <a href="https://www.facebook.com/people/A-2-Z-Premium-Deals/100075763151558/?mibextid=ZbWKwL" className="mx-3 text-xl hover:text-red-500" target=' _blank'><FaFacebook /></a>           
             <a href="#" className="mx-3 text-xl hover:text-blue-400"><FaTwitter /></a>
             <a href="#" className="mx-3 text-xl hover:text-pink-400"><FaInstagram /></a>
-            <a href="#" className="mx-3 text-xl hover:text-red-500"><FaYoutube /></a>           
           </div>
           {/* Feedback Form */}
           {!isModalOpen && (
@@ -128,11 +131,12 @@ const Footer = () => {
               </div>
             </div>
           )}
+         
           <p className="text-gray-400 mt-4">
-            &copy; 2024 A2Z Premium Deals. All rights reserved. <br />
-            Developed by
-            <a href="https://wa.me/7899535703?text=hii%2C%20SVVAAP%20INNOVATIONS" target="_blank" rel="noopener noreferrer" className="inline-block ml-1">
-              <img src="https://sen10games.in/img/svvaap%20innovation%20logo%20-%20white.png" alt="SVVAAP Innovations" className="w-24 h-auto inline" />
+            &copy; 2024 A2Z Premium Deals. All rights reserved. <br/><br/>
+            
+            <a href="https://svvaap.in" target="_blank" rel="noopener noreferrer" className="inline-block ">
+            Developed by <img src="https://sen10games.in/img/svvaap%20innovation%20logo%20-%20white.png" alt="SVVAAP Innovations" className="w-32 h-auto inline" />
             </a>.
           </p>
 
