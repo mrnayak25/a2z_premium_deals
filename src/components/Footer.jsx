@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form';
 import { ref, push } from 'firebase/database';
 import { db } from '../firebase';
 import logo from '../images/logo_realstate.png';
-import terms from '../images/a2zpremiumdeals - Terms and Conditions.pdf';
 import { FaTwitter, FaInstagram, FaYoutube, FaGithub, FaFacebook } from 'react-icons/fa'; // Import new icons
 import { Link } from 'react-router-dom';
+
 
 
 const Footer = () => {
@@ -30,7 +30,14 @@ const Footer = () => {
         <div className="container mx-auto text-center flex flex-col items-center">
           <img src={logo} alt="Logo" className="w-24 h-24 mb-3" />
           <h2 className="text-2xl font-bold mb-2">A2Z PREMIUM DEALS</h2>
-          <a href={terms}  target="_blank" rel="noopener noreferrer"><p className='m-2 mb-4'>Terms & Condition</p></a>
+          <div className='flex justify-normal'>
+          <Link to="/TermsAndConditions" className="m-3 hover:underline" onClick={() => window.scrollTo(0, 0)}>
+          Terms & Conditions
+            </Link>
+            <Link to="/Privacy-Policy" className="m-3 hover:underline" onClick={() => window.scrollTo(0, 0)}>
+          Privacy-Policy
+            </Link>
+            </div>
           <nav className="mb-4 flex align-middle ">
             <a href="#properties" className="mx-4 hover:underline">Find Property</a>
             <Link to="/sellProperty" className="mx-4 hover:underline" onClick={() => window.scrollTo(0, 0)}>

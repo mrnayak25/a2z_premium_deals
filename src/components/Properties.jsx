@@ -6,7 +6,7 @@ import { useProperty } from "./PropertyContext";
 import { useLands } from "../context/LandContext";
 import { Link } from 'react-router-dom';
 
-const LandList = (props) => {
+const Properties = (props) => {
   const [filteredLands, setFilteredLands] = useState([]);
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
@@ -268,4 +268,4 @@ const LandList = (props) => {
   );
 };
 
-export default LandList;
+export default Properties;
