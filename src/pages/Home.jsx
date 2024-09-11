@@ -16,15 +16,15 @@ function Home(props) {
   const [location, setLocation] = useState(""); // Add state for location
   return (
     <div id="home">
-    <div className="relative bg-black"> {/* .App>:nth-child(1) equivalent */}
+      <div className="relative bg-black"> {/* .App>:nth-child(1) equivalent */}
         <div className="absolute h-80 w-80 bg-white/50 filter blur-[100px] rounded-[100px]" />
-          <Header />
-          <Hero setLocation={setLocation} location={location} /> {/* Pass setLocation to Hero */}
+        <Header />
+        <Hero setLocation={setLocation} location={location} /> {/* Pass setLocation to Hero */}
       </div>
       <LandList setLand={props.setLand} setId={props.setId} location={location} setLocation={setLocation} /> {/* Pass location to LandList */}
       {/* <AboutUs /> */}
-      <Value/>
-      <Contact/>
+      <Value />
+      <Contact />
       <Services />
       <Feedback />
       <Footer />

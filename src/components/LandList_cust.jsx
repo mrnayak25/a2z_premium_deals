@@ -11,7 +11,7 @@ const LandList = (props) => {
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
   const { propertyType, setPropertyType } = useProperty();
-  const [itemsToShow, setItemsToShow] = useState(6); // Initial number of items to display
+  const [itemsToShow, setItemsToShow] = useState(8); // Initial number of items to display
   const loc = useLocation();
   const [isRotated, setIsRotated] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);

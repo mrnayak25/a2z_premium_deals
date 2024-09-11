@@ -11,13 +11,11 @@ const Properties = (props) => {
   const [priceRange, setPriceRange] = useState("all");
   const [sellOrRent, setSellOrRent] = useState("all");
   const { propertyType, setPropertyType } = useProperty();
-  const [itemsToShow, setItemsToShow] = useState(6); // Initial number of items to display
   const loc = useLocation();
   const [isRotated, setIsRotated] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-
-  const { lands, loading } = useLands();
+  const { lands, loading } = useLands(); // Get lands from context
 
   useEffect(() => {
     const queryParams = new URLSearchParams(loc.search);
@@ -27,39 +25,40 @@ const Properties = (props) => {
     }
   }, [loc.search, setPropertyType]);
 
+  // Run the filter when any of the filtering states or lands data change
   useEffect(() => {
     filterLands();
-  }, [lands, priceRange, sellOrRent, propertyType, props.location,]);
+  }, [lands, priceRange, sellOrRent, propertyType, props.location]);
 
   const filterLands = () => {
+    console.log("Filtering lands based on:", { priceRange, sellOrRent, propertyType });
+
     const filtered = lands.filter((land) => {
-      const price = parseInt(land.price, 10);
-      // const [minPrice, maxPrice] = priceRange !== "all" ? priceRange.split("-").map((p) => parseInt(p, 10)) : [0, Infinity];
+      // Assuming price exists, or use a fallback
+      const price = land.price ? parseInt(land.price, 10) : 0;
       const [minPrice, maxPrice] = priceRange && priceRange !== "all" ? priceRange.split("-").map((p) => parseInt(p, 10)) : [0, Infinity];
+
+      // Log each land being filtered
+      console.log("Checking land:", land);
 
       return (
         price >= minPrice &&
         (maxPrice ? price <= maxPrice : true) &&
-        (sellOrRent === "all" || land.sellOrRent.toLowerCase() === sellOrRent.toLowerCase()) &&
-        (propertyType === "all" || land.propertyType.toLowerCase() === propertyType.toLowerCase()) &&
-        (props.location === "" || land.location.toLowerCase().includes(props.location.toLowerCase())) // Filter by location
+        (sellOrRent === "all" || (land.sellOrRent && land.sellOrRent.toLowerCase() === sellOrRent?.toLowerCase())) &&
+        (propertyType === "all" || (land.propertyType && land.propertyType.toLowerCase() === propertyType?.toLowerCase())) &&
+        (props.location === "" || (land.city && land.city.toLowerCase().includes(props.location?.toLowerCase())))
       );
     });
+
     setFilteredLands(filtered);
     props.setLand(filtered); // Update the filtered lands in the parent component if needed
+
+    console.log("Filtered lands:", filtered);
   };
 
   if (loading) {
     return <Loading />;
   }
-
-  const handleViewMore = () => {
-    setItemsToShow(itemsToShow + 8); // Increment the number of items to show
-  };
-
-  const handleViewLess = () => {
-    setItemsToShow(8); // Reset to initial number of items to show
-  };
 
   const handleModalOpen = () => {
     setIsModalOpen(true);
@@ -68,8 +67,6 @@ const Properties = (props) => {
   const handleModalClose = () => {
     setIsModalOpen(false);
   };
-
-
 
   return (
     <>
@@ -154,7 +151,6 @@ const Properties = (props) => {
               }}
             ></i>
           </div>
-
         </div>
 
         {/* Mobile Modal for Filters */}
@@ -206,63 +202,24 @@ const Properties = (props) => {
                 <option value="residential layouts">Residential Layouts</option>
               </select>
 
-              <div className="flex justify-between">
-                <button
-                  onClick={handleModalClose}
-                  className="px-4 py-2 bg-gray-300 rounded-md hover:bg-gray-400"
-                >
-                  Close
-                </button>
-                <button
-                  onClick={() => {
-                    setPriceRange("all");
-                    setSellOrRent("all");
-                    setPropertyType("all");
-                    handleModalClose();
-                  }}
-                  className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600"
-                >
-                  Clear Filters
-                </button>
-              </div>
+              <button
+                onClick={handleModalClose}
+                className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 mt-4 w-full"
+              >
+                Apply Filters
+              </button>
             </div>
           </div>
         )}
-
       </div>
 
-      <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform mb-5">
-        <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredLands.slice(0, itemsToShow).map((land) => (
-            <LandItem key={land.id} land={land} setId={props.setId} index={filteredLands.indexOf(land) + 1} />
-          ))}
-        </div>
-        <div className="w-auto h-1 mx-20 mt-4 shadow-xl shadow-orange-400 rounded-full bg-orange-500 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200"></div>
-        {filteredLands.length > itemsToShow && (
-          // <div className="flex justify-center">
-          //   <button className="px-4 py-2 bg-orange-500 rounded-b-xl border-t-0 text-white hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewMore}>
-          //     <i className="fa-solid fa-angle-down mr-1"></i> View More
-          //   </button>
-          // </div>
-          <div className="flex justify-center">
-            <Link to="/properties">
-              <button
-                className="px-4 py-2 bg-orange-500 rounded-b-xl border-t-0 text-white hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                <i className="fa-solid fa-angle-down mr-1"></i> View More
-              </button>
-            </Link>
-          </div>
-        )}
-        {itemsToShow > 9 && (
-          <div className="flex justify-center">
-            <button className="px-4 py-2 bg-orange-500 rounded-b-xl border-t-0 text-white hover:bg-orange-600 transition-transform duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300" onClick={handleViewLess}>
-              <i className="fa-solid fa-angle-up mr-1"></i> View Less
-            </button>
-          </div>
-        )}
+      {/* Properties List */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-8 py-4">
+        {filteredLands.map((land, index) => (
+          <Link to={`/property/${land.id}`} key={land.id}>
+            <LandItem land={land} />
+          </Link>
+        ))}
       </div>
     </>
   );
