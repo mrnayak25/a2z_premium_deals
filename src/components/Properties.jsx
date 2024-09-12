@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { useProperty } from "./PropertyContext";
 import { useLands } from "../context/LandContext";
 import { Link } from 'react-router-dom';
+import Navbar from './Header';
 
 const Properties = (props) => {
   const [filteredLands, setFilteredLands] = useState([]);
@@ -70,6 +71,9 @@ const Properties = (props) => {
 
   return (
     <>
+      <div className="bg-black rounded-br-lg rounded-bl-lg">
+        <Navbar />
+      </div>
       <div id="properties" className="flex flex-row md:flex-row justify-between items-center align-baseline md:items-end m-4 md:m-7 space-y-4 md:space-y-0">
         {/* Text section */}
         <div className="flex flex-col ms-4 md:ms-20 text-left md:text-start font-roboto">
@@ -221,7 +225,9 @@ const Properties = (props) => {
           </Link>
         ))}
       </div>
+
     </>
+
   );
 };
 
