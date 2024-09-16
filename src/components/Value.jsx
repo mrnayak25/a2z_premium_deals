@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiShieldCheck ,HiDocument, HiOfficeBuilding} from "react-icons/hi";
 import { MdCancel, MdAnalytics, MdOutlineArrowDropDown } from "react-icons/md";
-import image from "../images/value.png";
+import image from "../images/1.jpg";
 
 function Value() {
   const [expandedIndex, setExpandedIndex] = useState(null);

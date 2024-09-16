@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { HiLocationMarker } from "react-icons/hi";
-import image from '../images/hero-image.png';
+import image from '../images/5.jpg';
 
 const Hero = ({ setLocation, location }) => {
   const [inputValue, setInputValue] = useState("");

@@ -1,7 +1,7 @@
 import React from "react";
 import { MdCall, MdLocationOn } from "react-icons/md";
 import { BsWhatsapp } from "react-icons/bs";
-import image from "../images/contact.jpg";
+import image from "../images/2.jpg";
 
 function Contact() {
   return (
