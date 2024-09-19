@@ -14,13 +14,13 @@ const LandItem = ({ land, setId, index }) => {
   }
 
   return (
-    <div className="w-64 h-80 object-cover transition-transform duration-300 transform hover:scale-105">
+    <div className="w-80 h-90 object-cover transition-transform duration-300 transform hover:scale-105">
       <div className="flex flex-col items-start gap-2.5 p-3 rounded-lg mx-auto w-full h-full transition-transform duration-300 ease-in hover:scale-105 hover:bg-gradient-to-b hover:from-transparent hover:to-blue-100/75 hover:shadow-xl">
         <div className="relative w-full h-full">
-          <div className="absolute top-2 left-4 z-10" data-aos="fade-down" data-aos-delay="400">
+          <div className="absolute top-1 left-1 z-10" data-aos="fade-down" data-aos-delay="400">
             <button className="text-white bg-orange-500 p-2 font-medium rounded-br-lg rounded-tl-lg">{index}</button>
           </div>
-          <div className="absolute top-2 right-4 z-10" data-aos="fade-down" data-aos-delay="400">
+          <div className="absolute top-1 right-1 z-10" data-aos="fade-down" data-aos-delay="400">
             <RWebShare
               data={{
                 text: `Check out this property on A2Z PREMIUM DEALS \n Title: ${land.title}\n Description: ${land.description}\n Price: Rs.${formatPrice(land.price)}`,

@@ -218,13 +218,14 @@ const Properties = (props) => {
       </div>
 
       {/* Properties List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-8 py-4">
+      <div className="grid items-center justify-center justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-8 py-4">
         {filteredLands.map((land, index) => (
-          <Link to={`/property/${land.id}`} key={land.id}>
+          <Link to={`/viewproperty/${land.id}`} key={land.id}>
             <LandItem land={land} />
           </Link>
         ))}
       </div>
+     
 
     </>
 

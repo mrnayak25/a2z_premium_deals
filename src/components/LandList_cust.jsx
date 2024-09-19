@@ -232,7 +232,7 @@ const LandList = (props) => {
       </div>
 
       <div className="container mx-auto px-4 transition-all duration-500 ease-in-out transform mb-5">
-        <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid items-center justify-center justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredLands.slice(0, itemsToShow).map((land) => (
             <LandItem key={land.id} land={land} setId={props.setId} index={filteredLands.indexOf(land) + 1} />
           ))}
