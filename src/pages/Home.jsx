@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import "../App.css";
 import Value from "../components/Value";
 import Contact from "../components/Contact";
+import Othercompany from "../components/OtherServices";
 
 function Home(props) {
   const [location, setLocation] = useState(""); // Add state for location
@@ -27,6 +28,7 @@ function Home(props) {
       <Contact />
       <Services />
       <Feedback />
+      <Othercompany/>
       <Footer />
     </div>
   );
