@@ -14,7 +14,7 @@ import ViewItem from "./components/ViewItem";
 import { PropertyProvider } from "./components/PropertyContext";
 import ViewItemOwner from "./components/ViewItem_owner";
 import TermsAndConditions from './components/TermsAndConditions';
-import PrivacyPolicy from './components/PrivacyPolicy';
+// import PrivacyPolicy from './components/PrivacyPolicy';
 import Properties from './components/Properties';
 import NotFound from './components/404';
 
@@ -34,7 +34,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
-          <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
+          {/* <Route path="/Privacy-Policy" element={<PrivacyPolicy />} /> */}
           
           {/* Passing props to Properties */}
           <Route path="/Properties" element={<Properties setId={setId} setLand={setLand} location={location} setLocation={setLocation} />} />
