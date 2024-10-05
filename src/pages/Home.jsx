@@ -27,8 +27,9 @@ function Home(props) {
       <Value />
       <Contact />
       <Services />
-      <Feedback />
       <Othercompany/>
+      <Feedback />
+    
       <Footer />
     </div>
   );

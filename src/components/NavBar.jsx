@@ -103,7 +103,7 @@ function Example() {
           </DialogPanel>
         </Dialog>
       </header>
-      <div className="hidden lg:block mt-20">
+      {/* <div className="hidden lg:block mt-20">
         <div className="container bg-white shadow text-black w-full p-3 rounded-lg font-bold ">
           <ul className="flex flex-wrap justify-between">
             <li className="nav-item">
@@ -132,7 +132,7 @@ function Example() {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
