@@ -34,12 +34,14 @@ const Properties = (props) => {
   const filterLands = () => {
     console.log("Filtering lands based on:", { priceRange, sellOrRent, propertyType });
 
-    const filtered = lands.filter((land) => {
-      // Assuming price exists, or use a fallback
+    // Sort lands by the most recently uploaded first (assuming 'uploadedDate' field exists)
+    const sortedLands = lands.sort((a, b) => new Date(b.uploadedDate) - new Date(a.uploadedDate));
+
+    const filtered = sortedLands.filter((land) => {
+      // Existing filtering logic
       const price = land.price ? parseInt(land.price, 10) : 0;
       const [minPrice, maxPrice] = priceRange && priceRange !== "all" ? priceRange.split("-").map((p) => parseInt(p, 10)) : [0, Infinity];
 
-      // Log each land being filtered
       console.log("Checking land:", land);
 
       return (
@@ -56,6 +58,7 @@ const Properties = (props) => {
 
     console.log("Filtered lands:", filtered);
   };
+
 
   if (loading) {
     return <Loading />;
@@ -225,7 +228,7 @@ const Properties = (props) => {
           </Link>
         ))}
       </div>
-     
+
 
     </>
 

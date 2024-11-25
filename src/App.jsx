@@ -7,6 +7,7 @@ import Signup from "./components/Signup";
 import PrivateRoute from "./components/PrivateRoute";
 import "./App.css";
 import Sell from "./components/sellLand";
+import SiteContent from "./components/SiteContent";
 import LandForm from "./components/LandForm";
 import LandList from "./components/LandList";
 import FeedbackList from "./components/FeedbackList";
@@ -44,6 +45,7 @@ function App() {
             <Route path="/a2z-admin/add" element={<LandForm />} />
             <Route path="/a2z-admin/" element={<LandList setId={setId} setLand={setLand} />} />
             <Route path="/a2z-admin/feedback" element={<FeedbackList />} />
+            <Route path="/a2z-admin/site-content" element={<SiteContent />} />
             <Route path="/a2z-admin/viewproperty_owner" element={<ViewItemOwner id={id} land={land} />} />
           </Route>
 

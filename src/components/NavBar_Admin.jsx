@@ -78,6 +78,15 @@ export default function Example() {
             >
               Add Properties
             </Link>
+            <Link
+              to="/a2z-admin/site-content"
+              className={`text-sm font-semibold leading-6 text-gray-900 ${
+                activeLink === '/a2z-admin/add' ? 'bg-gray-300 rounded-lg px-3 py-2' : ''
+              }`}
+              onClick={() => handleLinkClick('/a2z-admin/site-content')}
+            >
+             Site Content
+            </Link>
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <img

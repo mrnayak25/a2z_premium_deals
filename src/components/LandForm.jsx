@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ref, set, push } from "firebase/database";
+import { get , ref, set, push } from "firebase/database";
 import { ref as storageRef, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../firebase";
 import Loading from "./Loading";
@@ -76,19 +76,25 @@ const LandForm = () => {
       alert("Please agree to the terms and conditions before submitting.");
       return;
     }
-    
+  
     setLoading(true);
   
     try {
       const dbRef = ref(db, "lands");
       const newLandRef = push(dbRef);
       const imageUrls = [];
-      
+      const currentDateTime = new Date().toISOString(); // Get the current date and time
+  
+      // Get the current number of properties to assign a unique number
+      const propertyCountRef = ref(db, "propertyCounter");
+      const propertyCounterSnapshot = await get(propertyCountRef);
+      let propertyNumber = propertyCounterSnapshot.exists() ? propertyCounterSnapshot.val() + 1 : 1;
+  
       for (const image of land.images) {
         const watermarkedImage = await applyWatermark(image);
   
         const blob = await (await fetch(watermarkedImage)).blob();
-        
+  
         const storagePath = `land_images/${newLandRef.key}/${image.name}`;
         const storageReference = storageRef(storage, storagePath);
         const uploadTask = uploadBytesResumable(storageReference, blob);
@@ -110,7 +116,12 @@ const LandForm = () => {
       await set(newLandRef, {
         ...land,
         imageUrls,
+        uploadedDate: currentDateTime, // Add uploaded date and time
+        propertyNumber: `p${propertyNumber}`, // Assign the unique property number
       });
+  
+      // Increment property counter in the database
+      await set(propertyCountRef, propertyNumber);
   
       setLoading(false);
       setShowSuccessModal(true);
@@ -145,6 +156,7 @@ const LandForm = () => {
       setLoading(false);
     }
   };
+  
   
 
   if (showSuccessModal) {
